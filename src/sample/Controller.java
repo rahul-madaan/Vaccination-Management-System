@@ -24,9 +24,26 @@ public class Controller implements Initializable {
         loginSignupToggleGroup = new ToggleGroup();
         this.loginRadioButton.setToggleGroup(loginSignupToggleGroup);
         this.signupRadioButton.setToggleGroup(loginSignupToggleGroup);
+
     }
 
+    public void loginSignupToggle(){
+        if(signupRadioButton.isSelected()){
+            passwordLabel.setText("");
+            passwordTextField.setVisible(false);
+            loginSignupLabel.setText("USER SIGN-UP");
+            loginSignupButton.setText("SIGN-UP");
 
+        }
+        else if(loginRadioButton.isSelected()){
+            passwordLabel.setText("Password");
+            passwordTextField.setPrefHeight(40);
+            passwordTextField.setPrefWidth(200);
+            passwordTextField.setVisible(true);
+            loginSignupLabel.setText("USER LOGIN");
+            loginSignupButton.setText("LOGIN");
+        }
+    }
 
 
 }
