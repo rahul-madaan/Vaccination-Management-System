@@ -24,9 +24,9 @@ public class mainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
         loginSignupToggleGroup = new ToggleGroup();
-        this.loginRadioButton.setToggleGroup(loginSignupToggleGroup);
-        this.signupRadioButton.setToggleGroup(loginSignupToggleGroup);
-
+        loginRadioButton.setToggleGroup(loginSignupToggleGroup);
+        signupRadioButton.setToggleGroup(loginSignupToggleGroup);
+        loginRadioButton.setSelected(true);
     }
 
     public void loginSignupToggle(){
