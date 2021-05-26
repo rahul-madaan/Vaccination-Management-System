@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import javax.naming.spi.InitialContextFactory;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class mainPageController implements Initializable {
@@ -19,6 +21,7 @@ public class mainPageController implements Initializable {
     @FXML private TextField phoneNumberTextField;
     @FXML private TextField passwordTextField;
     @FXML private Label passwordLabel;
+    private Connection conn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +51,19 @@ public class mainPageController implements Initializable {
 
         }
     }
-
+    @FXML
+    public void loginSignupButtonClick() throws SQLException {
+        String enteredPhoneNumber = phoneNumberTextField.getText();
+        String enteredPassword = passwordTextField.getText();
+        //if sign up, then check if new password meets the requirements
+        //check if number entered is of 10 digit only and do not contain any letters
+        String query = "SELECT * from login_users where Phonenumber ='"+ enteredPhoneNumber + "' and Password = '" + enteredPassword + "' ;";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+        while (set.next()) {
+            System.out.println(set.getString("phonenumber"));
+            System.out.println(set.getString("password"));
+        }
+    }
 
 }

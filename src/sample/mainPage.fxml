@@ -2,13 +2,8 @@
 
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainPageController">
    <top>
@@ -51,7 +46,7 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Label>
-                  <Button fx:id="loginSignupButton" layoutX="454.0" layoutY="285.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="376.0" text="LOGIN">
+                  <Button fx:id="loginSignupButton" layoutX="454.0" layoutY="285.0" mnemonicParsing="false" onAction="#loginSignupButtonClick" prefHeight="45.0" prefWidth="376.0" text="LOGIN">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></Button>
