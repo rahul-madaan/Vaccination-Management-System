@@ -1,9 +1,16 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -51,6 +58,14 @@ public class mainPageController implements Initializable {
 
         }
     }
+    
+    public void faqButtonClick(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("faqScene.fxml"));
+        Scene faqScene = new Scene(scene2Parent);
+        Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
+        window.setScene(faqScene);
+        window.show();    }
+    
     @FXML
     public void loginSignupButtonClick() throws SQLException {
         String enteredPhoneNumber = phoneNumberTextField.getText();

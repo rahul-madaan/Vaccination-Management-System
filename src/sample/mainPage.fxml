@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainPageController">
    <top>
@@ -18,7 +18,7 @@
             <AnchorPane prefHeight="170.0" prefWidth="345.0">
                <children>
                   <Button layoutX="206.0" layoutY="14.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="117.0" text="Admin login" />
-                  <Button layoutX="95.0" layoutY="14.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="103.0" text="FAQ Section" />
+                  <Button layoutX="95.0" layoutY="14.0" mnemonicParsing="false" onAction="#faqButtonClick" prefHeight="73.0" prefWidth="103.0" text="FAQ Section" />
                </children>
             </AnchorPane>
          </children>
