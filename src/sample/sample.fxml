@@ -34,17 +34,31 @@
          <children>
             <AnchorPane prefHeight="418.0" prefWidth="1300.0">
                <children>
-                  <Label fx:id="loginSignupLabel" layoutX="511.0" layoutY="23.0" prefHeight="77.0" prefWidth="379.0" text="USER LOGIN">
-                     <font>
-                        <Font size="39.0" />
-                     </font>
-                  </Label>
+                  <AnchorPane layoutX="415.0" layoutY="12.0" prefHeight="361.0" prefWidth="454.0">
+                     <children>
+                        <Region prefHeight="363.0" prefWidth="457.0" style="-fx-background-color: #fca503;" />
+                        <Label fx:id="loginSignupLabel" alignment="CENTER" contentDisplay="TOP" layoutX="39.0" layoutY="14.0" prefHeight="77.0" prefWidth="379.0" text="USER LOGIN" textAlignment="CENTER">
+                           <font>
+                              <Font size="39.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                   <RadioButton fx:id="loginRadioButton" layoutX="556.0" layoutY="109.0" mnemonicParsing="false" onAction="#loginSignupToggle" text="Login" />
                   <RadioButton fx:id="signupRadioButton" layoutX="650.0" layoutY="109.0" mnemonicParsing="false" onAction="#loginSignupToggle" text="Sign-up" />
                   <TextField fx:id="phoneNumberTextField" layoutX="612.0" layoutY="168.0" prefHeight="40.0" prefWidth="200.0" promptText="Enter Phone Number" />
-                  <Label layoutX="465.0" layoutY="180.0" text="Phone Number" />
-                  <Button fx:id="loginSignupButton" layoutX="454.0" layoutY="285.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="376.0" text="LOGIN" />
-                  <Label fx:id="passwordLabel" layoutX="465.0" layoutY="237.0" text="Password" />
+                  <Label layoutX="465.0" layoutY="180.0" text="Phone Number">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Button fx:id="loginSignupButton" layoutX="454.0" layoutY="285.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="376.0" text="LOGIN">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Button>
+                  <Label fx:id="passwordLabel" layoutX="465.0" layoutY="237.0" text="Password">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="passwordTextField" layoutX="612.0" layoutY="225.0" prefHeight="40.0" prefWidth="200.0" promptText="Enter Password" />
                </children>
             </AnchorPane>
