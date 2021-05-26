@@ -29,19 +29,21 @@ public class Controller implements Initializable {
 
     public void loginSignupToggle(){
         if(signupRadioButton.isSelected()){
-            passwordLabel.setText("");
-            passwordTextField.setVisible(false);
+            //what changes when signup radio button clicked
+            passwordLabel.setText("Set new password");
             loginSignupLabel.setText("USER SIGN-UP");
             loginSignupButton.setText("SIGN-UP");
-
+            passwordTextField.setPromptText("Enter new password");
         }
         else if(loginRadioButton.isSelected()){
+            //what changes when login radio button is clicked
             passwordLabel.setText("Password");
             passwordTextField.setPrefHeight(40);
             passwordTextField.setPrefWidth(200);
-            passwordTextField.setVisible(true);
             loginSignupLabel.setText("USER LOGIN");
+            passwordTextField.setPromptText("Enter password");
             loginSignupButton.setText("LOGIN");
+
         }
     }
 
