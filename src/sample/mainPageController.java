@@ -8,7 +8,8 @@ import javax.naming.spi.InitialContextFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class mainPageController implements Initializable {
+    private DbHandler dbHandler;
     @FXML
     private RadioButton loginRadioButton;
     @FXML private RadioButton signupRadioButton;
@@ -21,6 +22,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dbHandler = new DbHandler();
         loginSignupToggleGroup = new ToggleGroup();
         this.loginRadioButton.setToggleGroup(loginSignupToggleGroup);
         this.signupRadioButton.setToggleGroup(loginSignupToggleGroup);
