@@ -73,9 +73,16 @@ public class mainPageController implements Initializable {
         window.setScene(faqScene);
         window.show();
     }
+    public void loginSignupButtonClickSuccess(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("addMembersScene.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
 
     @FXML
-    public void loginSignupButtonClick() throws SQLException {
+    public void loginSignupButtonClick(ActionEvent event) throws SQLException, IOException {
         String enteredPhoneNumber = phoneNumberTextField.getText();
         String enteredPassword = passwordTextField.getText();
         //if sign up, then check if new password meets the requirements
@@ -99,7 +106,7 @@ public class mainPageController implements Initializable {
                 errorLabel.setVisible(true);
                 errorLabel.setText("Login Successful!");
                 errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
-            }
+                loginSignupButtonClickSuccess(event);            }
         } else if (signupRadioButton.isSelected()) {
             conn = dbHandler.getConnection();
             String queryPhoneNumber = "SELECT * from login_users where Phonenumber ='" + enteredPhoneNumber + "';";
@@ -115,6 +122,7 @@ public class mainPageController implements Initializable {
                 errorLabel.setVisible(true);
                 errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
                 errorLabel.setText("Registered Successfully!");
+                loginSignupButtonClickSuccess(event);
             }
         }
     }

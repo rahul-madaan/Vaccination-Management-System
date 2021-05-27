@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class faqSceneController {
 
     public void goToMainScene(ActionEvent event) throws IOException {
