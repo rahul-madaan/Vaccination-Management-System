@@ -36,23 +36,23 @@ public class mainPageController implements Initializable {
         loginSignupToggleGroup = new ToggleGroup();
         loginRadioButton.setToggleGroup(loginSignupToggleGroup);
         signupRadioButton.setToggleGroup(loginSignupToggleGroup);
-        loginRadioButton.setSelected(true);
+        signupRadioButton.setSelected(true);
     }
 
     public void loginSignupToggle(){
         if(signupRadioButton.isSelected()){
             //what changes when signup radio button clicked
-            passwordLabel.setText("Set new password");
-            loginSignupLabel.setText("USER SIGN-UP");
-            loginSignupButton.setText("SIGN-UP");
+            //passwordLabel.setText("Set new password");
+            //loginSignupLabel.setText("USER SIGN-UP");
+            loginSignupButton.setText("REGISTER");
             passwordTextField.setPromptText("Enter new password");
         }
         else if(loginRadioButton.isSelected()){
             //what changes when login radio button is clicked
-            passwordLabel.setText("Password");
-            passwordTextField.setPrefHeight(40);
-            passwordTextField.setPrefWidth(200);
-            loginSignupLabel.setText("USER LOGIN");
+            //passwordLabel.setText("Password");
+            //passwordTextField.setPrefHeight(40);
+            //passwordTextField.setPrefWidth(200);
+            //loginSignupLabel.setText("USER LOGIN");
             passwordTextField.setPromptText("Enter password");
             loginSignupButton.setText("LOGIN");
 

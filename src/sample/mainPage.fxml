@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -51,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="392.0" prefWidth="640.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainPageController">
    <children>
       <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
          <children>
@@ -66,18 +34,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Label>
-            <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="248.0" style="-fx-background-color: #d3483a;" text="FAQ     |   " textFill="#fdfbfb">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <font>
-                  <Font name="Helvetica Neue" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Label>
-            <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#faqButtonClick" text="FAQ Section" />
+            <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -95,7 +54,7 @@
             <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Downloads/logo.png" />
+                  <Image url="@../images/logo.png" />
                </image>
             </ImageView>
          </children>
@@ -103,29 +62,48 @@
             <Insets left="50.0" />
          </opaqueInsets>
       </HBox>
-      <Pane prefHeight="272.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+      <Pane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #ccc;">
          <children>
-            <Label layoutX="195.0" layoutY="110.0" text="Register / SignIn for Vaccination" textFill="#a43125">
+            <Label layoutX="565.0" layoutY="168.0" prefHeight="46.0" prefWidth="172.0" text="Vaccination Drive" textFill="#a43125">
                <font>
-                  <Font name="Arial Bold" size="15.0" />
+                  <Font name="Arial Bold" size="19.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Label layoutX="165.0" layoutY="127.0" text="An OTP will be sent to your mobile number for verification" />
-            <TextField layoutX="167.0" layoutY="152.0" prefHeight="26.0" prefWidth="306.0" promptText="Enter your Mobile Number" style="-fx-background-radius: 10px;" />
-            <Button layoutX="261.0" layoutY="190.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Get OTP" textFill="#f7f5f5">
+            <Button fx:id="loginSignupButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false" onAction="#loginSignupButtonClick" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Get OTP" textFill="#f7f5f5">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
-            <ImageView fitHeight="142.0" fitWidth="200.0" layoutX="219.0" layoutY="-57.0">
+            <ImageView fitHeight="220.0" fitWidth="256.0" layoutX="522.0" layoutY="-52.0">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="172.0" layoutY="239.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee" />
+            <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <RadioButton fx:id="signupRadioButton" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" onAction="#loginSignupToggle" text="Register">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="loginRadioButton" layoutX="659.0" layoutY="228.0" mnemonicParsing="false" onAction="#loginSignupToggle" text="Sign in">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </RadioButton>
+            <TextField fx:id="phoneNumberTextField" layoutX="493.0" layoutY="283.0" prefHeight="46.0" prefWidth="315.0" promptText="Enter your Mobile Number" style="-fx-background-radius: 10px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <TextField fx:id="passwordTextField" layoutX="493.0" layoutY="348.0" prefHeight="46.0" prefWidth="315.0" promptText="Set Password" style="-fx-background-radius: 10px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
          </children>
       </Pane>
    </children>
