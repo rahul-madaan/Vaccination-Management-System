@@ -12,12 +12,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class addMembersController {
+public class allMembersController {
 
     @FXML
-    public void secondwindow(ActionEvent event){
+    public void secondWindow(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         Stage secondStage = new Stage();
-        secondStage.setScene(new Scene(new HBox(4, new Label("Second window"))));
+        secondStage.setScene(new Scene(root));
+        secondStage.show();
+        secondStage.setTitle("part2");
         secondStage.show();
     }
 

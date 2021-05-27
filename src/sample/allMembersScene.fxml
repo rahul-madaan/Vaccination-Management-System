@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addMembersController">
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.allMembersController">
    <children>
       <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
          <children>
@@ -93,7 +93,7 @@
                   <TableColumn prefWidth="88.0" text="Schedule" />
               </columns>
             </TableView>
-            <Button layoutX="1012.0" layoutY="403.0" mnemonicParsing="false" onAction="#secondwindow" text="+ Add Member">
+            <Button layoutX="1012.0" layoutY="403.0" mnemonicParsing="false" onAction="#secondWindow" text="+ Add Member">
                <font>
                   <Font size="19.0" />
                </font>
