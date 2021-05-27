@@ -109,6 +109,9 @@
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Label>
             <Label layoutX="165.0" layoutY="127.0" text="An OTP will be sent to your mobile number for verification" />
             <TextField layoutX="167.0" layoutY="152.0" prefHeight="26.0" prefWidth="306.0" promptText="Enter your Mobile Number" style="-fx-background-radius: 10px;" />
