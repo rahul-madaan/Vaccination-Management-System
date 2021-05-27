@@ -29,6 +29,7 @@ public class mainPageController implements Initializable {
     @FXML private TextField passwordTextField;
     @FXML private Label passwordLabel;
     private Connection conn;
+    @FXML private Label errorLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,12 +73,26 @@ public class mainPageController implements Initializable {
         String enteredPassword = passwordTextField.getText();
         //if sign up, then check if new password meets the requirements
         //check if number entered is of 10 digit only and do not contain any letters
-        String query = "SELECT * from login_users where Phonenumber ='"+ enteredPhoneNumber + "' and Password = '" + enteredPassword + "' ;";
+        String queryBoth = "SELECT * from login_users where Phonenumber ='"+ enteredPhoneNumber + "' and Password = '" + enteredPassword + "' ;";
         conn = dbHandler.getConnection();
-        ResultSet set = conn.createStatement().executeQuery(query);
-        while (set.next()) {
-            System.out.println(set.getString("phonenumber"));
-            System.out.println(set.getString("password"));
+        ResultSet bothSet = conn.createStatement().executeQuery(queryBoth);
+        
+        String queryPhoneNumber = "SELECT * from login_users where Phonenumber ='"+ enteredPhoneNumber + "';";
+        ResultSet phoneNumberSet = conn.createStatement().executeQuery(queryPhoneNumber);
+        if(phoneNumberSet.next()==false){
+            System.out.println("You are not registered!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("You are not registered!");
+        }
+        else if(bothSet.next()==false){
+            System.out.println("enter correct password!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("enter correct password!");
+        }
+        else {
+            errorLabel.setVisible(false);
+            System.out.println(bothSet.getString("phonenumber"));
+            System.out.println(bothSet.getString("password"));
         }
     }
 

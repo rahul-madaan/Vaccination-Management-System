@@ -72,7 +72,7 @@
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Button fx:id="loginSignupButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false" onAction="#loginSignupButtonClick" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Get OTP" textFill="#f7f5f5">
+            <Button fx:id="loginSignupButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false" onAction="#loginSignupButtonClick" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="REGISTER" textFill="#f7f5f5">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -104,6 +104,11 @@
                <font>
                   <Font size="18.0" />
                </font></TextField>
+            <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="456.0" prefHeight="46.0" prefWidth="306.0" style="-fx-background-color: #ff5c5c;" text="Label" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
