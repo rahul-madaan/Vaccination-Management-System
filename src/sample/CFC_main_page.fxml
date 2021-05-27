@@ -90,7 +90,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+      <HBox disable="true" prefHeight="56.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
          <children>
             <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
@@ -105,7 +105,7 @@
       </HBox>
       <Pane prefHeight="272.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
          <children>
-            <Label layoutX="195.0" layoutY="110.0" text="Register / SignIn for Vaccination" textFill="#a43125">
+            <Label layoutX="205.0" layoutY="110.0" text="Register / SignIn for Vaccination" textFill="#a43125">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
