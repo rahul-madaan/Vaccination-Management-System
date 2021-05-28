@@ -81,23 +81,44 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TableView fx:id="memberTable" layoutX="131.0" layoutY="169.0" prefHeight="223.0" prefWidth="1037.0">
+            <TableView fx:id="memberTable" layoutX="132.0" layoutY="237.0" prefHeight="223.0" prefWidth="1037.0">
               <columns>
-                <TableColumn fx:id="colRefID" prefWidth="130.0" text="Ref ID" />
-                <TableColumn fx:id="colName" prefWidth="204.0" text="Person Name" />
-                  <TableColumn fx:id="colAadhaarNumber" prefWidth="204.0" text="Adhaar Number" />
-                  <TableColumn fx:id="colAge" minWidth="0.0" prefWidth="92.0" text="Age" />
-                  <TableColumn fx:id="colDose1Status" prefWidth="102.0" text="Dose 1 Status" />
-                  <TableColumn fx:id="colDose2Status" prefWidth="105.0" text="Dose 2 ststus" />
-                  <TableColumn fx:id="colDelete" prefWidth="100.0" text="Delete Person" />
-                  <TableColumn prefWidth="88.0" text="Schedule" />
+                <TableColumn fx:id="colRefID" prefWidth="97.0" text="Ref ID" />
+                <TableColumn fx:id="colName" prefWidth="156.0" text="Person Name" />
+                  <TableColumn fx:id="colAadhaarNumber" prefWidth="195.0" text="Adhaar Number" />
+                  <TableColumn fx:id="colAge" minWidth="0.0" prefWidth="51.0" text="Age" />
+                  <TableColumn fx:id="colDose1Status" prefWidth="99.0" text="Dose 1 Status" />
+                  <TableColumn fx:id="colDose2Status" prefWidth="113.0" text="Dose 2 status" />
+                  <TableColumn fx:id="colUpdate" prefWidth="114.0" text="Update Person" />
+                  <TableColumn fx:id="colSchedule" prefWidth="115.0" text="Schedule" />
+                  <TableColumn fx:id="colDelete" prefWidth="96.0" text="Delete Person" />
               </columns>
             </TableView>
-            <Button layoutX="1012.0" layoutY="403.0" mnemonicParsing="false" onAction="#secondWindow" text="+ Add Member">
+            <Button layoutX="1013.0" layoutY="471.0" mnemonicParsing="false" onAction="#secondWindow" text="+ Add Member">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
+            <Label layoutX="132.0" layoutY="131.0" text="Account details:">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="132.0" layoutY="161.0" text="Phone Number -">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="phoneNumberLabel" layoutX="296.0" layoutY="161.0" text="xxxxx-xxxxx">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="132.0" layoutY="200.0" text="Members:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

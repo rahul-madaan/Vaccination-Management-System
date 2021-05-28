@@ -43,9 +43,6 @@ public class allMembersController implements Initializable {
     private TableColumn<?,?> colAadhaarNumber;
 
     @FXML
-    private TableColumn<?,?> colDOB;
-
-    @FXML
     private TableColumn<?,?> colAge;
 
     @FXML
@@ -59,6 +56,12 @@ public class allMembersController implements Initializable {
 
     @FXML
     private TableColumn<Member,String> colUpdate;
+
+    @FXML
+    private TableColumn<Member,String> colSchedule;
+
+    @FXML
+    private Label phoneNumberLabel;
 
     @FXML
     public void secondWindow(ActionEvent event) throws IOException {
@@ -111,7 +114,7 @@ public class allMembersController implements Initializable {
                                 Member p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("You have Clicked\n" + p.getName() +
-                                        "with PhoneNumber \n" + p.getPhoneNumber());
+                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
                                 alert.show();
                             });
                             setGraphic(editButton);
@@ -124,7 +127,7 @@ public class allMembersController implements Initializable {
                 return cell;
             };
 
-            colDelete.setCellFactory(cellFactory);
+            colUpdate.setCellFactory(cellFactory);
 
             memberTable.setItems(memberList);
 
@@ -147,5 +150,6 @@ public class allMembersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
         populateMembersTable();
+        phoneNumberLabel.setText(mainPageController.activeUserPhoneNumber);
     }
 }
