@@ -23,6 +23,10 @@ public class allMembersController {
         secondStage.setTitle("part2");
     }
 
+    public void populateMembersTable(){
+
+    }
+
     public void faqButtonClick(ActionEvent event) throws IOException {
         Parent scene2Parent = FXMLLoader.load(getClass().getResource("faqScene.fxml"));
         Scene faqScene = new Scene(scene2Parent);

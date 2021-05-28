@@ -1,1 +1,2 @@
 1. add functions to change colour when hover on a button.
+create trigger and populate members table
