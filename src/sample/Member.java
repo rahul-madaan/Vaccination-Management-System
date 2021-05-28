@@ -2,7 +2,7 @@ package sample;
 
 import java.util.Date;
 
-public class member {
+public class Member {
     private Integer refID;
     private String phoneNumber;
     private String name;

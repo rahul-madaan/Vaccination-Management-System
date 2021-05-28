@@ -81,15 +81,15 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TableView layoutX="131.0" layoutY="169.0" prefHeight="223.0" prefWidth="1037.0">
+            <TableView fx:id="memberTable" layoutX="131.0" layoutY="169.0" prefHeight="223.0" prefWidth="1037.0">
               <columns>
-                <TableColumn prefWidth="130.0" text="Ref ID" />
-                <TableColumn prefWidth="204.0" text="Person Name" />
-                  <TableColumn prefWidth="204.0" text="Adhaar Number" />
-                  <TableColumn minWidth="0.0" prefWidth="92.0" text="Age" />
-                  <TableColumn prefWidth="102.0" text="Dose 1 Status" />
-                  <TableColumn prefWidth="105.0" text="Dose 2 ststus" />
-                  <TableColumn prefWidth="100.0" text="Delete Person" />
+                <TableColumn fx:id="colRefID" prefWidth="130.0" text="Ref ID" />
+                <TableColumn fx:id="colName" prefWidth="204.0" text="Person Name" />
+                  <TableColumn fx:id="colAadhaarNumber" prefWidth="204.0" text="Adhaar Number" />
+                  <TableColumn fx:id="colAge" minWidth="0.0" prefWidth="92.0" text="Age" />
+                  <TableColumn fx:id="colDose1Status" prefWidth="102.0" text="Dose 1 Status" />
+                  <TableColumn fx:id="colDose2Status" prefWidth="105.0" text="Dose 2 ststus" />
+                  <TableColumn fx:id="colDelete" prefWidth="100.0" text="Delete Person" />
                   <TableColumn prefWidth="88.0" text="Schedule" />
               </columns>
             </TableView>

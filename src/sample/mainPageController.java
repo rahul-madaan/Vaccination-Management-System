@@ -37,6 +37,7 @@ public class mainPageController implements Initializable {
     private Connection conn;
     @FXML
     private Label errorLabel;
+    public static String activeUserPhoneNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -106,7 +107,9 @@ public class mainPageController implements Initializable {
                 errorLabel.setVisible(true);
                 errorLabel.setText("Login Successful!");
                 errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
-                loginSignupButtonClickSuccess(event);            }
+                loginSignupButtonClickSuccess(event);
+                mainPageController.activeUserPhoneNumber = enteredPhoneNumber;
+            }
         } else if (signupRadioButton.isSelected()) {
             conn = dbHandler.getConnection();
             String queryPhoneNumber = "SELECT * from login_users where Phonenumber ='" + enteredPhoneNumber + "';";
@@ -123,6 +126,7 @@ public class mainPageController implements Initializable {
                 errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
                 errorLabel.setText("Registered Successfully!");
                 loginSignupButtonClickSuccess(event);
+                mainPageController.activeUserPhoneNumber = enteredPhoneNumber;
             }
         }
     }

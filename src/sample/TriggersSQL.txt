@@ -1,0 +1,42 @@
+/*trigger for age entry automatic*/
+delimiter //
+Create TRIGGER AgeEntry_insert
+    Before INSERT
+    on members for each row
+    BEGIN
+        set NEW.age = YEAR(CURDATE()) - YEAR(NEW.DOB);
+	END; //
+
+delimiter //
+Create TRIGGER AgeEntry_update
+    Before UPDATE
+    on members for each row
+    BEGIN
+        set NEW.age = YEAR(CURDATE()) - YEAR(NEW.DOB);
+	END; //
+
+drop trigger AgeEntry_insert;
+drop trigger AgeEntry_update;
+
+
+delimiter //
+CREATE TRIGGER updateMemberCount_insert
+	BEFORE INSERT
+    on members for each row
+    BEGIN
+		DECLARE tempPhoneNumber varchar(10);
+		update login_users SET numberOfDependents = numberOfDependents + 1 where phonenumber = NEW.phonenumber;
+	END; //
+
+
+delimiter //
+CREATE TRIGGER updateMemberCount_delete
+	BEFORE DELETE
+    on members for each row
+    BEGIN
+		DECLARE tempPhoneNumber varchar(10);
+		update login_users SET numberOfDependents = numberOfDependents - 1 where phonenumber = old.phonenumber;
+	END; //
+
+drop trigger updateMemberCount_insert;
+drop trigger updateMemberCount_delete;
