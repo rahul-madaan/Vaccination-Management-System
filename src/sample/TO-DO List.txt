@@ -1,5 +1,4 @@
 1. add functions to change colour when hover on a button.
-2. Make triggers for table ======> DONE
 2. login should take proper number, should not be a string, should not exceed 10 digits
 3. Passwords should be strong
 4. (Optional) OTP verification of number
@@ -9,3 +8,5 @@
 6. populate table depending on the active user account number.
 7. Make Add member scene.
 8. Add Ashish ka FAQ scene instead of blank scene.
+9. Make triggers for table ======> DONE
+10. 1 account cannot have more than 4 dependents.

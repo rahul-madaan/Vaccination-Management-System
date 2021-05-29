@@ -63,6 +63,10 @@ public class allMembersController implements Initializable {
     @FXML
     private Label phoneNumberLabel;
 
+    public static String selectedMemberName;
+    public static String selectedMemberAadhaarNumber;
+
+
     @FXML
     public void secondWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("addNewMemberScene.fxml"));
@@ -129,6 +133,43 @@ public class allMembersController implements Initializable {
 
             colUpdate.setCellFactory(cellFactory);
 
+            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactorySchedule = (param) -> {
+                final TableCell<Member, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button scheduleButton = new Button("Schedule");
+                            scheduleButton.setOnAction(event -> {
+                                Member p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked\n" + p.getName() +
+                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
+                                alert.show();
+                                try {
+                                    allMembersController.selectedMemberName = p.getName();
+                                    allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
+                                    scheduleButtonClicked(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            });
+                            setGraphic(scheduleButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colSchedule.setCellFactory(cellFactorySchedule);
+
             memberTable.setItems(memberList);
 
         } catch (SQLException throwable) {
@@ -136,6 +177,15 @@ public class allMembersController implements Initializable {
             throwable.printStackTrace();
         }
 
+    }
+
+
+    public void scheduleButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("FindCentre.fxml"));
+        Scene findCentreScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(findCentreScene);
+        window.show();
     }
 
     public void faqButtonClick(ActionEvent event) throws IOException {
