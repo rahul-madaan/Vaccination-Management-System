@@ -94,7 +94,6 @@ public class FindCentreController implements Initializable {
             districtsComboBox.getItems().removeAll(districtsComboBox.getItems().toArray());
             while (set.next()) {
                 districtsComboBox.getItems().add(set.getString("district"));
-                System.out.println(set.getString("district"));
                 if (rows<9)
                     rows = rows + 1;
             }
@@ -106,5 +105,25 @@ public class FindCentreController implements Initializable {
             throwable.printStackTrace();
         }
 
+    }
+
+    @FXML
+    private void districtPinCodeToggleclicked(){
+        if(searchByDistrictRadioButton.isSelected()){
+            pinCodeLabel.setVisible(false);
+            pinCodeTextField.setVisible(false);
+            statesComboBox.setVisible(true);
+            selectStateLabel.setVisible(true);
+            districtsComboBox.setVisible(true);
+            selectDistrictLabel.setVisible(true);
+        }
+        else if(searchByPinCodeRadioButton.isSelected()){
+            pinCodeLabel.setVisible(true);
+            pinCodeTextField.setVisible(true);
+            statesComboBox.setVisible(false);
+            selectStateLabel.setVisible(false);
+            districtsComboBox.setVisible(false);
+            selectDistrictLabel.setVisible(false);
+        }
     }
 }

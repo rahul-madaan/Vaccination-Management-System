@@ -87,12 +87,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <RadioButton layoutX="170.0" layoutY="114.0" mnemonicParsing="false" text="District">
+            <RadioButton fx:id="searchByDistrictRadioButton" layoutX="170.0" layoutY="114.0" mnemonicParsing="false" onAction="#districtPinCodeToggleclicked" text="District">
                <font>
                   <Font size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="276.0" layoutY="114.0" mnemonicParsing="false" text="Pincode">
+            <RadioButton fx:id="searchByPinCodeRadioButton" layoutX="276.0" layoutY="114.0" mnemonicParsing="false" onAction="#districtPinCodeToggleclicked" text="Pincode">
                <font>
                   <Font size="16.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="pinCodeLabel" layoutX="668.0" layoutY="107.0" opacity="0.27" prefHeight="39.0" prefWidth="79.0" text="Pincode:">
+            <Label fx:id="pinCodeLabel" layoutX="668.0" layoutY="107.0" prefHeight="39.0" prefWidth="79.0" text="Pincode:">
                <font>
                   <Font size="20.0" />
                </font>
