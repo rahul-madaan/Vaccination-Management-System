@@ -87,12 +87,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <RadioButton fx:id="searchByDistrictRadioButton" layoutX="200.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleclicked" text="District">
+            <RadioButton fx:id="searchByDistrictRadioButton" layoutX="200.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleClicked" text="District">
                <font>
                   <Font size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="searchByPinCodeRadioButton" layoutX="306.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleclicked" text="Pincode">
+            <RadioButton fx:id="searchByPinCodeRadioButton" layoutX="306.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleClicked" text="Pincode">
                <font>
                   <Font size="16.0" />
                </font>
@@ -121,14 +121,16 @@
             <ComboBox fx:id="districtsComboBox" layoutX="974.0" layoutY="111.0" onMouseClicked="#populateComboBoxDistricts" prefHeight="33.0" prefWidth="248.0" style="-fx-font-size: 15px;" />
             <TableView layoutX="78.0" layoutY="162.0" prefHeight="360.0" prefWidth="1144.0">
               <columns>
-                <TableColumn prefWidth="63.0" text="CentreID" />
-                <TableColumn prefWidth="162.0" text="Centre Name" />
-                  <TableColumn prefWidth="247.0" text="Centre Address" />
-                  <TableColumn minWidth="0.0" prefWidth="97.0" text="Centre Pin Code" />
-                  <TableColumn prefWidth="97.0" text="Vaccine Name" />
-                  <TableColumn prefWidth="60.0" text="Date 1" />
-                  <TableColumn text="Dose 2" />
-                  <TableColumn prefWidth="343.0" text="Dose 3" />
+                <TableColumn editable="false" prefWidth="63.0" resizable="false" sortable="false" text="CentreID" />
+                <TableColumn editable="false" prefWidth="193.0" resizable="false" sortable="false" text="Centre Name" />
+                  <TableColumn editable="false" prefWidth="297.0" resizable="false" sortable="false" text="Centre Address" />
+                  <TableColumn editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" sortable="false" text="Centre Pin Code" />
+                  <TableColumn editable="false" prefWidth="95.0" resizable="false" sortable="false" text="Vaccine Name" />
+                  <TableColumn editable="false" prefWidth="61.0" resizable="false" sortable="false" text="Cost" />
+                  <TableColumn editable="false" prefWidth="78.0" resizable="false" sortable="false" text="Date 1" />
+                  <TableColumn editable="false" prefWidth="81.0" resizable="false" sortable="false" text="Date 2" />
+                  <TableColumn editable="false" prefWidth="88.0" resizable="false" sortable="false" text="Date 3" />
+                  <TableColumn editable="false" prefWidth="86.0" resizable="false" sortable="false" text="Date 4" />
               </columns>
             </TableView>
             </children>
