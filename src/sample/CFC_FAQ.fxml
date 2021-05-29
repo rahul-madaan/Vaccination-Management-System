@@ -91,7 +91,7 @@
             </Label>
          </children>
       </HBox>
-      <TitledPane expanded="false" prefHeight="32.0" prefWidth="530.0" text="A. Registration" textAlignment="CENTER" textFill="#000000c1">
+      <TitledPane expanded="false" prefHeight="32.0" prefWidth="593.0" text="A. Registration" textAlignment="CENTER" textFill="#000000c1">
          <contextMenu>
             <ContextMenu>
               <items>

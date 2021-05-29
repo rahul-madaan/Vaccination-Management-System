@@ -11,8 +11,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("faqScene.fxml"));
+
         primaryStage.setTitle("Vaccination drive");
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
