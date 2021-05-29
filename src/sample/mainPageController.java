@@ -69,7 +69,7 @@ public class mainPageController implements Initializable {
     }
 
     public void faqButtonClick(ActionEvent event) throws IOException {
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("faqScene.fxml"));
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("CFC_FAQ.fxml"));
         Scene faqScene = new Scene(scene2Parent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(faqScene);
