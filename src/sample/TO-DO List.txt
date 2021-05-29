@@ -1,6 +1,6 @@
 1. add functions to change colour when hover on a button.
 2. Make triggers for table ======> DONE
-2.login should take proper number, should not be a string, should not exceed 10 digits
+2. login should take proper number, should not be a string, should not exceed 10 digits
 3. Passwords should be strong
 4. (Optional) OTP verification of number
 5. FAQ page taking back to login page, either write a code using class variables to

@@ -9,10 +9,10 @@ public class DbHandler {
     protected Connection connection;
 
     public Connection getConnection() {
-        final String connectionString = "jdbc:mysql://localhost:3306/Vaccine_codeForCovid_db";
+        final String connectionString = "jdbc:mysql://localhost:3306/vaccine_cfc";
 
         try{
-            connection = DriverManager.getConnection(connectionString,"root","@2RamRam");
+            connection = DriverManager.getConnection(connectionString,"root","Iamme123");
         }catch(SQLException ex){
             ex.printStackTrace();
         }

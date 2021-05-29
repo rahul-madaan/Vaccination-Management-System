@@ -2,12 +2,19 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$USER_HOME$/javafx-sdk-15.0.1/lib" />
+      <root url="file://$PROJECT_DIR$/javafx-sdk-11.0.2/lib" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/javafx-sdk-11.0.2/lib" />
+    </NATIVE>
     <SOURCES>
       <root url="file://$USER_HOME$/javafx-sdk-15.0.1/lib" />
+      <root url="file://$PROJECT_DIR$/javafx-sdk-11.0.2/lib" />
     </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/javafx-sdk-11.0.2/lib" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/javafx-sdk-15.0.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$USER_HOME$/javafx-sdk-15.0.1/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

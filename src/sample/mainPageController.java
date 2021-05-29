@@ -87,6 +87,11 @@ public class mainPageController implements Initializable {
     public void loginSignupButtonClick(ActionEvent event) throws SQLException, IOException {
         String enteredPhoneNumber = phoneNumberTextField.getText();
         String enteredPassword = passwordTextField.getText();
+
+        //number_Check.Alert then return
+
+
+
         //if sign up, then check if new password meets the requirements
         //check if number entered is of 10 digit only and do not contain any letters
         if (loginRadioButton.isSelected()) {
@@ -102,7 +107,7 @@ public class mainPageController implements Initializable {
                 errorLabel.setStyle(" -fx-background-color: #ff5c5c; -fx-text-fill: black");
             } else if (bothSet.next() == false) {
                 errorLabel.setVisible(true);
-                errorLabel.setText("enter correct password!");
+                errorLabel.setText("Enter correct password!");
                 errorLabel.setStyle(" -fx-background-color: #ff5c5c; -fx-text-fill: black");
             } else {
                 errorLabel.setVisible(true);
@@ -120,6 +125,10 @@ public class mainPageController implements Initializable {
                 errorLabel.setText("You are already registered!");
                 errorLabel.setStyle(" -fx-background-color: #ff5c5c; -fx-text-fill: black");
             } else {
+
+                //pass_check.Alert then return
+
+
                 String queryInsert = "INSERT INTO login_users (PhoneNumber, Password) VALUES ('" + enteredPhoneNumber + "','" + enteredPassword + "');";
                 conn = dbHandler.getConnection();
                 conn.createStatement().executeUpdate(queryInsert);
