@@ -100,28 +100,26 @@ public class FindCentreController implements Initializable {
         searchByDistrictRadioButton.setToggleGroup(districtPinCodeToggleGroup);
         searchByDistrictRadioButton.setSelected(true);
         java.util.Date date=new java.util.Date();
-        //System.out.println(date.toString().substring(4,10));
-        String date1 = date.toString().substring(4,10);
-        colDate1.setText(date1);
-
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.add(Calendar.DATE, 1);
+        String date1 = c.getTime().toString();
+        date1 = date1.substring(4,10);
+        colDate1.setText(date1);
+
+        c.add(Calendar.DATE, 1);
         String date2 = c.getTime().toString();
         date2 = date2.substring(4,10);
-        //System.out.println(date2);
-        colDate1.setText(date2);
+        colDate2.setText(date2);
 
         c.add(Calendar.DATE, 1);
         String date3 = c.getTime().toString();
         date3 = date3.substring(4,10);
-        //System.out.println(date3);
         colDate3.setText(date3);
 
         c.add(Calendar.DATE, 1);
         String date4 = c.getTime().toString();
         date4 = date4.substring(4,10);
-        //System.out.println(date4);
         colDate4.setText(date4);
 
     }
@@ -261,6 +259,96 @@ public class FindCentreController implements Initializable {
             };
 
             colDate1.setCellFactory(cellFactoryDate1);
+
+            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate2 = (param) -> {
+                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                VaccineCentre p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
+                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate2.getText());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colDate2.setCellFactory(cellFactoryDate2);
+
+            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate3 = (param) -> {
+                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                VaccineCentre p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
+                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate3.getText());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colDate3.setCellFactory(cellFactoryDate3);
+
+            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate4 = (param) -> {
+                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                VaccineCentre p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
+                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate4.getText());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colDate4.setCellFactory(cellFactoryDate4);
 
             vaccineCentreTableView.setItems(centreList);
 
