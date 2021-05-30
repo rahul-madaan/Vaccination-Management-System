@@ -13,6 +13,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -99,9 +100,30 @@ public class FindCentreController implements Initializable {
         searchByDistrictRadioButton.setToggleGroup(districtPinCodeToggleGroup);
         searchByDistrictRadioButton.setSelected(true);
         java.util.Date date=new java.util.Date();
-        System.out.println(date.toString().substring(4,10));
+        //System.out.println(date.toString().substring(4,10));
         String date1 = date.toString().substring(4,10);
         colDate1.setText(date1);
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, 1);
+        String date2 = c.getTime().toString();
+        date2 = date2.substring(4,10);
+        //System.out.println(date2);
+        colDate1.setText(date2);
+
+        c.add(Calendar.DATE, 1);
+        String date3 = c.getTime().toString();
+        date3 = date3.substring(4,10);
+        //System.out.println(date3);
+        colDate3.setText(date3);
+
+        c.add(Calendar.DATE, 1);
+        String date4 = c.getTime().toString();
+        date4 = date4.substring(4,10);
+        //System.out.println(date4);
+        colDate4.setText(date4);
+
     }
 
     @FXML
