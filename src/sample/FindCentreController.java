@@ -1,15 +1,22 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FindCentreController implements Initializable {
 
@@ -37,11 +44,48 @@ public class FindCentreController implements Initializable {
 
     private ToggleGroup districtPinCodeToggleGroup;
 
+    private ObservableList<VaccineCentre> centreList;
+
     @FXML
     private RadioButton searchByDistrictRadioButton;
 
     @FXML
     private RadioButton searchByPinCodeRadioButton;
+
+    @FXML
+    private TableView<VaccineCentre> vaccineCentreTableView;
+
+    @FXML
+    private TableColumn<?,?> colCentreID;
+
+    @FXML
+    private TableColumn<?,?> colHospitalName;
+
+    @FXML
+    private TableColumn<?,?> colCentreAddress;
+
+    @FXML
+    private TableColumn<?,?> colCentrePinCode;
+
+    @FXML
+    private TableColumn<?,?> colVaccineName;
+
+    @FXML
+    private TableColumn<?,?> colCost;
+
+    @FXML
+    private TableColumn<VaccineCentre,String> colDate1;
+
+    @FXML
+    private TableColumn<VaccineCentre,String> colDate2;
+
+    @FXML
+    private TableColumn<VaccineCentre,String> colDate3;
+
+    @FXML
+    private TableColumn<VaccineCentre,String> colDate4;
+
+
 
 
 
@@ -54,11 +98,15 @@ public class FindCentreController implements Initializable {
         searchByPinCodeRadioButton.setToggleGroup(districtPinCodeToggleGroup);
         searchByDistrictRadioButton.setToggleGroup(districtPinCodeToggleGroup);
         searchByDistrictRadioButton.setSelected(true);
+        java.util.Date date=new java.util.Date();
+        System.out.println(date.toString().substring(4,10));
+        String date1 = date.toString().substring(4,10);
+        colDate1.setText(date1);
     }
 
     @FXML
     private void clearDistrictSelection(){
-        districtsComboBox.setValue(null);//to remove any selection if user changes state after selecting district
+        districtsComboBox.setValue("");//to remove any selection if user changes state after selecting district
         districtsComboBox.setValue("Select District");    }
 
     private void populateComboBoxStates() {
@@ -108,7 +156,7 @@ public class FindCentreController implements Initializable {
     }
 
     @FXML
-    private void districtPinCodeToggleclicked(){
+    private void districtPinCodeToggleClicked(){
         if(searchByDistrictRadioButton.isSelected()){
             pinCodeLabel.setVisible(false);
             pinCodeTextField.setVisible(false);
@@ -125,5 +173,79 @@ public class FindCentreController implements Initializable {
             districtsComboBox.setVisible(false);
             selectDistrictLabel.setVisible(false);
         }
+    }
+
+    @FXML
+    public void populateVaccineCentresTable(){
+        String selectedDistrict = districtsComboBox.getValue().toString();
+        String selectedPinCode = pinCodeTextField.getText();
+        String query = new String();
+        try {
+            centreList = FXCollections.observableArrayList();
+            if(searchByDistrictRadioButton.isSelected()) {
+                query = "SELECT * FROM vaccinecentres where District ='" + selectedDistrict + "';";
+            }
+            if(searchByPinCodeRadioButton.isSelected()) {
+                query = "SELECT * FROM vaccinecentres where Pin_Code ='" + selectedPinCode + "';";
+            }
+            conn = dbHandler.getConnection();
+            ResultSet set = conn.createStatement().executeQuery(query);
+
+            while (set.next()) {
+                VaccineCentre centre = new VaccineCentre();
+                centre.setCentreID(set.getInt("CentreID"));
+                centre.setHospitalName(set.getString("Hospital_Name"));
+                centre.setAddress(set.getString("Address"));
+                centre.setDistrict(set.getString("District"));
+                centre.setState(set.getString("State"));
+                centre.setPinCode(set.getString("Pin_code"));
+                centreList.add(centre);
+            }
+
+//we are now setting the name of columns for java to understand
+            colCentreID.setCellValueFactory(new PropertyValueFactory<>("CentreID"));
+            colHospitalName.setCellValueFactory(new PropertyValueFactory<>("HospitalName"));
+            colCentreAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+            colCentrePinCode.setCellValueFactory(new PropertyValueFactory<>("PinCode"));
+            //colVaccineName.setCellValueFactory(new PropertyValueFactory<>("Vaccine_Name"));
+            //colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+
+            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate1 = (param) -> {
+                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                VaccineCentre p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
+                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate1.getText());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colDate1.setCellFactory(cellFactoryDate1);
+
+            vaccineCentreTableView.setItems(centreList);
+
+        } catch (SQLException throwable) {
+            Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null,  throwable);
+            throwable.printStackTrace();
+        }
+
     }
 }
