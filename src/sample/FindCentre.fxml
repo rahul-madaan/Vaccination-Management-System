@@ -112,7 +112,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="pinCodeTextField" layoutX="767.0" layoutY="105.0" visible="false">
+            <TextField fx:id="pinCodeTextField" layoutX="767.0" layoutY="105.0" onKeyPressed="#handleEnter" visible="false">
                <font>
                   <Font size="20.0" />
                </font>

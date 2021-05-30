@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -192,6 +194,22 @@ public class FindCentreController implements Initializable {
             selectStateLabel.setVisible(false);
             districtsComboBox.setVisible(false);
             selectDistrictLabel.setVisible(false);
+        }
+    }
+
+    @FXML
+    public void handleEnter(KeyEvent k) {
+        if (k.getCode().equals(KeyCode.ENTER)) {
+            if(pinCodeTextField.getText().length()!=6) {
+                //put pincode check for characters also
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter a valid Pin Code");
+                alert.show();
+                pinCodeTextField.setText("");
+                
+
+            }
+            populateVaccineCentresTable();
         }
     }
 
