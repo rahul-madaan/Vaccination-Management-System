@@ -15,6 +15,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class mainPageController implements Initializable {
@@ -47,6 +48,11 @@ public class mainPageController implements Initializable {
         loginRadioButton.setToggleGroup(loginSignupToggleGroup);
         signupRadioButton.setToggleGroup(loginSignupToggleGroup);
         signupRadioButton.setSelected(true);
+        try {
+            insertColumn4DaysAhead();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public void loginSignupToggle() {
@@ -140,4 +146,75 @@ public class mainPageController implements Initializable {
             }
         }
     }
+
+    public void insertColumn4DaysAhead() throws SQLException {
+        String query = "DESCRIBE slots";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+        boolean day1 = false;
+        boolean day2 = false;
+        boolean day3 = false;
+        boolean day4 = false;
+
+        while(set.next()){
+            if(set.getString("Field").equalsIgnoreCase("jun01"))
+                day1=true;
+            if(set.getString("Field").equalsIgnoreCase("jun02"))
+                day2=true;
+            if(set.getString("Field").equalsIgnoreCase("jun03"))
+                day3=true;
+            if(set.getString("Field").equalsIgnoreCase("jun04"))
+                day4=true;
+        }
+        java.util.Date date=new java.util.Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, 1);
+        String date1 = c.getTime().toString();
+        String date1temp = date1.substring(4,7);
+        date1 = date1.substring(8,10);
+        date1 = date1temp + date1;
+
+        c.add(Calendar.DATE, 1);
+        String date2 = c.getTime().toString();
+        String date2temp = date2.substring(4,7);
+        date2 = date2.substring(8,10);
+        date2 = date2temp + date2;
+
+        c.add(Calendar.DATE, 1);
+        String date3 = c.getTime().toString();
+        String date3temp = date3.substring(4,7);
+        date3 = date3.substring(8,10);
+        date3 = date3temp + date3;
+
+        c.add(Calendar.DATE, 1);
+        String date4 = c.getTime().toString();
+        String date4temp = date4.substring(4,7);
+        date4 = date4.substring(8,10);
+        date4 = date4temp + date4;
+
+
+        if(day1 == false){
+            query = "alter table slots add "+ date1 +" int not null;";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        if(day2 == false){
+            query = "alter table slots add "+ date2 +" int not null;";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        if(day3 == false){
+            query = "alter table slots add "+ date3 +" int not null;";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        if(day4 == false){
+            query = "alter table slots add "+ date4 +" int not null;";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+
+    }
+
 }

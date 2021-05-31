@@ -40,3 +40,45 @@ CREATE TRIGGER updateMemberCount_delete
 
 drop trigger updateMemberCount_insert;
 drop trigger updateMemberCount_delete;
+
+
+DELIMITER $$
+CREATE PROCEDURE insertRowsInSlotsTable()a
+
+BEGIN
+    DECLARE a INT Default 1 ;
+    simple_loop: LOOP
+        INSERT INTO slots (CentreID) VALUES (a);
+        set a=a+1;
+        IF a=2039 THEN
+            LEAVE simple_loop;
+        END IF;
+    END LOOP simple_loop;
+END $$
+
+drop procedure insertRowsInSlotsTable;
+
+call insertRowsInSlotsTable();
+
+delimiter //
+Create TRIGGER Centre_insert
+    AFTER INSERT
+    on vaccinecentres for each row
+BEGIN
+    INSERT into slots (CentreID) value (NEW.CentreID);
+END; //
+
+drop trigger Centre_insert;
+
+delimiter //
+Create TRIGGER Centre_beforeDelete
+    BEFORE DELETE
+    on vaccinecentres for each row
+BEGIN
+    DELETE from slots where slots.CentreID= OLD.CentreID;
+END; //
+
+drop trigger Centre_beforeDelete;
+
+INSERT into slots (CentreID) value (default);
+
