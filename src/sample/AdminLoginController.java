@@ -36,6 +36,7 @@ public class AdminLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dbHandler = new DbHandler();
 
     }
 

@@ -109,6 +109,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button layoutX="1234.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLoginButtonClick" text="Admin Login" />
          </children>
       </Pane>
    </children>
