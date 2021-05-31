@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class mainPageController implements Initializable {
     private DbHandler dbHandler;
@@ -99,7 +100,7 @@ public class mainPageController implements Initializable {
     }
 
     @FXML
-    public void loginSignupButtonClick(ActionEvent event) throws SQLException, IOException {
+    public void loginSignupButtonClick(ActionEvent event) throws SQLException, IOException, InterruptedException {
         String enteredPhoneNumber = phoneNumberTextField.getText();
         String enteredPassword = passwordTextField.getText();
 
@@ -160,21 +161,7 @@ public class mainPageController implements Initializable {
         String query = "DESCRIBE slots";
         conn = dbHandler.getConnection();
         ResultSet set = conn.createStatement().executeQuery(query);
-        boolean day1 = false;
-        boolean day2 = false;
-        boolean day3 = false;
-        boolean day4 = false;
 
-        while(set.next()){
-            if(set.getString("Field").equalsIgnoreCase("jun01"))
-                day1=true;
-            if(set.getString("Field").equalsIgnoreCase("jun02"))
-                day2=true;
-            if(set.getString("Field").equalsIgnoreCase("jun03"))
-                day3=true;
-            if(set.getString("Field").equalsIgnoreCase("jun04"))
-                day4=true;
-        }
         java.util.Date date=new java.util.Date();
         Calendar c = Calendar.getInstance();
         c.setTime(date);
@@ -218,6 +205,24 @@ public class mainPageController implements Initializable {
         String date4S2 = date4 + "s2";
         String date4S3 = date4 + "s3";
         String date4S4 = date4 + "s4";
+
+        boolean day1 = false;
+        boolean day2 = false;
+        boolean day3 = false;
+        boolean day4 = false;
+
+        while(set.next()){
+            if(set.getString("Field").equalsIgnoreCase(date1))
+                day1=true;
+            if(set.getString("Field").equalsIgnoreCase(date2))
+                day2=true;
+            if(set.getString("Field").equalsIgnoreCase(date3))
+                day3=true;
+            if(set.getString("Field").equalsIgnoreCase(date4))
+                day4=true;
+        }
+
+
 
         String queryS1;
         String queryS2;
