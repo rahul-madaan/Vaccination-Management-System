@@ -63,43 +63,43 @@
             </opaqueInsets>
         </HBox>
         <Pane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #ccc;">
-            <Button fx:id="loginButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false"
-                    onAction="#loginButtonClick" prefHeight="26.0" prefWidth="119.0"
-                    style="-fx-background-color: #d3483a; -fx-alignment: center;" text="LOGIN" textFill="#f7f5f5">
-                <font>
-                    <Font name="Arial" size="13.0"/>
-                </font>
-            </Button>
-            <ImageView fitHeight="220.0" fitWidth="256.0" layoutX="522.0" layoutY="-52.0">
-                <image>
-                    <Image url="@../images/logo.png"/>
-                </image>
-            </ImageView>
-            <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0"
-                   text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
-                <font>
-                    <Font size="16.0"/>
-                </font>
+           <children>
+               <Button fx:id="loginButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false" onAction="#loginButtonClick" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="LOGIN" textFill="#f7f5f5">
+                   <font>
+                       <Font name="Arial" size="13.0" />
+                   </font>
+               </Button>
+               <ImageView fitHeight="220.0" fitWidth="256.0" layoutX="522.0" layoutY="-52.0">
+                   <image>
+                       <Image url="@../images/logo.png" />
+                   </image>
+               </ImageView>
+               <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <TextField fx:id="userIDTextField" layoutX="493.0" layoutY="283.0" prefHeight="46.0" prefWidth="315.0" promptText="Enter userID" style="-fx-background-radius: 10px;">
+                   <font>
+                       <Font size="18.0" />
+                   </font>
+               </TextField>
+               <TextField fx:id="passwordTextField" layoutX="493.0" layoutY="348.0" prefHeight="46.0" prefWidth="315.0" promptText="Enter Password" style="-fx-background-radius: 10px;">
+                   <font>
+                       <Font size="18.0" />
+                   </font>
+               </TextField>
+               <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="456.0" prefHeight="46.0" prefWidth="306.0" style="-fx-background-color: #ff5c5c;" text="Label" visible="false">
+                   <font>
+                       <Font size="18.0" />
+                   </font>
+               </Label>
+            <Label layoutX="555.0" layoutY="217.0" text="Admin Login">
+               <font>
+                  <Font name="3ds" size="33.0" />
+               </font>
             </Label>
-            <TextField fx:id="userIDTextField" layoutX="493.0" layoutY="283.0" prefHeight="46.0" prefWidth="315.0"
-                       promptText="Enter userID" style="-fx-background-radius: 10px;">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </TextField>
-            <TextField fx:id="passwordTextField" layoutX="493.0" layoutY="348.0" prefHeight="46.0" prefWidth="315.0"
-                       promptText="Enter Password" style="-fx-background-radius: 10px;">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </TextField>
-            <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="456.0"
-                   prefHeight="46.0" prefWidth="306.0" style="-fx-background-color: #ff5c5c;" text="Label"
-                   visible="false">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </Label>
+           </children>
         </Pane>
     </children>
 </VBox>

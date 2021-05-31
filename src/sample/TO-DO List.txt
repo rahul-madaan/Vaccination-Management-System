@@ -10,6 +10,8 @@
 8. Add Ashish ka FAQ scene instead of blank scene.
 9. Make triggers for table ======> DONE
 10. 1 account cannot have more than 4 dependents.
-11. make search button for pncode search and use same enter key pressed function.
+11. make search button for pinCode search and use same enter key pressed function.
 12. put logout button on all pages.
+13. instead of adding new rows everyday by  query, make function in sql and call.
+14. make back buttons for all pages.
 
