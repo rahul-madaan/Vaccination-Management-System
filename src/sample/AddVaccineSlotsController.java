@@ -2,12 +2,18 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -77,17 +83,7 @@ public class AddVaccineSlotsController implements Initializable {
     private TableColumn<?,?> colCost;
 
     @FXML
-    private TableColumn<VaccineCentre,String> colDate1;
-
-    @FXML
-    private TableColumn<VaccineCentre,String> colDate2;
-
-    @FXML
-    private TableColumn<VaccineCentre,String> colDate3;
-
-    @FXML
-    private TableColumn<VaccineCentre,String> colDate4;
-
+    private TableColumn<VaccineCentre,String> colAddSlotsButton;
 
 
 
@@ -107,22 +103,22 @@ public class AddVaccineSlotsController implements Initializable {
         c.add(Calendar.DATE, 1);
         String date1 = c.getTime().toString();
         date1 = date1.substring(4,10);
-        colDate1.setText(date1);
+        //colDate1.setText(date1);
 
         c.add(Calendar.DATE, 1);
         String date2 = c.getTime().toString();
         date2 = date2.substring(4,10);
-        colDate2.setText(date2);
+        //colDate2.setText(date2);
 
         c.add(Calendar.DATE, 1);
         String date3 = c.getTime().toString();
         date3 = date3.substring(4,10);
-        colDate3.setText(date3);
+        //colDate3.setText(date3);
 
         c.add(Calendar.DATE, 1);
         String date4 = c.getTime().toString();
         date4 = date4.substring(4,10);
-        colDate4.setText(date4);
+        //colDate4.setText(date4);
 
     }
 
@@ -197,6 +193,8 @@ public class AddVaccineSlotsController implements Initializable {
         }
     }
 
+
+
     @FXML
     public void handleEnter(KeyEvent k) {
         if (k.getCode().equals(KeyCode.ENTER)) {
@@ -248,7 +246,7 @@ public class AddVaccineSlotsController implements Initializable {
             //colVaccineName.setCellValueFactory(new PropertyValueFactory<>("Vaccine_Name"));
             //colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
-            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate1 = (param) -> {
+            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactory = (param) -> {
                 final TableCell<VaccineCentre, String> cell = new TableCell<>() {
 
                     @Override
@@ -258,12 +256,11 @@ public class AddVaccineSlotsController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Add slots");
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate1.getText());
+                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID());
                                 alert.show();
                             });
                             setGraphic(editButton);
@@ -276,97 +273,7 @@ public class AddVaccineSlotsController implements Initializable {
                 return cell;
             };
 
-            colDate1.setCellFactory(cellFactoryDate1);
-
-            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate2 = (param) -> {
-                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            Button editButton = new Button("Edit");
-                            editButton.setOnAction(event -> {
-                                VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate2.getText());
-                                alert.show();
-                            });
-                            setGraphic(editButton);
-                        }
-                        setText(null);
-                    }
-                    ;
-                };
-
-                return cell;
-            };
-
-            colDate2.setCellFactory(cellFactoryDate2);
-
-            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate3 = (param) -> {
-                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            Button editButton = new Button("Edit");
-                            editButton.setOnAction(event -> {
-                                VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate3.getText());
-                                alert.show();
-                            });
-                            setGraphic(editButton);
-                        }
-                        setText(null);
-                    }
-                    ;
-                };
-
-                return cell;
-            };
-
-            colDate3.setCellFactory(cellFactoryDate3);
-
-            Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate4 = (param) -> {
-                final TableCell<VaccineCentre, String> cell = new TableCell<>() {
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            Button editButton = new Button("Edit");
-                            editButton.setOnAction(event -> {
-                                VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate4.getText());
-                                alert.show();
-                            });
-                            setGraphic(editButton);
-                        }
-                        setText(null);
-                    }
-                    ;
-                };
-
-                return cell;
-            };
-
-            colDate4.setCellFactory(cellFactoryDate4);
+            colAddSlotsButton.setCellFactory(cellFactory);
 
             vaccineCentreTableView.setItems(centreList);
 

@@ -37,8 +37,8 @@ public class AdminLoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
-
     }
+
 
     public void loginButtonClick(ActionEvent event) throws SQLException, IOException {
         String enteredPassword = passwordTextField.getText();
