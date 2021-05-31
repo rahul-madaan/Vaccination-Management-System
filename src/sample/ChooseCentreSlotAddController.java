@@ -2,32 +2,24 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AddVaccineSlotsController implements Initializable {
+public class ChooseCentreSlotAddController implements Initializable {
 
     private Connection conn;
 
@@ -84,6 +76,8 @@ public class AddVaccineSlotsController implements Initializable {
 
     @FXML
     private TableColumn<VaccineCentre,String> colAddSlotsButton;
+
+    public static  Integer selectedCentreID;
 
 
 
@@ -262,6 +256,7 @@ public class AddVaccineSlotsController implements Initializable {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID());
                                 alert.show();
+                                ChooseCentreSlotAddController.selectedCentreID = p.getCentreID();
                             });
                             setGraphic(editButton);
                         }
