@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminLoginController">
+    <children>
+        <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
+            <children>
+                <Label alignment="CENTER" cache="true" contentDisplay="CENTER" prefHeight="32.0" prefWidth="285.0" style="-fx-background-color: #d3483a;" text="Ministry of Health and Family Welfare " textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" text="FAQ Section" />
+                <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+            </children>
+        </HBox>
+        <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <opaqueInsets>
+                <Insets left="50.0" />
+            </opaqueInsets>
+        </HBox>
+        <Pane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #ccc;">
+            <Button fx:id="loginButton" layoutX="591.0" layoutY="422.0" mnemonicParsing="false"
+                    onAction="#loginButtonClick" prefHeight="26.0" prefWidth="119.0"
+                    style="-fx-background-color: #d3483a; -fx-alignment: center;" text="LOGIN" textFill="#f7f5f5">
+                <font>
+                    <Font name="Arial" size="13.0"/>
+                </font>
+            </Button>
+            <ImageView fitHeight="220.0" fitWidth="256.0" layoutX="522.0" layoutY="-52.0">
+                <image>
+                    <Image url="@../images/logo.png"/>
+                </image>
+            </ImageView>
+            <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0"
+                   text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="userIDTextField" layoutX="493.0" layoutY="283.0" prefHeight="46.0" prefWidth="315.0"
+                       promptText="Enter userID" style="-fx-background-radius: 10px;">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </TextField>
+            <TextField fx:id="passwordTextField" layoutX="493.0" layoutY="348.0" prefHeight="46.0" prefWidth="315.0"
+                       promptText="Enter Password" style="-fx-background-radius: 10px;">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </TextField>
+            <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="456.0"
+                   prefHeight="46.0" prefWidth="306.0" style="-fx-background-color: #ff5c5c;" text="Label"
+                   visible="false">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+        </Pane>
+    </children>
+</VBox>

@@ -174,45 +174,103 @@ public class mainPageController implements Initializable {
         String date1temp = date1.substring(4,7);
         date1 = date1.substring(8,10);
         date1 = date1temp + date1;
+        String date1S1 = date1 + "s1";
+        String date1S2 = date1 + "s2";
+        String date1S3 = date1 + "s3";
+        String date1S4 = date1 + "s4";
+
 
         c.add(Calendar.DATE, 1);
         String date2 = c.getTime().toString();
         String date2temp = date2.substring(4,7);
         date2 = date2.substring(8,10);
         date2 = date2temp + date2;
+        String date2S1 = date2 + "s1";
+        String date2S2 = date2 + "s2";
+        String date2S3 = date2 + "s3";
+        String date2S4 = date2 + "s4";
 
         c.add(Calendar.DATE, 1);
         String date3 = c.getTime().toString();
         String date3temp = date3.substring(4,7);
         date3 = date3.substring(8,10);
         date3 = date3temp + date3;
+        String date3S1 = date3 + "s1";
+        String date3S2 = date3 + "s2";
+        String date3S3 = date3 + "s3";
+        String date3S4 = date3 + "s4";
 
         c.add(Calendar.DATE, 1);
         String date4 = c.getTime().toString();
         String date4temp = date4.substring(4,7);
         date4 = date4.substring(8,10);
         date4 = date4temp + date4;
+        String date4S1 = date4 + "s1";
+        String date4S2 = date4 + "s2";
+        String date4S3 = date4 + "s3";
+        String date4S4 = date4 + "s4";
 
+        String queryS1;
+        String queryS2;
+        String queryS3;
+        String queryS4;
 
         if(day1 == false){
             query = "alter table slots add "+ date1 +" int not null;";
+            queryS1 = "alter table slots add "+ date1S1 +" int not null;";
+            queryS2 = "alter table slots add "+ date1S2 +" int not null;";
+            queryS3 = "alter table slots add "+ date1S3 +" int not null;";
+            queryS4 = "alter table slots add "+ date1S4 +" int not null;";
+
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
+            conn.createStatement().executeUpdate(queryS1);
+            conn.createStatement().executeUpdate(queryS2);
+            conn.createStatement().executeUpdate(queryS3);
+            conn.createStatement().executeUpdate(queryS4);
+
         }
         if(day2 == false){
             query = "alter table slots add "+ date2 +" int not null;";
+            queryS1 = "alter table slots add "+ date2S1 +" int not null;";
+            queryS2 = "alter table slots add "+ date2S2 +" int not null;";
+            queryS3 = "alter table slots add "+ date2S3 +" int not null;";
+            queryS4 = "alter table slots add "+ date2S4 +" int not null;";
+
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
+            conn.createStatement().executeUpdate(queryS1);
+            conn.createStatement().executeUpdate(queryS2);
+            conn.createStatement().executeUpdate(queryS3);
+            conn.createStatement().executeUpdate(queryS4);
         }
         if(day3 == false){
             query = "alter table slots add "+ date3 +" int not null;";
+            queryS1 = "alter table slots add "+ date3S1 +" int not null;";
+            queryS2 = "alter table slots add "+ date3S2 +" int not null;";
+            queryS3 = "alter table slots add "+ date3S3 +" int not null;";
+            queryS4 = "alter table slots add "+ date3S4 +" int not null;";
+
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
+            conn.createStatement().executeUpdate(queryS1);
+            conn.createStatement().executeUpdate(queryS2);
+            conn.createStatement().executeUpdate(queryS3);
+            conn.createStatement().executeUpdate(queryS4);
         }
         if(day4 == false){
             query = "alter table slots add "+ date4 +" int not null;";
+            queryS1 = "alter table slots add "+ date4S1 +" int not null;";
+            queryS2 = "alter table slots add "+ date4S2 +" int not null;";
+            queryS3 = "alter table slots add "+ date4S3 +" int not null;";
+            queryS4 = "alter table slots add "+ date4S4 +" int not null;";
+
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
+            conn.createStatement().executeUpdate(queryS1);
+            conn.createStatement().executeUpdate(queryS2);
+            conn.createStatement().executeUpdate(queryS3);
+            conn.createStatement().executeUpdate(queryS4);
         }
 
     }
