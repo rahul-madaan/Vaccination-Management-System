@@ -9,6 +9,8 @@ import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
@@ -47,17 +49,23 @@ public class addNewMemberController implements Initializable {
         maleRadioButton.setToggleGroup(maleFemaleToggleGroup);
     }
 
-    public void addMemberButtonClicked(){
+    public void addMemberButtonClicked() throws SQLException {
         String name = nameTextField.getText();
         String aadhaarNumber = aadhaarNumberTextField.getText();
         Date dateOfBirth = java.sql.Date.valueOf(dateOfBirthDatePicker.getValue());
+        String phoneNumber = mainPageController.activeUserPhoneNumber;
         int gender;
         if(maleRadioButton.isSelected()){
             gender = 1;
         }else{
             gender = 0;
         }
-        String query = "SELECT";
+        String query = "INSERT INTO  members (PhoneNumber, name, AadhaarNumber, DOB, Gender)" +
+                " VALUES('"+phoneNumber +"', '"+ name +"', '"+aadhaarNumber+"', '"+ dateOfBirth +"', '"+gender+"');";
+
+        conn = dbHandler.getConnection();
+        conn.createStatement().executeUpdate(query);
+
     }
 }
 

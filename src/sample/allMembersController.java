@@ -65,13 +65,15 @@ public class allMembersController implements Initializable {
 
     public static String selectedMemberName;
     public static String selectedMemberAadhaarNumber;
+    public static String selectedPhoneNumber;
 
 
     @FXML
-    public void secondWindow(ActionEvent event) throws IOException {
+    public void addNewMemberButtonClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("addNewMemberScene.fxml"));
         Stage secondStage = new Stage();
         secondStage.setScene(new Scene(root));
+        allMembersController.selectedPhoneNumber = mainPageController.activeUserPhoneNumber;
         secondStage.show();
         secondStage.setTitle("part2");
     }
