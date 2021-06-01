@@ -2,14 +2,21 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -77,7 +84,7 @@ public class ChooseCentreSlotAddController implements Initializable {
     @FXML
     private TableColumn<VaccineCentre,String> colAddSlotsButton;
 
-    public static  Integer selectedCentreID;
+    public static  VaccineCentre selectedCentre;
 
 
 
@@ -256,7 +263,12 @@ public class ChooseCentreSlotAddController implements Initializable {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID());
                                 alert.show();
-                                ChooseCentreSlotAddController.selectedCentreID = p.getCentreID();
+                                ChooseCentreSlotAddController.selectedCentre = p;
+                                try {
+                                    addVaccineSlotsButtonClicked(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             });
                             setGraphic(editButton);
                         }
@@ -277,5 +289,13 @@ public class ChooseCentreSlotAddController implements Initializable {
             throwable.printStackTrace();
         }
 
+    }
+
+    private void addVaccineSlotsButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("EditVaccineSlots.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
     }
 }

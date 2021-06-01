@@ -78,7 +78,7 @@
                         <Image url="@../images/logo.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="488.0" layoutY="529.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                <Label layoutX="488.0" layoutY="536.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
                     <font>
                         <Font size="16.0" />
                     </font></Label>
@@ -107,33 +107,33 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="329.0" prefHeight="31.0" prefWidth="105.0" text="Select Date:">
+            <Label layoutX="68.0" layoutY="296.0" prefHeight="31.0" prefWidth="105.0" text="Select Date:">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <ComboBox layoutX="185.0" layoutY="326.0" prefHeight="31.0" prefWidth="153.0" style="-fx-font-size: -15px;" />
-            <Label layoutX="145.0" layoutY="108.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
+            <ComboBox fx:id="selectDateComboBox" layoutX="185.0" layoutY="293.0" onAction="#dateSelected" prefHeight="31.0" prefWidth="153.0" style="-fx-font-size: -15px;" />
+            <Label fx:id="centreIDLabel" layoutX="145.0" layoutY="108.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="173.0" layoutY="139.0" prefHeight="31.0" prefWidth="1011.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
+            <Label fx:id="centreNameLabel" layoutX="173.0" layoutY="139.0" prefHeight="31.0" prefWidth="1011.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="191.0" layoutY="170.0" prefHeight="31.0" prefWidth="1076.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
+            <Label fx:id="centreAddressLabel" layoutX="191.0" layoutY="170.0" prefHeight="31.0" prefWidth="1076.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="203.0" layoutY="227.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
+            <Label fx:id="centrePinCodeLabel" layoutX="203.0" layoutY="227.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="424.0" layoutY="369.0" prefHeight="31.0" prefWidth="113.0" text="Total Slots:">
+            <Label layoutX="423.0" layoutY="333.0" prefHeight="31.0" prefWidth="113.0" text="Total Slots:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
@@ -158,32 +158,32 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="532.0" layoutY="327.0" prefHeight="31.0" prefWidth="173.0" text="Update Values Here">
+            <Label layoutX="531.0" layoutY="291.0" prefHeight="31.0" prefWidth="173.0" text="Update Values Here">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="596.0" layoutY="365.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="totalSlotsTextField" layoutX="595.0" layoutY="334.0" prefHeight="25.0" prefWidth="44.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="596.0" layoutY="405.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot1TextField" layoutX="596.0" layoutY="412.0" prefHeight="25.0" prefWidth="44.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="596.0" layoutY="437.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot2TextField" layoutX="596.0" layoutY="444.0" prefHeight="25.0" prefWidth="44.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="596.0" layoutY="468.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot3TextField" layoutX="596.0" layoutY="475.0" prefHeight="25.0" prefWidth="44.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="596.0" layoutY="499.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot4TextField" layoutX="596.0" layoutY="506.0" prefHeight="25.0" prefWidth="44.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
@@ -193,37 +193,37 @@
                   <Font name="3ds" size="21.0" />
                </font>
             </Button>
-            <Label layoutX="778.0" layoutY="327.0" prefHeight="31.0" prefWidth="191.0" text="Update Vaccine Name">
+            <Label layoutX="775.0" layoutY="298.0" prefHeight="31.0" prefWidth="191.0" text="Update Vaccine Name">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <RadioButton layoutX="778.0" layoutY="371.0" mnemonicParsing="false" text="COVISHIELD">
+            <RadioButton fx:id="covishieldRadioButton" layoutX="775.0" layoutY="342.0" mnemonicParsing="false" text="COVISHIELD">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="778.0" layoutY="405.0" mnemonicParsing="false" text="COVAXIN">
+            <RadioButton fx:id="covaxinRadioButton" layoutX="775.0" layoutY="376.0" mnemonicParsing="false" text="COVAXIN">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="778.0" layoutY="440.0" mnemonicParsing="false" text="SPUTNIK V">
+            <RadioButton fx:id="sputnikvRadioButton" layoutX="775.0" layoutY="411.0" mnemonicParsing="false" text="SPUTNIK V">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </RadioButton>
-            <Label layoutX="1038.0" layoutY="323.0" prefHeight="31.0" prefWidth="129.0" text="Update Cost">
+            <Label layoutX="1035.0" layoutY="294.0" prefHeight="31.0" prefWidth="129.0" text="Update Cost">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="1040.0" layoutY="365.0" prefHeight="29.0" prefWidth="108.0">
+            <TextField fx:id="updateCostTextField" alignment="CENTER" layoutX="1037.0" layoutY="336.0" prefHeight="29.0" prefWidth="108.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <Label layoutX="174.0" layoutY="201.0" prefHeight="31.0" prefWidth="237.0" text="XXXXXX">
+            <Label fx:id="centreStateLabel" layoutX="174.0" layoutY="201.0" prefHeight="31.0" prefWidth="237.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
@@ -233,6 +233,11 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
+            <Button layoutX="551.0" layoutY="370.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="132.0" text="Divide Equally">
+               <font>
+                  <Font name="3ds" size="15.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
       <TextField prefHeight="25.0" prefWidth="44.0">

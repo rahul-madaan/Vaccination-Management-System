@@ -40,7 +40,7 @@ public class mainPageController implements Initializable {
     @FXML
     private Label errorLabel;
 
-    public static String activeUserPhoneNumber = "00";
+    public static String activeUserPhoneNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
