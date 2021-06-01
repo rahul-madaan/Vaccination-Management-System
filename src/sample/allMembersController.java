@@ -80,7 +80,7 @@ public class allMembersController implements Initializable {
         String activeUserPhoneNumber = mainPageController.activeUserPhoneNumber;
         try {
             memberList = FXCollections.observableArrayList();
-            String query = "SELECT * FROM members WHERE phonenumer = '"+ activeUserPhoneNumber +"';";
+            String query = "SELECT * FROM members WHERE phonenumber = '"+ activeUserPhoneNumber +"';";
 
             conn = dbHandler.getConnection();
             ResultSet set = conn.createStatement().executeQuery(query);

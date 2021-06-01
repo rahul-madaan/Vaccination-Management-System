@@ -36,7 +36,6 @@
                     </cursor>
                 </Label>
                 <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                <Button mnemonicParsing="false" text="FAQ Section" />
                 <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
                     <opaqueInsets>
                         <Insets />
@@ -53,7 +52,7 @@
         <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
             <children>
                 <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                <ImageView fitHeight="73.0" fitWidth="85.0">
+                <ImageView fitHeight="90.0" fitWidth="104.0">
                     <image>
                         <Image url="@../images/logo.png" />
                     </image>
@@ -74,14 +73,70 @@
                     <font>
                         <Font size="16.0" />
                     </font></Label>
-                <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="173.0" text="Vaccination Drive" textFill="#a43125">
+                <Label layoutX="7.0" layoutY="4.0" prefHeight="20.0" prefWidth="143.0" text="Vaccination Drive" textFill="#a43125">
                     <font>
-                        <Font name="Arial Bold" size="17.0" />
+                        <Font name="Arial Bold" size="16.0" />
                     </font>
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
                 </Label>
+            <Label layoutX="251.0" layoutY="11.0" text="Add New Member">
+               <font>
+                  <Font name="3ds" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="83.0" text="Enter Name:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="148.0" text="Enter Aadhaar Number:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dateOfBirthDatePicker" layoutX="210.0" layoutY="218.0" />
+            <Label layoutX="14.0" layoutY="219.0" text="Enter Date of Birth:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="283.0" text="Select Gender:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameTextField" layoutX="136.0" layoutY="82.0" prefHeight="29.0" prefWidth="232.0">
+               <font>
+                  <Font name="3ds" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="aadhaarNumberTextField" layoutX="234.0" layoutY="145.0" prefHeight="29.0" prefWidth="232.0">
+               <font>
+                  <Font name="3ds" size="16.0" />
+               </font>
+            </TextField>
+            <RadioButton fx:id="maleRadioButton" layoutX="191.0" layoutY="286.0" mnemonicParsing="false" text="Male">
+               <font>
+                  <Font name="3ds" size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="femaleRadoButton" layoutX="281.0" layoutY="286.0" mnemonicParsing="false" text="Female">
+               <font>
+                  <Font name="3ds" size="17.0" />
+               </font>
+            </RadioButton>
+            <Button layoutX="490.0" layoutY="316.0" mnemonicParsing="false" onAction="#addMemberButtonClicked" prefHeight="36.0" prefWidth="189.0" text="    +Add Member">
+               <font>
+                  <Font name="3ds" size="21.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="496.0" layoutY="316.0" onMouseClicked="#addMemberButtonClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Profile-PNG-Icon-715x715.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
     </children>
