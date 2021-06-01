@@ -71,6 +71,9 @@ public class EditVaccineSlotsController implements Initializable {
         covaxinRadioButton.setToggleGroup(vaccineNameToggleGroup);
         covishieldRadioButton.setToggleGroup(vaccineNameToggleGroup);
         sputnikvRadioButton.setToggleGroup(vaccineNameToggleGroup);
+        covaxinRadioButton.setUserData("COVAXIN");
+        covishieldRadioButton.setUserData("COVISHIELD");
+        sputnikvRadioButton.setUserData("SPUTNIK V");
         VaccineCentre selectedVaccineCentre = ChooseCentreSlotAddController.selectedCentre;
         centreIDLabel.setText(Integer.toString(selectedVaccineCentre.getCentreID()));
         centreNameLabel.setText(selectedVaccineCentre.getHospitalName());
@@ -122,6 +125,17 @@ public class EditVaccineSlotsController implements Initializable {
         String date4S4 = date4 + "s4";
 
         selectDateComboBox.getItems().addAll(date1,date2,date3,date4);
+        updateCostTextField.setText(Integer.toString(selectedVaccineCentre.getVaccineCost()));
+
+        if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("covishield")){
+            covishieldRadioButton.setSelected(true);
+        }
+        else if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("covaxin")){
+            covaxinRadioButton.setSelected(true);
+        }
+        else if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("covishield")){
+            sputnikvRadioButton.setSelected(true);
+        }
     }
 
     @FXML
@@ -229,7 +243,72 @@ public class EditVaccineSlotsController implements Initializable {
                 slot4TextField.setText(set.getString(date4S4));
             }
         }
+
     }
 
+    @FXML
+    private void divideEquallyButtonCLicked(){
+        int totalSlots = Integer.parseInt(totalSlotsTextField.getText());
+        if(totalSlots%4 ==0){
+            slot1TextField.setText(Integer.toString(totalSlots/4));
+            slot2TextField.setText(Integer.toString(totalSlots/4));
+            slot3TextField.setText(Integer.toString(totalSlots/4));
+            slot4TextField.setText(Integer.toString(totalSlots/4));
+        }
+        else if(totalSlots%4 == 1){
+            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot2TextField.setText(Integer.toString(totalSlots/4));
+            slot3TextField.setText(Integer.toString(totalSlots/4));
+            slot4TextField.setText(Integer.toString(totalSlots/4));
+        }
+        else if(totalSlots%4 ==2){
+            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot2TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot3TextField.setText(Integer.toString(totalSlots/4));
+            slot4TextField.setText(Integer.toString(totalSlots/4));
+        }
+        else if(totalSlots%4 ==3){
+            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot2TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot3TextField.setText(Integer.toString((totalSlots/4)+1));
+            slot4TextField.setText(Integer.toString(totalSlots/4));
+        }
+    }
+
+    public void submitButtonCLicked() throws SQLException {
+        VaccineCentre selectedVaccineCentre = ChooseCentreSlotAddController.selectedCentre;
+        int totalSlots = Integer.parseInt(totalSlotsTextField.getText());
+        int slot1 = Integer.parseInt(slot1TextField.getText());
+        int slot2 = Integer.parseInt(slot2TextField.getText());
+        int slot3 = Integer.parseInt(slot3TextField.getText());
+        int slot4 = Integer.parseInt(slot4TextField.getText());
+        int cost = Integer.parseInt(updateCostTextField.getText());
+        String vaccineName = vaccineNameToggleGroup.getSelectedToggle().getUserData().toString();
+        String date = selectDateComboBox.getValue().toString();
+        String dateS1 = date + "s1";
+        String dateS2 = date + "s2";
+        String dateS3 = date + "s3";
+        String dateS4 = date + "s4";
+        String query = "UPDATE slots SET " +
+                date +" = "+ totalSlots +", "+
+                dateS1 +" = "+ slot1 +", "+
+                dateS2 +" = "+ slot2 +", "+
+                dateS3 +" = "+ slot3 +", "+
+                dateS4 +" = "+ slot4 +" WHERE centreID = " + selectedVaccineCentre.getCentreID() + ";";
+
+        conn = dbHandler.getConnection();
+        conn.createStatement().executeUpdate(query);
+
+        query = "UPDATE vaccineCentres " +
+                "SET vaccineName = '" + vaccineName +
+                "' , vaccineCost = " + cost +
+                " WHERE centreID = " + selectedVaccineCentre.getCentreID() + ";";
+
+        conn = dbHandler.getConnection();
+        conn.createStatement().executeUpdate(query);
+
+
+
+    }
 
 }

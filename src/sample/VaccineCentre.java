@@ -7,6 +7,24 @@ public class VaccineCentre {
     private String district;
     private String State;
     private String pinCode;
+    private int vaccineCost;
+    private String vaccineName;
+
+    public int getVaccineCost() {
+        return vaccineCost;
+    }
+
+    public void setVaccineCost(int vaccineCost) {
+        this.vaccineCost = vaccineCost;
+    }
+
+    public String getVaccineName() {
+        return vaccineName;
+    }
+
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName = vaccineName;
+    }
 
     public int getCentreID() {
         return centreID;

@@ -82,7 +82,7 @@
                     <font>
                         <Font size="16.0" />
                     </font></Label>
-            <Label layoutX="508.0" layoutY="60.0" text="Add Vaccination Slot">
+            <Label layoutX="513.0" layoutY="60.0" text="Add Vaccination Slots">
                <font>
                   <Font name="3ds" size="28.0" />
                </font>
@@ -163,32 +163,32 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="totalSlotsTextField" layoutX="595.0" layoutY="334.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="totalSlotsTextField" layoutX="582.0" layoutY="334.0" onKeyReleased="#divideEquallyButtonCLicked" prefHeight="29.0" prefWidth="72.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="slot1TextField" layoutX="596.0" layoutY="412.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot1TextField" layoutX="590.0" layoutY="411.0" prefHeight="29.0" prefWidth="55.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="slot2TextField" layoutX="596.0" layoutY="444.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot2TextField" layoutX="590.0" layoutY="443.0" prefHeight="29.0" prefWidth="55.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="slot3TextField" layoutX="596.0" layoutY="475.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot3TextField" layoutX="590.0" layoutY="474.0" prefHeight="29.0" prefWidth="55.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="slot4TextField" layoutX="596.0" layoutY="506.0" prefHeight="25.0" prefWidth="44.0">
+            <TextField fx:id="slot4TextField" layoutX="590.0" layoutY="505.0" prefHeight="29.0" prefWidth="55.0">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <Button layoutX="1118.0" layoutY="515.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="SUBMIT">
+            <Button layoutX="1118.0" layoutY="515.0" mnemonicParsing="false" onAction="#submitButtonCLicked" prefHeight="40.0" prefWidth="146.0" text="SUBMIT">
                <font>
                   <Font name="3ds" size="21.0" />
                </font>
@@ -233,7 +233,7 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="551.0" layoutY="370.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="132.0" text="Divide Equally">
+            <Button layoutX="551.0" layoutY="370.0" mnemonicParsing="false" onAction="#divideEquallyButtonCLicked" prefHeight="24.0" prefWidth="132.0" text="Divide Equally">
                <font>
                   <Font name="3ds" size="15.0" />
                </font>

@@ -236,6 +236,8 @@ public class ChooseCentreSlotAddController implements Initializable {
                 centre.setDistrict(set.getString("District"));
                 centre.setState(set.getString("State"));
                 centre.setPinCode(set.getString("Pin_code"));
+                centre.setVaccineCost(set.getInt("vaccineCost"));
+                centre.setVaccineName(set.getString("vaccineName"));
                 centreList.add(centre);
             }
 
@@ -244,7 +246,7 @@ public class ChooseCentreSlotAddController implements Initializable {
             colHospitalName.setCellValueFactory(new PropertyValueFactory<>("HospitalName"));
             colCentreAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
             colCentrePinCode.setCellValueFactory(new PropertyValueFactory<>("PinCode"));
-            //colVaccineName.setCellValueFactory(new PropertyValueFactory<>("Vaccine_Name"));
+            colVaccineName.setCellValueFactory(new PropertyValueFactory<>("VaccineName"));
             //colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
             Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactory = (param) -> {
