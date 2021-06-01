@@ -248,30 +248,35 @@ public class EditVaccineSlotsController implements Initializable {
 
     @FXML
     private void divideEquallyButtonCLicked(){
-        int totalSlots = Integer.parseInt(totalSlotsTextField.getText());
-        if(totalSlots%4 ==0){
-            slot1TextField.setText(Integer.toString(totalSlots/4));
-            slot2TextField.setText(Integer.toString(totalSlots/4));
-            slot3TextField.setText(Integer.toString(totalSlots/4));
-            slot4TextField.setText(Integer.toString(totalSlots/4));
+        if(totalSlotsTextField.getText().matches("[A-z]")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter a valid number!");
+            alert.show();
+
         }
-        else if(totalSlots%4 == 1){
-            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot2TextField.setText(Integer.toString(totalSlots/4));
-            slot3TextField.setText(Integer.toString(totalSlots/4));
-            slot4TextField.setText(Integer.toString(totalSlots/4));
-        }
-        else if(totalSlots%4 ==2){
-            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot2TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot3TextField.setText(Integer.toString(totalSlots/4));
-            slot4TextField.setText(Integer.toString(totalSlots/4));
-        }
-        else if(totalSlots%4 ==3){
-            slot1TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot2TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot3TextField.setText(Integer.toString((totalSlots/4)+1));
-            slot4TextField.setText(Integer.toString(totalSlots/4));
+        else {
+            int totalSlots = Integer.parseInt(totalSlotsTextField.getText());
+            if (totalSlots % 4 == 0) {
+                slot1TextField.setText(Integer.toString(totalSlots / 4));
+                slot2TextField.setText(Integer.toString(totalSlots / 4));
+                slot3TextField.setText(Integer.toString(totalSlots / 4));
+                slot4TextField.setText(Integer.toString(totalSlots / 4));
+            } else if (totalSlots % 4 == 1) {
+                slot1TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot2TextField.setText(Integer.toString(totalSlots / 4));
+                slot3TextField.setText(Integer.toString(totalSlots / 4));
+                slot4TextField.setText(Integer.toString(totalSlots / 4));
+            } else if (totalSlots % 4 == 2) {
+                slot1TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot2TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot3TextField.setText(Integer.toString(totalSlots / 4));
+                slot4TextField.setText(Integer.toString(totalSlots / 4));
+            } else if (totalSlots % 4 == 3) {
+                slot1TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot2TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot3TextField.setText(Integer.toString((totalSlots / 4) + 1));
+                slot4TextField.setText(Integer.toString(totalSlots / 4));
+            }
         }
     }
 

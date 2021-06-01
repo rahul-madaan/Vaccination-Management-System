@@ -240,10 +240,5 @@
             </Button>
             </children>
         </Pane>
-      <TextField prefHeight="25.0" prefWidth="44.0">
-         <font>
-            <Font name="3ds" size="16.0" />
-         </font>
-      </TextField>
     </children>
 </VBox>
