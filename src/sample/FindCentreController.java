@@ -237,6 +237,8 @@ public class FindCentreController implements Initializable {
                 centre.setDistrict(set.getString("District"));
                 centre.setState(set.getString("State"));
                 centre.setPinCode(set.getString("Pin_code"));
+                centre.setVaccineName(set.getString("vaccineName"));
+                centre.setVaccineCost(set.getInt("vaccineCost"));
                 centreList.add(centre);
             }
 
@@ -245,8 +247,8 @@ public class FindCentreController implements Initializable {
             colHospitalName.setCellValueFactory(new PropertyValueFactory<>("HospitalName"));
             colCentreAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
             colCentrePinCode.setCellValueFactory(new PropertyValueFactory<>("PinCode"));
-            //colVaccineName.setCellValueFactory(new PropertyValueFactory<>("Vaccine_Name"));
-            //colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+            colVaccineName.setCellValueFactory(new PropertyValueFactory<>("VaccineName"));
+            colCost.setCellValueFactory(new PropertyValueFactory<>("vaccineCost"));
 
             Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate1 = (param) -> {
                 final TableCell<VaccineCentre, String> cell = new TableCell<>() {
@@ -258,7 +260,7 @@ public class FindCentreController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Book");
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -288,7 +290,7 @@ public class FindCentreController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Book");
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -318,7 +320,7 @@ public class FindCentreController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Book");
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -348,7 +350,7 @@ public class FindCentreController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Book");
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
