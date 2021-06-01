@@ -1,12 +1,19 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -49,7 +56,8 @@ public class addNewMemberController implements Initializable {
         maleRadioButton.setToggleGroup(maleFemaleToggleGroup);
     }
 
-    public void addMemberButtonClicked() throws SQLException {
+
+    public void addMemberButtonClicked(javafx.event.ActionEvent event) throws SQLException, IOException {
         String name = nameTextField.getText();
         String aadhaarNumber = aadhaarNumberTextField.getText();
         Date dateOfBirth = java.sql.Date.valueOf(dateOfBirthDatePicker.getValue());
@@ -66,6 +74,16 @@ public class addNewMemberController implements Initializable {
         conn = dbHandler.getConnection();
         conn.createStatement().executeUpdate(query);
 
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.close();
+
+        //((Node) allMembersController.event.getSource()).getScene().getWindow().setWidth(((Node) allMembersController.event.getSource()).getScene().getWidth() + 0.001);
+
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
+        Scene findCentreScene = new Scene(scene2Parent);
+        Stage window1 = (Stage) ((Node) allMembersController.event.getSource()).getScene().getWindow();
+        window1.setScene(findCentreScene);
+        window1.show();
     }
 }
 

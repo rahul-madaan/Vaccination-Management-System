@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 
 public class allMembersController implements Initializable {
 
+
     private ObservableList<Member> memberList;
     private Connection conn;
 
@@ -66,6 +67,7 @@ public class allMembersController implements Initializable {
     public static String selectedMemberName;
     public static String selectedMemberAadhaarNumber;
     public static String selectedPhoneNumber;
+    public static ActionEvent event;
 
 
     @FXML
@@ -74,6 +76,7 @@ public class allMembersController implements Initializable {
         Stage secondStage = new Stage();
         secondStage.setScene(new Scene(root));
         allMembersController.selectedPhoneNumber = mainPageController.activeUserPhoneNumber;
+        allMembersController.event = event;
         secondStage.show();
         secondStage.setTitle("part2");
     }
