@@ -78,7 +78,7 @@
                         <Image url="@../images/logo.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                <Label layoutX="451.0" layoutY="546.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
                     <font>
                         <Font size="16.0" />
                     </font></Label>
@@ -107,7 +107,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <CheckBox layoutX="795.0" layoutY="477.0" mnemonicParsing="false" />
+            <CheckBox layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
             <Label layoutX="45.0" layoutY="111.0" text="Patient Details:">
                <font>
                   <Font name="3ds" size="24.0" />
@@ -143,37 +143,93 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="38.0" layoutY="279.0" text="Select Time Slot:">
+            <Label layoutX="36.0" layoutY="259.0" text="Select Time Slot:">
                <font>
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="1081.0" layoutY="476.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Confirm Slot">
+            <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Confirm Slot">
                <font>
                   <Font name="3ds" size="22.0" />
                </font>
             </Button>
-            <RadioButton layoutX="42.0" layoutY="328.0" mnemonicParsing="false" text="9:00 AM - 11:00 AM">
+            <RadioButton layoutX="38.0" layoutY="298.0" mnemonicParsing="false" text="9:00 AM - 11:00 AM">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="42.0" layoutY="359.0" mnemonicParsing="false" text="11:00 AM - 1:00 PM">
+            <RadioButton layoutX="38.0" layoutY="329.0" mnemonicParsing="false" text="11:00 AM - 1:00 PM">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="42.0" layoutY="389.0" mnemonicParsing="false" text="1:00 PM - 3:00 PM">
+            <RadioButton layoutX="38.0" layoutY="359.0" mnemonicParsing="false" text="1:00 PM - 3:00 PM">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="42.0" layoutY="422.0" mnemonicParsing="false" text="3:00 PM - 5:00 PM">
+            <RadioButton layoutX="38.0" layoutY="392.0" mnemonicParsing="false" text="3:00 PM - 5:00 PM">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <Text layoutX="826.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hereby declare that the details furnished above are true and correct to the best of my knowledge" wrappingWidth="220.548828125" />
+            <Text layoutX="847.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hereby declare that the details furnished above are true and correct to the best of my knowledge" wrappingWidth="220.548828125" />
+            <ImageView fitHeight="83.0" fitWidth="189.0" layoutX="34.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="38.0" layoutY="430.0" text="Confirm CAPTCHA:">
+               <font>
+                  <Font name="3ds" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="111.0" layoutY="151.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="111.0" layoutY="173.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="211.0" layoutY="195.0" prefHeight="22.0" prefWidth="233.0" text="xxxxx xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="217.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="635.0" layoutY="151.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="596.0" layoutY="171.0" prefHeight="22.0" prefWidth="679.0" text="xxxx xxxxx xxxxx xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="626.0" layoutY="193.0" prefHeight="22.0" prefWidth="635.0" text="xxxx xxxxx xxxxx xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="596.0" layoutY="215.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="626.0" layoutY="237.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="267.0" layoutY="514.0" prefHeight="36.0" prefWidth="180.0" promptText="Enter CAPTCHA">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </TextField>
             </children>
         </Pane>
     </children>
