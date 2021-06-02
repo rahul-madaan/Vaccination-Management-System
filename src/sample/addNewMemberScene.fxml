@@ -121,8 +121,11 @@
                <font>
                   <Font name="3ds" size="17.0" />
                </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="maleFemaleToggleGroup" />
+               </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="femaleRadoButton" layoutX="281.0" layoutY="286.0" mnemonicParsing="false" text="Female">
+            <RadioButton fx:id="femaleRadoButton" layoutX="281.0" layoutY="286.0" mnemonicParsing="false" text="Female" toggleGroup="$maleFemaleToggleGroup">
                <font>
                   <Font name="3ds" size="17.0" />
                </font>

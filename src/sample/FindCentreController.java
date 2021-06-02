@@ -3,11 +3,16 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -87,6 +92,9 @@ public class FindCentreController implements Initializable {
 
     @FXML
     private TableColumn<VaccineCentre,String> colDate4;
+
+    public static VaccineCentre selectedCentre;
+    public static int selectedCentreID;
 
 
 
@@ -267,6 +275,17 @@ public class FindCentreController implements Initializable {
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate1.getText());
                                 alert.show();
+                                FindCentreController.selectedCentre = p;
+                                Parent scene2Parent = null;
+                                try {
+                                    scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene findCentreScene = new Scene(scene2Parent);
+                                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                window.setScene(findCentreScene);
+                                window.show();
                             });
                             setGraphic(editButton);
                         }
@@ -297,6 +316,16 @@ public class FindCentreController implements Initializable {
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate2.getText());
                                 alert.show();
+                                Parent scene2Parent = null;
+                                try {
+                                    scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene findCentreScene = new Scene(scene2Parent);
+                                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                window.setScene(findCentreScene);
+                                window.show();
                             });
                             setGraphic(editButton);
                         }
@@ -327,6 +356,16 @@ public class FindCentreController implements Initializable {
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate3.getText());
                                 alert.show();
+                                Parent scene2Parent = null;
+                                try {
+                                    scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene findCentreScene = new Scene(scene2Parent);
+                                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                window.setScene(findCentreScene);
+                                window.show();
                             });
                             setGraphic(editButton);
                         }
@@ -357,6 +396,16 @@ public class FindCentreController implements Initializable {
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate4.getText());
                                 alert.show();
+                                Parent scene2Parent = null;
+                                try {
+                                    scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene findCentreScene = new Scene(scene2Parent);
+                                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                window.setScene(findCentreScene);
+                                window.show();
                             });
                             setGraphic(editButton);
                         }

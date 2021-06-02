@@ -87,7 +87,7 @@
                   <Font name="3ds" size="32.0" />
                </font>
             </Label>
-            <Label layoutX="44.0" layoutY="173.0" text="Name:">
+            <Label layoutX="44.0" layoutY="182.0" text="Name:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
@@ -97,18 +97,18 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="195.0" text="Aadhaar Number:">
+            <Label layoutX="45.0" layoutY="215.0" text="Aadhaar Number:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="217.0" text="Age:">
+            <Label layoutX="47.0" layoutY="248.0" text="Age:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <CheckBox layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
-            <Label layoutX="45.0" layoutY="111.0" text="Patient Details:">
+            <CheckBox fx:id="agreeCheckBox" layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
+            <Label layoutX="45.0" layoutY="111.0" text="Personal Details:">
                <font>
                   <Font name="3ds" size="24.0" />
                </font>
@@ -118,12 +118,12 @@
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="215.0" text="State:">
+            <Label layoutX="537.0" layoutY="248.0" text="State:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="193.0" text="Address:">
+            <Label layoutX="535.0" layoutY="215.0" text="Address:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
@@ -133,17 +133,17 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="534.0" layoutY="171.0" text="Name:">
+            <Label layoutX="535.0" layoutY="182.0" text="Name:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="237.0" text="Pin Code:">
+            <Label layoutX="537.0" layoutY="281.0" text="Pin Code:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="36.0" layoutY="259.0" text="Select Time Slot:">
+            <Label layoutX="34.0" layoutY="284.0" text="Select Time Slot:">
                <font>
                   <Font name="3ds" size="24.0" />
                </font>
@@ -153,79 +153,82 @@
                   <Font name="3ds" size="22.0" />
                </font>
             </Button>
-            <RadioButton layoutX="38.0" layoutY="298.0" mnemonicParsing="false" text="9:00 AM - 11:00 AM">
+            <RadioButton fx:id="slot1RadioButton" layoutX="36.0" layoutY="323.0" mnemonicParsing="false" text="9:00 AM - 11:00 AM">
+               <font>
+                  <Font name="3ds" size="16.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="timeSlotToggleGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="slot2RadioButton" layoutX="36.0" layoutY="354.0" mnemonicParsing="false" text="11:00 AM - 1:00 PM" toggleGroup="$timeSlotToggleGroup">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="38.0" layoutY="329.0" mnemonicParsing="false" text="11:00 AM - 1:00 PM">
+            <RadioButton fx:id="slot3RadioButton" layoutX="36.0" layoutY="384.0" mnemonicParsing="false" text="1:00 PM - 3:00 PM" toggleGroup="$timeSlotToggleGroup">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="38.0" layoutY="359.0" mnemonicParsing="false" text="1:00 PM - 3:00 PM">
+            <RadioButton fx:id="slot4RadioButton" layoutX="36.0" layoutY="417.0" mnemonicParsing="false" text="3:00 PM - 5:00 PM" toggleGroup="$timeSlotToggleGroup">
                <font>
                   <Font name="3ds" size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="38.0" layoutY="392.0" mnemonicParsing="false" text="3:00 PM - 5:00 PM">
-               <font>
-                  <Font name="3ds" size="16.0" />
-               </font>
-            </RadioButton>
-            <Text layoutX="847.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hereby declare that the details furnished above are true and correct to the best of my knowledge" wrappingWidth="220.548828125" />
-            <ImageView fitHeight="83.0" fitWidth="189.0" layoutX="34.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="38.0" layoutY="430.0" text="Confirm CAPTCHA:">
+            <Text layoutX="847.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hereby declare that the personal details furnished above are true and correct to the best of my knowledge" wrappingWidth="220.548828125" />
+            <ImageView fx:id="captchaImageView" fitHeight="51.0" fitWidth="189.0" layoutX="41.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="38.0" layoutY="455.0" text="Confirm CAPTCHA:">
                <font>
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="151.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalRefIDLabel" layoutX="111.0" layoutY="151.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="173.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalNameLabel" layoutX="111.0" layoutY="182.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="211.0" layoutY="195.0" prefHeight="22.0" prefWidth="233.0" text="xxxxx xxxxx">
+            <Label fx:id="personalAadhaarNumberLabel" layoutX="211.0" layoutY="215.0" prefHeight="22.0" prefWidth="233.0" text="xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="93.0" layoutY="217.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalAgeLabel" layoutX="95.0" layoutY="248.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="635.0" layoutY="151.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
+            <Label fx:id="centreIDLabel" layoutX="635.0" layoutY="151.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="596.0" layoutY="171.0" prefHeight="22.0" prefWidth="679.0" text="xxxx xxxxx xxxxx xxxxx">
+            <Label fx:id="centreNameLabel" layoutX="597.0" layoutY="182.0" prefHeight="22.0" prefWidth="679.0" text="xxxx xxxxx xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="626.0" layoutY="193.0" prefHeight="22.0" prefWidth="635.0" text="xxxx xxxxx xxxxx xxxxx">
+            <Label fx:id="centreAddressLabel" layoutX="626.0" layoutY="215.0" prefHeight="22.0" prefWidth="635.0" text="xxxx xxxxx xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="596.0" layoutY="215.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+            <Label fx:id="centreStateLabel" layoutX="598.0" layoutY="248.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="626.0" layoutY="237.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+            <Label fx:id="centrePinCodeLabel" layoutX="628.0" layoutY="281.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="267.0" layoutY="514.0" prefHeight="36.0" prefWidth="180.0" promptText="Enter CAPTCHA">
+            <TextField fx:id="captchaTextField" layoutX="267.0" layoutY="514.0" prefHeight="36.0" prefWidth="180.0" promptText="Enter CAPTCHA">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>

@@ -68,6 +68,7 @@ public class allMembersController implements Initializable {
     public static String selectedMemberAadhaarNumber;
     public static String selectedPhoneNumber;
     public static ActionEvent event;
+    public static Member selectedMember;
 
 
     @FXML
@@ -156,6 +157,7 @@ public class allMembersController implements Initializable {
                                 alert.setContentText("You have Clicked\n" + p.getName() +
                                         " with Aadhaar Number \n" + p.getAadhaarNumber());
                                 alert.show();
+                                allMembersController.selectedMember = p;
                                 try {
                                     allMembersController.selectedMemberName = p.getName();
                                     allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();

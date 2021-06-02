@@ -42,6 +42,7 @@ public class addNewMemberController implements Initializable {
     @FXML
     private RadioButton femaleRadoButton;
 
+    @FXML
     private ToggleGroup maleFemaleToggleGroup;
 
 
@@ -52,8 +53,6 @@ public class addNewMemberController implements Initializable {
         dbHandler = new DbHandler();
         femaleRadoButton.setUserData("Female");
         maleRadioButton.setUserData("Male");
-        femaleRadoButton.setToggleGroup(maleFemaleToggleGroup);
-        maleRadioButton.setToggleGroup(maleFemaleToggleGroup);
     }
 
 
