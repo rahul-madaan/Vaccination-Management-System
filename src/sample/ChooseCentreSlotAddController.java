@@ -10,11 +10,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -86,6 +93,15 @@ public class ChooseCentreSlotAddController implements Initializable {
 
     public static  VaccineCentre selectedCentre;
 
+    @FXML
+    public Rectangle infoRectangle;
+
+    @FXML
+    public ImageView infoIconImageView;
+
+    @FXML
+    public Text infoText;
+
 
 
 
@@ -120,6 +136,13 @@ public class ChooseCentreSlotAddController implements Initializable {
         String date4 = c.getTime().toString();
         date4 = date4.substring(4,10);
         //colDate4.setText(date4);
+
+        if(EditVaccineSlotsController.updated==1){
+            infoRectangle.setVisible(true);
+            infoIconImageView.setVisible(true);
+            infoText.setVisible(true);
+            EditVaccineSlotsController.updated=0;
+        }
 
     }
 

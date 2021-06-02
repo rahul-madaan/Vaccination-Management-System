@@ -1,9 +1,20 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -62,6 +73,10 @@ public class EditVaccineSlotsController implements Initializable {
     private Connection conn;
 
     private DbHandler dbHandler;
+
+    public static int updated;
+
+
 
 
     @Override
@@ -280,7 +295,7 @@ public class EditVaccineSlotsController implements Initializable {
         }
     }
 
-    public void submitButtonCLicked() throws SQLException {
+    public void submitButtonCLicked(ActionEvent event) throws SQLException, IOException {
         VaccineCentre selectedVaccineCentre = ChooseCentreSlotAddController.selectedCentre;
         int totalSlots = Integer.parseInt(totalSlotsTextField.getText());
         int slot1 = Integer.parseInt(slot1TextField.getText());
@@ -312,6 +327,13 @@ public class EditVaccineSlotsController implements Initializable {
         conn = dbHandler.getConnection();
         conn.createStatement().executeUpdate(query);
 
+        updated=1;
+
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("ChooseCentreSlotAdd.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
 
 
     }

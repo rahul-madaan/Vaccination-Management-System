@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -129,6 +130,17 @@
                         <TableColumn fx:id="colAddSlotsButton" editable="false" prefWidth="108.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Add slots" />
                     </columns>
                 </TableView>
+            <Rectangle fx:id="infoRectangle" arcHeight="5.0" arcWidth="5.0" fill="#5bdd5d" height="59.0" layoutX="998.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 50px; -fx-arc-height: 50px;" visible="false" width="268.0" />
+            <ImageView fx:id="infoIconImageView" fitHeight="39.0" fitWidth="42.0" layoutX="1008.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/infoicon.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="infoText" layoutX="1061.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated centre successfully" visible="false" wrappingWidth="173.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
             </children>
         </Pane>
     </children>
