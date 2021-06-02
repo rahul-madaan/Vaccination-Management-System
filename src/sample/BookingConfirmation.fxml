@@ -148,7 +148,7 @@
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Confirm Slot">
+            <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" onAction="#confirmBookingButtonClick" prefHeight="46.0" prefWidth="173.0" text="Confirm Slot">
                <font>
                   <Font name="3ds" size="22.0" />
                </font>
@@ -233,6 +233,12 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </TextField>
+            <Button layoutX="451.0" layoutY="524.0" mnemonicParsing="false" onAction="#refreshButtonClicked" prefHeight="35.0" prefWidth="39.0" />
+            <ImageView fitHeight="25.0" fitWidth="32.0" layoutX="457.0" layoutY="529.0" onMouseClicked="#refreshButtonClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image-removebg-preview.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
     </children>

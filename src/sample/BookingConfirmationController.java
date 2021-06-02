@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -64,6 +65,9 @@ public class BookingConfirmationController implements Initializable {
     @FXML
     private ToggleGroup timeSlotToggleGroup;
 
+    @FXML
+    private ImageView refreshButtonImageView;
+
     private Connection conn;
     private DbHandler dbHandler;
     private static String captchaCode;
@@ -73,7 +77,41 @@ public class BookingConfirmationController implements Initializable {
         dbHandler = new DbHandler();
         loadCaptcha();
         loadDetailsOnLabels();
+    }
+
+    @FXML
+    public void refreshButtonClicked(){
+        int min =1;
+        int max = 1070;
+        int randomNumber = (int) ((Math.random() * (max - min)) + min);
+
+        String query = "SELECT images FROM captchaimages WHERE serialNumber = "+ randomNumber +";";
+
+        conn = dbHandler.getConnection();
+        ResultSet set = null;
+        try {
+            set = conn.createStatement().executeQuery(query);
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
+        String imageName = null;
+        while (true) {
+            try {
+                if (!set.next()) break;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            try {
+                imageName = set.getString("images");
+                BookingConfirmationController.captchaCode = imageName;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        captchaImageView.setImage(new Image("file:C:\\Users\\dell\\IdeaProjects\\Vaccine_CodeForCovid\\src\\images\\samples\\" +imageName+ ".png"));
+
+
+    }
 
     public void loadCaptcha(){
         int min =1;
@@ -121,7 +159,27 @@ public class BookingConfirmationController implements Initializable {
         personalAgeLabel.setText(Integer.toString(selectedMember.getAge()));
     }
 
-    public void confirmBookingButtonCLick(){
+    public void confirmBookingButtonClick(){
+        if(!slot1RadioButton.isSelected()&&!slot2RadioButton.isSelected()&&
+        !slot3RadioButton.isSelected()&&!slot4RadioButton.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select a time slot");
+            alert.show();
+            return;
+        }
+        if(!captchaTextField.getText().equals(captchaCode)){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter correct CAPTCHA!");
+            alert.show();
+            return;
+        }
+        if(!agreeCheckBox.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please click on the check box to proceed!");
+            alert.show();
+            return;
+        }
+
         /*
         check is checkbox ticked
         check time selected or not
@@ -132,6 +190,7 @@ public class BookingConfirmationController implements Initializable {
         update dose1 centreID
         update dose 1 date
         update dose1 slot
+        show date in confirm slot window
 
 
          */
