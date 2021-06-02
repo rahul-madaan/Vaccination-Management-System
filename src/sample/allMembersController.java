@@ -11,6 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -63,6 +66,15 @@ public class allMembersController implements Initializable {
 
     @FXML
     private Label phoneNumberLabel;
+
+    @FXML
+    private ImageView infoIconImageView;
+
+    @FXML
+    private Rectangle notificationRectangle;
+
+    @FXML
+    private Text notificationText;
 
     public static String selectedMemberName;
     public static String selectedMemberAadhaarNumber;
@@ -217,5 +229,15 @@ public class allMembersController implements Initializable {
         dbHandler = new DbHandler();
         populateMembersTable();
         phoneNumberLabel.setText(mainPageController.activeUserPhoneNumber);
+        if(BookingConfirmationController.bookingStatus==true){
+            notificationRectangle.setVisible(true);
+            notificationText.setVisible(true);
+            infoIconImageView.setVisible(true);
+            BookingConfirmationController.bookingStatus=false;
+        }else{
+            notificationRectangle.setVisible(false);
+            notificationText.setVisible(false);
+            infoIconImageView.setVisible(false);
+        }
     }
 }

@@ -1,12 +1,19 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.io.IOException;
 import java.net.StandardSocketOptions;
 import java.net.URL;
 import java.sql.Connection;
@@ -72,6 +79,8 @@ public class BookingConfirmationController implements Initializable {
     private Connection conn;
     private DbHandler dbHandler;
     private static String captchaCode;
+
+    public static Boolean bookingStatus = false;
 
 
 
@@ -168,7 +177,7 @@ public class BookingConfirmationController implements Initializable {
         personalAgeLabel.setText(Integer.toString(selectedMember.getAge()));
     }
 
-    public void confirmBookingButtonClick() throws SQLException {
+    public void confirmBookingButtonClick(ActionEvent event) throws SQLException, IOException {
         if(!slot1RadioButton.isSelected()&&!slot2RadioButton.isSelected()&&
         !slot3RadioButton.isSelected()&&!slot4RadioButton.isSelected()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -242,6 +251,14 @@ public class BookingConfirmationController implements Initializable {
                 "dose1centreID = "+ selectedCentreID +" , dose1slot = "+ Integer.parseInt(Character.toString(selectedSlot.charAt(1))) +" , dose1date = '"+ selectedDate +"' , dose1vaccineName = '"+ selectedCentre.getVaccineName() +"' where refID = "+selectedMemberRefID+";";
         conn.createStatement().executeUpdate(query);
         //System.out.println(query);
+
+        BookingConfirmationController.bookingStatus = true;
+
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
 
 
     }

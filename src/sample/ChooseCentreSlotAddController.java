@@ -142,6 +142,10 @@ public class ChooseCentreSlotAddController implements Initializable {
             infoIconImageView.setVisible(true);
             infoText.setVisible(true);
             EditVaccineSlotsController.updated=0;
+        }else{
+            infoRectangle.setVisible(false);
+            infoIconImageView.setVisible(false);
+            infoText.setVisible(false);
         }
 
     }

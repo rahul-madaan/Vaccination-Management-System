@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -120,6 +121,17 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Rectangle fx:id="notificationRectangle" arcHeight="5.0" arcWidth="5.0" fill="#0abc13" height="68.0" layoutX="858.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50px; -fx-arc-width: 50px;" width="398.0" />
+            <ImageView fx:id="infoIconImageView" fitHeight="46.0" fitWidth="46.0" layoutX="877.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/infoicon.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="notificationText" layoutX="952.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked slot successfully!">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

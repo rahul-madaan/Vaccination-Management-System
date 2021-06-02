@@ -259,6 +259,68 @@ public class FindCentreController implements Initializable {
             colVaccineName.setCellValueFactory(new PropertyValueFactory<>("VaccineName"));
             colCost.setCellValueFactory(new PropertyValueFactory<>("vaccineCost"));
 
+            java.util.Date date=new java.util.Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(date);
+            c.add(Calendar.DATE, 1);
+            String date1 = c.getTime().toString();
+            String date1temp = date1.substring(4,7);
+            date1 = date1.substring(8,10);
+            date1 = date1temp + date1;
+            String date1S1 = date1 + "s1";
+            String date1S2 = date1 + "s2";
+            String date1S3 = date1 + "s3";
+            String date1S4 = date1 + "s4";
+
+
+            c.add(Calendar.DATE, 1);
+            String date2 = c.getTime().toString();
+            String date2temp = date2.substring(4,7);
+            date2 = date2.substring(8,10);
+            date2 = date2temp + date2;
+            String date2S1 = date2 + "s1";
+            String date2S2 = date2 + "s2";
+            String date2S3 = date2 + "s3";
+            String date2S4 = date2 + "s4";
+
+            c.add(Calendar.DATE, 1);
+            String date3 = c.getTime().toString();
+            String date3temp = date3.substring(4,7);
+            date3 = date3.substring(8,10);
+            date3 = date3temp + date3;
+            String date3S1 = date3 + "s1";
+            String date3S2 = date3 + "s2";
+            String date3S3 = date3 + "s3";
+            String date3S4 = date3 + "s4";
+
+            c.add(Calendar.DATE, 1);
+            String date4 = c.getTime().toString();
+            String date4temp = date4.substring(4,7);
+            date4 = date4.substring(8,10);
+            date4 = date4temp + date4;
+            String date4S1 = date4 + "s1";
+            String date4S2 = date4 + "s2";
+            String date4S3 = date4 + "s3";
+            String date4S4 = date4 + "s4";
+
+            final int date1S1count;
+            final int date1s2Count;
+            final int date1s3Count;
+            int date1s4Count;
+            int date2s1Count;
+            int date2s2Count;
+            int date2s3Count;
+            int date2s4Count;
+            int date3s1Count;
+            int date3s2Count;
+            int date3s3Count;
+            int date3s4Count;
+            int date4s1Count;
+            int date4s2Count;
+            int date4s3Count;
+            int date4s4Count;
+
+
             Callback<TableColumn<VaccineCentre, String>, TableCell<VaccineCentre, String>> cellFactoryDate1 = (param) -> {
                 final TableCell<VaccineCentre, String> cell = new TableCell<>() {
 
