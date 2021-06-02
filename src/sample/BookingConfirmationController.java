@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.awt.event.ActionEvent;
+import java.net.StandardSocketOptions;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -71,6 +72,7 @@ public class BookingConfirmationController implements Initializable {
     private Connection conn;
     private DbHandler dbHandler;
     private static String captchaCode;
+
 
 
 
@@ -191,8 +193,8 @@ public class BookingConfirmationController implements Initializable {
         check is checkbox ticked====>DONE
         check time selected or not====>DONE
         check captcha====>DONE
-        update total slots (-1)
-        update affected timeslot (-1)
+        update total slots (-1) ====> DONE
+        update affected timeslot (-1) ====>DONE
         update dose1booking status or dose2booking status depending upon which dose number
         update dose1 centreID
         update dose 1 date
@@ -230,6 +232,17 @@ public class BookingConfirmationController implements Initializable {
         conn = dbHandler.getConnection();
         query = "UPDATE  slots SET "+ selectedDate +" = "+ (totalSlots - 1) +" , "+ slot +" = "+ (specificSlots-1) +" where centreID = "+selectedCentreID+";";
         conn.createStatement().executeUpdate(query);
+
+        Member selectedMember = allMembersController.selectedMember;
+        String selectedMemberRefID = selectedMember.getRefID().toString();
+
+        VaccineCentre selectedCentre = FindCentreController.selectedCentre;
+
+        query = "UPDATE  members SET dose1status = 'Booked', " +
+                "dose1centreID = "+ selectedCentreID +" , dose1slot = "+ Integer.parseInt(Character.toString(selectedSlot.charAt(1))) +" , dose1date = '"+ selectedDate +"' , dose1vaccineName = '"+ selectedCentre.getVaccineName() +"' where refID = "+selectedMemberRefID+";";
+        conn.createStatement().executeUpdate(query);
+        //System.out.println(query);
+
 
     }
 
@@ -272,4 +285,5 @@ public class BookingConfirmationController implements Initializable {
             slot4RadioButton.setDisable(true);
         }
     }
+
 }

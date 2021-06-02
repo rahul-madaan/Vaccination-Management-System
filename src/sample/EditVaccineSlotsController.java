@@ -133,7 +133,7 @@ public class EditVaccineSlotsController implements Initializable {
         else if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("covaxin")){
             covaxinRadioButton.setSelected(true);
         }
-        else if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("covishield")){
+        else if(selectedVaccineCentre.getVaccineName().equalsIgnoreCase("Sputnik V")){
             sputnikvRadioButton.setSelected(true);
         }
     }

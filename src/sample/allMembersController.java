@@ -97,8 +97,16 @@ public class allMembersController implements Initializable {
                 member.setName(set.getString("name"));
                 member.setAadhaarNumber(set.getString("AadhaarNumber"));
                 member.setAge(set.getInt("Age"));
-                member.setDose1Status(set.getBoolean("Dose1Status"));
-                member.setDose2Status(set.getBoolean("Dose2Status"));
+                member.setDose1Status(set.getString("Dose1Status"));
+                member.setDose2Status(set.getString("Dose2Status"));
+                member.setDose1CentreID(set.getString("dose1centreID"));
+                member.setDose2CentreID(set.getString("dose2centreID"));
+                member.setDose1date(set.getString("dose1date"));
+                member.setDose2date(set.getString("dose2date"));
+                member.setDose1Slot(set.getInt("dose1slot"));
+                member.setDose2Slot(set.getInt("dose2slot"));
+                member.setDose1Name(set.getString("dose1vaccineName"));
+                member.setDose2Name(set.getString("dose2vaccineName"));
                 memberList.add(member);
             }
 

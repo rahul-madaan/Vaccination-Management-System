@@ -9,10 +9,74 @@ public class Member {
     private String aadhaarNumber;
     private Date DOB;
     private Integer age;
-    private boolean dose1Status;
-    private boolean dose2Status;
+    private String dose1Status;
+    private String dose2Status;
     private String dose1CentreID;
     private String dose2CentreID;
+    private String dose1date;
+    private String dose2date;
+    private int dose1Slot;
+    private int dose2Slot;
+    private String dose1Name;
+    private String dose2Name;
+
+    public String getDose1Status() {
+        return dose1Status;
+    }
+
+    public String getDose2Status() {
+        return dose2Status;
+    }
+
+    public String getDose1date() {
+        return dose1date;
+    }
+
+    public void setDose1date(String dose1date) {
+        this.dose1date = dose1date;
+    }
+
+    public String getDose2date() {
+        return dose2date;
+    }
+
+    public void setDose2date(String dose2date) {
+        this.dose2date = dose2date;
+    }
+
+    public int getDose1Slot() {
+        return dose1Slot;
+    }
+
+    public void setDose1Slot(int dose1Slot) {
+        this.dose1Slot = dose1Slot;
+    }
+
+    public int getDose2Slot() {
+        return dose2Slot;
+    }
+
+    public void setDose2Slot(int dose2Slot) {
+        this.dose2Slot = dose2Slot;
+    }
+
+    public String getDose1Name() {
+        return dose1Name;
+    }
+
+    public void setDose1Name(String dose1Name) {
+        this.dose1Name = dose1Name;
+    }
+
+    public String getDose2Name() {
+        return dose2Name;
+    }
+
+    public void setDose2Name(String dose2Name) {
+        this.dose2Name = dose2Name;
+    }
+
+
 
     public Integer getRefID() {
         return refID;
@@ -62,19 +126,17 @@ public class Member {
         this.age = age;
     }
 
-    public boolean isDose1Status() {
+    public String isDose1Status() {
         return dose1Status;
     }
 
-    public void setDose1Status(boolean dose1Status) {
+    public void setDose1Status(String dose1Status) {
         this.dose1Status = dose1Status;
     }
 
-    public boolean isDose2Status() {
-        return dose2Status;
-    }
+    public String isDose2Status() { return dose2Status; }
 
-    public void setDose2Status(boolean dose2Status) {
+    public void setDose2Status(String dose2Status) {
         this.dose2Status = dose2Status;
     }
 
