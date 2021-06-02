@@ -95,6 +95,7 @@ public class FindCentreController implements Initializable {
 
     public static VaccineCentre selectedCentre;
     public static int selectedCentreID;
+    public static String selectedDate;
 
 
 
@@ -276,6 +277,7 @@ public class FindCentreController implements Initializable {
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate1.getText());
                                 alert.show();
                                 FindCentreController.selectedCentre = p;
+                                FindCentreController.selectedDate = colDate1.getText().replace(" ","");
                                 Parent scene2Parent = null;
                                 try {
                                     scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
@@ -317,6 +319,7 @@ public class FindCentreController implements Initializable {
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate2.getText());
                                 alert.show();
                                 FindCentreController.selectedCentre = p;
+                                FindCentreController.selectedDate = colDate2.getText().replace(" ","");
                                 Parent scene2Parent = null;
                                 try {
                                     scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
@@ -358,6 +361,7 @@ public class FindCentreController implements Initializable {
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate3.getText());
                                 alert.show();
                                 FindCentreController.selectedCentre = p;
+                                FindCentreController.selectedDate = colDate3.getText().replace(" ","");
                                 Parent scene2Parent = null;
                                 try {
                                     scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
@@ -399,6 +403,7 @@ public class FindCentreController implements Initializable {
                                         " with Pin code \n" + p.getPinCode() + "\nand date " + colDate4.getText());
                                 alert.show();
                                 FindCentreController.selectedCentre = p;
+                                FindCentreController.selectedDate = colDate4.getText().replace(" ","");
                                 Parent scene2Parent = null;
                                 try {
                                     scene2Parent = FXMLLoader.load(getClass().getResource("BookingConfirmation.fxml"));
