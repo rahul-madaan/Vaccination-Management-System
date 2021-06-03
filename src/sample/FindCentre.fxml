@@ -119,18 +119,18 @@
             </TextField>
             <ComboBox fx:id="statesComboBox" layoutX="573.0" layoutY="111.0" onAction="#populateComboBoxDistricts" onMouseClicked="#clearDistrictSelection" prefHeight="33.0" prefWidth="248.0" promptText="Select State" style="-fx-font-size: 15px;" />
             <ComboBox fx:id="districtsComboBox" layoutX="974.0" layoutY="111.0" onAction="#populateVaccineCentresTable" prefHeight="33.0" prefWidth="248.0" style="-fx-font-size: 15px;" />
-            <TableView fx:id="vaccineCentreTableView" layoutX="78.0" layoutY="162.0" prefHeight="360.0" prefWidth="1144.0">
+            <TableView fx:id="vaccineCentreTableView" layoutX="78.0" layoutY="162.0" prefHeight="360.0" prefWidth="1151.0">
               <columns>
                 <TableColumn fx:id="colCentreID" editable="false" prefWidth="77.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="CentreID" />
                 <TableColumn fx:id="colHospitalName" editable="false" prefWidth="282.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Name" />
                   <TableColumn fx:id="colCentreAddress" editable="false" prefWidth="284.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Address" />
                   <TableColumn fx:id="colCentrePinCode" editable="false" minWidth="0.0" prefWidth="112.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Pin Code" />
                   <TableColumn fx:id="colVaccineName" editable="false" prefWidth="108.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Vaccine Name" />
-                  <TableColumn fx:id="colCost" editable="false" prefWidth="59.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Cost" />
+                  <TableColumn fx:id="colCost" editable="false" prefWidth="53.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Cost" />
                   <TableColumn fx:id="colDate1" editable="false" prefWidth="63.0" resizable="false" sortable="false" text="Date 1" />
                   <TableColumn fx:id="colDate2" editable="false" prefWidth="56.0" resizable="false" sortable="false" text="Date 2" />
-                  <TableColumn fx:id="colDate3" editable="false" prefWidth="52.0" resizable="false" sortable="false" text="Date 3" />
-                  <TableColumn fx:id="colDate4" editable="false" prefWidth="49.0" resizable="false" sortable="false" text="Date 4" />
+                  <TableColumn fx:id="colDate3" editable="false" prefWidth="56.0" resizable="false" sortable="false" text="Date 3" />
+                  <TableColumn fx:id="colDate4" editable="false" prefWidth="58.0" resizable="false" sortable="false" text="Date 4" />
               </columns>
             </TableView>
             </children>
