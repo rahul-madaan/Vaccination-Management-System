@@ -113,22 +113,22 @@
                </font>
             </Label>
             <ComboBox fx:id="selectDateComboBox" layoutX="185.0" layoutY="293.0" onAction="#dateSelected" prefHeight="31.0" prefWidth="153.0" style="-fx-font-size: -15px;" />
-            <Label fx:id="centreIDLabel" layoutX="145.0" layoutY="108.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
+            <Label fx:id="centreIDLabel" layoutX="215.0" layoutY="108.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="centreNameLabel" layoutX="173.0" layoutY="139.0" prefHeight="31.0" prefWidth="1011.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
+            <Label fx:id="centreNameLabel" layoutX="215.0" layoutY="139.0" prefHeight="31.0" prefWidth="1011.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="centreAddressLabel" layoutX="191.0" layoutY="170.0" prefHeight="31.0" prefWidth="1076.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
+            <Label fx:id="centreAddressLabel" layoutX="215.0" layoutY="170.0" prefHeight="31.0" prefWidth="1076.0" text="XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="centrePinCodeLabel" layoutX="203.0" layoutY="227.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
+            <Label fx:id="centrePinCodeLabel" layoutX="215.0" layoutY="227.0" prefHeight="31.0" prefWidth="146.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>
@@ -223,7 +223,7 @@
                   <Font name="3ds" size="16.0" />
                </font>
             </TextField>
-            <Label fx:id="centreStateLabel" layoutX="174.0" layoutY="201.0" prefHeight="31.0" prefWidth="237.0" text="XXXXXX">
+            <Label fx:id="centreStateLabel" layoutX="215.0" layoutY="201.0" prefHeight="31.0" prefWidth="237.0" text="XXXXXX">
                <font>
                   <Font name="3ds" size="18.0" />
                </font>

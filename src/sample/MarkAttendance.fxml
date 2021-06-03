@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChooseCentreSlotAddController">
+    <children>
+        <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
+            <children>
+                <Label alignment="CENTER" cache="true" contentDisplay="CENTER" prefHeight="32.0" prefWidth="285.0" style="-fx-background-color: #d3483a;" text="Ministry of Health and Family Welfare " textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" text="FAQ Section" />
+                <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+            </children>
+        </HBox>
+        <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+            <children>
+                <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Region prefHeight="92.0" prefWidth="981.0" />
+                <AnchorPane prefHeight="92.0" prefWidth="423.0">
+                    <children>
+                        <Rectangle fx:id="infoRectangle" arcHeight="5.0" arcWidth="5.0" fill="#5bdd5d" height="59.0" layoutX="19.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 50px; -fx-arc-height: 50px;" visible="false" width="268.0" />
+                        <ImageView fx:id="infoIconImageView" fitHeight="39.0" fitWidth="42.0" layoutX="29.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                            <image>
+                                <Image url="@../images/infoicon.png" />
+                            </image>
+                        </ImageView>
+                        <Text fx:id="infoText" layoutX="82.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated centre successfully" visible="false" wrappingWidth="173.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            </children>
+            <opaqueInsets>
+                <Insets left="50.0" />
+            </opaqueInsets>
+        </HBox>
+        <Pane prefHeight="700.0" prefWidth="1300.0">
+            <children>
+                <Label layoutX="55.0" layoutY="75.0" prefHeight="25.0" prefWidth="173.0" text="Vaccination Drive" textFill="#a43125">
+                    <font>
+                        <Font name="Arial Bold" size="17.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <ImageView fitHeight="156.0" fitWidth="182.0" layoutX="33.0" layoutY="-81.0">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                <Label layoutX="78.0" layoutY="107.0" prefHeight="39.0" prefWidth="94.0" text="Search by:">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <RadioButton fx:id="searchByDistrictRadioButton" layoutX="200.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleClicked" text="District">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="searchByPinCodeRadioButton" layoutX="306.0" layoutY="115.0" mnemonicParsing="false" onAction="#districtPinCodeToggleClicked" text="Pincode">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </RadioButton>
+                <Label fx:id="selectStateLabel" layoutX="495.0" layoutY="107.0" prefHeight="39.0" prefWidth="59.0" text="State:">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="selectDistrictLabel" layoutX="876.0" layoutY="108.0" prefHeight="39.0" prefWidth="79.0" text="District:">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="pinCodeLabel" layoutX="668.0" layoutY="107.0" prefHeight="39.0" prefWidth="79.0" text="Pincode:">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="pinCodeTextField" layoutX="767.0" layoutY="105.0" onKeyPressed="#handleEnter" visible="false">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </TextField>
+                <ComboBox fx:id="statesComboBox" layoutX="573.0" layoutY="111.0" onAction="#populateComboBoxDistricts" onMouseClicked="#clearDistrictSelection" prefHeight="33.0" prefWidth="248.0" promptText="Select State" style="-fx-font-size: 15px;" />
+                <ComboBox fx:id="districtsComboBox" layoutX="974.0" layoutY="111.0" onAction="#populateVaccineCentresTable" prefHeight="33.0" prefWidth="248.0" style="-fx-font-size: 15px;" />
+                <TableView fx:id="vaccineCentreTableView" layoutX="78.0" layoutY="162.0" prefHeight="360.0" prefWidth="1144.0">
+                    <columns>
+                        <TableColumn fx:id="colCentreID" editable="false" prefWidth="77.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="CentreID" />
+                        <TableColumn fx:id="colHospitalName" editable="false" prefWidth="300.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Name" />
+                        <TableColumn fx:id="colCentreAddress" editable="false" prefWidth="383.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Address" />
+                        <TableColumn fx:id="colCentrePinCode" editable="false" minWidth="0.0" prefWidth="142.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Pin Code" />
+                        <TableColumn fx:id="colVaccineName" editable="false" prefWidth="132.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Vaccine Name" />
+                        <TableColumn fx:id="colAddSlotsButton" editable="false" prefWidth="108.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Add slots" />
+                    </columns>
+                </TableView>
+                <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" prefHeight="33.0" prefWidth="85.0" text="Log Out">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+                <Button layoutX="981.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClick" prefHeight="33.0" prefWidth="137.0" text="Back to Main Menu">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+</VBox>

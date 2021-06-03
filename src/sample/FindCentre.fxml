@@ -137,7 +137,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="993.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="33.0" prefWidth="129.0" text="back to main page">
+            <Button layoutX="993.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="33.0" prefWidth="129.0" text="Back To Main Page">
                <font>
                   <Font size="13.0" />
                </font>
