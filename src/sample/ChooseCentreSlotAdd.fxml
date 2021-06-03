@@ -145,7 +145,12 @@
                         <TableColumn fx:id="colAddSlotsButton" editable="false" prefWidth="108.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Add slots" />
                     </columns>
                 </TableView>
-            <Button layoutX="1085.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClick" prefHeight="33.0" prefWidth="137.0" text="Back to Main Menu">
+            <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" prefHeight="33.0" prefWidth="85.0" text="Log Out">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="981.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClick" prefHeight="33.0" prefWidth="137.0" text="Back to Main Menu">
                <font>
                   <Font size="13.0" />
                </font>

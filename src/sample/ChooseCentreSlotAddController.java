@@ -159,6 +159,15 @@ public class ChooseCentreSlotAddController implements Initializable {
     }
 
     @FXML
+    private void adminLogoutButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
+
+    @FXML
     private void clearDistrictSelection(){
         districtsComboBox.setValue("");//to remove any selection if user changes state after selecting district
         districtsComboBox.setValue("Select District");    }
