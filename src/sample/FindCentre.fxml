@@ -52,7 +52,6 @@
         </HBox>
         <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
             <children>
-                <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                 <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/logo.png" />
@@ -133,6 +132,16 @@
                   <TableColumn fx:id="colDate4" editable="false" prefWidth="58.0" resizable="false" sortable="false" text="Date 4" />
               </columns>
             </TableView>
+            <Button layoutX="1135.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="33.0" prefWidth="85.0" text="Log out">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="993.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="33.0" prefWidth="129.0" text="back to main page">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

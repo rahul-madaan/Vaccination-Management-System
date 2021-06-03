@@ -105,6 +105,7 @@ public class ChooseCentreSlotAddController implements Initializable {
 
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
@@ -255,6 +256,9 @@ public class ChooseCentreSlotAddController implements Initializable {
             populateVaccineCentresTable();
         }
     }
+
+
+
 
     @FXML
     public void populateVaccineCentresTable(){

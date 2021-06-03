@@ -94,6 +94,15 @@ public class allMembersController implements Initializable {
         secondStage.setTitle("Add New Member");
     }
 
+    @FXML
+    public void logoutButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
+
     public void populateMembersTable(){
         String activeUserPhoneNumber = mainPageController.activeUserPhoneNumber;
         try {
