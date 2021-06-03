@@ -113,32 +113,32 @@
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="109.0" text="Vaccination Centre Details:">
+            <Label layoutX="624.0" layoutY="111.0" text="Vaccination Centre Details:">
                <font>
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="537.0" layoutY="248.0" text="State:">
+            <Label layoutX="626.0" layoutY="250.0" text="State:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="215.0" text="Address:">
+            <Label layoutX="624.0" layoutY="217.0" text="Address:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="149.0" text="Centre ID:">
+            <Label layoutX="624.0" layoutY="151.0" text="Centre ID:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="535.0" layoutY="182.0" text="Name:">
+            <Label layoutX="624.0" layoutY="184.0" text="Name:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="537.0" layoutY="281.0" text="Pin Code:">
+            <Label layoutX="626.0" layoutY="283.0" text="Pin Code:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
@@ -183,47 +183,47 @@
                   <Font name="3ds" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="personalRefIDLabel" layoutX="111.0" layoutY="151.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalRefIDLabel" layoutX="250.0" layoutY="151.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="personalNameLabel" layoutX="111.0" layoutY="182.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalNameLabel" layoutX="250.0" layoutY="182.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="personalAadhaarNumberLabel" layoutX="211.0" layoutY="215.0" prefHeight="22.0" prefWidth="233.0" text="xxxxx xxxxx">
+            <Label fx:id="personalAadhaarNumberLabel" layoutX="250.0" layoutY="215.0" prefHeight="22.0" prefWidth="233.0" text="xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="personalAgeLabel" layoutX="95.0" layoutY="248.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalAgeLabel" layoutX="250.0" layoutY="248.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="centreIDLabel" layoutX="635.0" layoutY="151.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
+            <Label fx:id="centreIDLabel" layoutX="751.0" layoutY="151.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="centreNameLabel" layoutX="597.0" layoutY="182.0" prefHeight="22.0" prefWidth="679.0" text="xxxx xxxxx xxxxx xxxxx">
+            <Label fx:id="centreNameLabel" layoutX="751.0" layoutY="184.0" prefHeight="30.0" prefWidth="569.0" text="xxxx xxxxx xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="centreAddressLabel" layoutX="626.0" layoutY="215.0" prefHeight="22.0" prefWidth="635.0" text="xxxx xxxxx xxxxx xxxxx">
+            <Label fx:id="centreAddressLabel" layoutX="751.0" layoutY="217.0" prefHeight="30.0" prefWidth="541.0" text="xxxx xxxxx xxxxx xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="centreStateLabel" layoutX="598.0" layoutY="248.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+            <Label fx:id="centreStateLabel" layoutX="752.0" layoutY="250.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="centrePinCodeLabel" layoutX="628.0" layoutY="281.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+            <Label fx:id="centrePinCodeLabel" layoutX="752.0" layoutY="283.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
@@ -239,6 +239,16 @@
                   <Image url="@../images/image-removebg-preview.png" />
                </image>
             </ImageView>
+            <Label layoutX="626.0" layoutY="321.0" text="Date:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedDateLabel" layoutX="752.0" layoutY="321.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>

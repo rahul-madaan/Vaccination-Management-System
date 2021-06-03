@@ -74,6 +74,9 @@ public class BookingConfirmationController implements Initializable {
     @FXML
     private ImageView refreshButtonImageView;
 
+    @FXML
+    private Label selectedDateLabel;
+
     private Connection conn;
     private DbHandler dbHandler;
     private static String captchaCode;
@@ -93,6 +96,7 @@ public class BookingConfirmationController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        printSelectedDate();
     }
 
     @FXML
@@ -321,6 +325,12 @@ public class BookingConfirmationController implements Initializable {
             alert.show();
             return;
         }
+    }
+
+    public void printSelectedDate(){
+        String selectedDate = FindCentreController.selectedDate;
+        selectedDate = selectedDate.substring(0,3) + " " + selectedDate.substring(3,5) + " 2021";
+        selectedDateLabel.setText(selectedDate);
     }
 
     public void checkTimeSlotAvailability() throws SQLException {
