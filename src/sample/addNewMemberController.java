@@ -6,10 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
@@ -57,6 +54,60 @@ public class addNewMemberController implements Initializable {
 
 
     public void addMemberButtonClicked(javafx.event.ActionEvent event) throws SQLException, IOException {
+        String nameOfMember = nameTextField.getText();
+        char[] chars = nameOfMember.toCharArray();
+        for(char c : chars){
+            if(Character.isDigit(c)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please do not use digits in Name");
+                alert.show();
+                return;
+            }
+        }
+        String aadhaarNumberOfMember = aadhaarNumberTextField.getText();
+        char[] chars1 = aadhaarNumberOfMember.toCharArray();
+        for(char c : chars1){
+            if(Character.isLetter(c)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please do not use letters in Aadhaar Number!");
+                alert.show();
+                return;
+            }
+        }
+        if (nameTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Name!");
+            alert.show();
+            return;
+        }
+        if (nameTextField.getText().length()<3){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter full Name!");
+            alert.show();
+            return;
+        }
+        if (aadhaarNumberTextField.getText().length()!=12){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter correct 12 Digit Aadhaar Number!");
+            alert.show();
+            return;
+        }
+        if (dateOfBirthDatePicker.getValue()==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select DOB!");
+            alert.show();
+            return;
+        }
+        if (!maleRadioButton.isSelected() && !femaleRadoButton.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select gender!");
+            alert.show();
+            return;
+        }
+
+
+
+
         String name = nameTextField.getText();
         String aadhaarNumber = aadhaarNumberTextField.getText();
         Date dateOfBirth = java.sql.Date.valueOf(dateOfBirthDatePicker.getValue());

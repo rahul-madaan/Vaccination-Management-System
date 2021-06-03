@@ -91,7 +91,7 @@ public class allMembersController implements Initializable {
         allMembersController.selectedPhoneNumber = mainPageController.activeUserPhoneNumber;
         allMembersController.event = event;
         secondStage.show();
-        secondStage.setTitle("part2");
+        secondStage.setTitle("Add New Member");
     }
 
     public void populateMembersTable(){

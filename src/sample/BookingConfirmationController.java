@@ -181,7 +181,25 @@ public class BookingConfirmationController implements Initializable {
 
     public void confirmBookingButtonClick(ActionEvent event) throws SQLException, IOException {
         if(allMembersController.selectedMember.getDose1Status().equalsIgnoreCase("not vaccinated")) {
-            giveAlertIfIncomplete();
+            if (!slot1RadioButton.isSelected() && !slot2RadioButton.isSelected() &&
+                    !slot3RadioButton.isSelected() && !slot4RadioButton.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please select a time slot");
+                alert.show();
+                return;
+            }
+            if (!captchaTextField.getText().equals(captchaCode)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter correct CAPTCHA!");
+                alert.show();
+                return;
+            }
+            if (!agreeCheckBox.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please click on the check box to proceed!");
+                alert.show();
+                return;
+            }
         /*
         check is checkbox ticked====>DONE
         check time selected or not====>DONE
@@ -242,7 +260,25 @@ public class BookingConfirmationController implements Initializable {
             window.show();
         }
         else if(allMembersController.selectedMember.getDose1Status()!=null && allMembersController.selectedMember.getDose2Status().equalsIgnoreCase("not Vaccinated")) {
-            giveAlertIfIncomplete();
+            if (!slot1RadioButton.isSelected() && !slot2RadioButton.isSelected() &&
+                    !slot3RadioButton.isSelected() && !slot4RadioButton.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please select a time slot");
+                alert.show();
+                return;
+            }
+            if (!captchaTextField.getText().equals(captchaCode)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter correct CAPTCHA!");
+                alert.show();
+                return;
+            }
+            if (!agreeCheckBox.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please click on the check box to proceed!");
+                alert.show();
+                return;
+            }
 
         /*
         check is checkbox ticked====>DONE
@@ -305,27 +341,7 @@ public class BookingConfirmationController implements Initializable {
         }
     }
 
-    public void giveAlertIfIncomplete(){
-        if (!slot1RadioButton.isSelected() && !slot2RadioButton.isSelected() &&
-                !slot3RadioButton.isSelected() && !slot4RadioButton.isSelected()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please select a time slot");
-            alert.show();
-            return;
-        }
-        if (!captchaTextField.getText().equals(captchaCode)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please enter correct CAPTCHA!");
-            alert.show();
-            return;
-        }
-        if (!agreeCheckBox.isSelected()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please click on the check box to proceed!");
-            alert.show();
-            return;
-        }
-    }
+
 
     public void printSelectedDate(){
         String selectedDate = FindCentreController.selectedDate;

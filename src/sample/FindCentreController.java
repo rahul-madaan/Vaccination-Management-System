@@ -290,7 +290,7 @@ public class FindCentreController implements Initializable {
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
-                                editButton.setStyle("-fx-background-color: green");
+                                editButton.setStyle("-fx-background-color: lawngreen");
                             }
 
                             editButton.setOnAction(event -> {
@@ -352,7 +352,7 @@ public class FindCentreController implements Initializable {
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
-                                editButton.setStyle("-fx-background-color: green");
+                                editButton.setStyle("-fx-background-color: lawngreen");
                             }
 
 
@@ -415,7 +415,7 @@ public class FindCentreController implements Initializable {
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
-                                editButton.setStyle("-fx-background-color: green");
+                                editButton.setStyle("-fx-background-color: lawngreen");
                             }
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
@@ -475,7 +475,7 @@ public class FindCentreController implements Initializable {
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
-                                editButton.setStyle("-fx-background-color: green");
+                                editButton.setStyle("-fx-background-color: lawngreen");
                             }
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());

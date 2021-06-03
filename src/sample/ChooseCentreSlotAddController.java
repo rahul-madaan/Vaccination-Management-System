@@ -149,6 +149,14 @@ public class ChooseCentreSlotAddController implements Initializable {
         }
 
     }
+    @FXML
+    private void backToMainMenuButtonClick(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminActions.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
 
     @FXML
     private void clearDistrictSelection(){
