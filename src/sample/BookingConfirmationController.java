@@ -12,9 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.net.StandardSocketOptions;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -178,25 +176,69 @@ public class BookingConfirmationController implements Initializable {
     }
 
     public void confirmBookingButtonClick(ActionEvent event) throws SQLException, IOException {
-        if(!slot1RadioButton.isSelected()&&!slot2RadioButton.isSelected()&&
-        !slot3RadioButton.isSelected()&&!slot4RadioButton.isSelected()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please select a time slot");
-            alert.show();
-            return;
+        if(allMembersController.selectedMember.getDose1Status().equalsIgnoreCase("not vaccinated")) {
+            giveAlertIfIncomplete();
+        /*
+        check is checkbox ticked====>DONE
+        check time selected or not====>DONE
+        check captcha====>DONE
+        update total slots (-1) ====> DONE
+        update affected timeslot (-1) ====>DONE
+        update dose1booking status or dose2booking status depending upon which dose number
+        update dose1 centreID
+        update dose 1 date
+        update dose1 slot
+        show date in confirm slot scene
+         */
+            String selectedDate = FindCentreController.selectedDate;
+            String selectedCentreID = Integer.toString(FindCentreController.selectedCentre.getCentreID());
+            String selectedSlot = null;
+            if (slot1RadioButton.isSelected()) {
+                selectedSlot = "S1";
+            } else if (slot2RadioButton.isSelected()) {
+                selectedSlot = "S2";
+            } else if (slot3RadioButton.isSelected()) {
+                selectedSlot = "S3";
+            } else if (slot4RadioButton.isSelected()) {
+                selectedSlot = "S4";
+            }
+            String slot = selectedDate + selectedSlot;
+            conn = dbHandler.getConnection();
+            String query = "SELECT * FROM slots where centreID = " + selectedCentreID + ";";
+            ResultSet set = conn.createStatement().executeQuery(query);
+
+            int totalSlots = 0;
+            int specificSlots = 0;
+
+            while (set.next()) {
+                totalSlots = set.getInt(selectedDate);
+                specificSlots = set.getInt(slot);
+            }
+
+            conn = dbHandler.getConnection();
+            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
+            conn.createStatement().executeUpdate(query);
+
+            Member selectedMember = allMembersController.selectedMember;
+            String selectedMemberRefID = selectedMember.getRefID().toString();
+
+            VaccineCentre selectedCentre = FindCentreController.selectedCentre;
+
+            query = "UPDATE  members SET dose1status = 'Booked', " +
+                    "dose1centreID = " + selectedCentreID + " , dose1slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" + selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
+            conn.createStatement().executeUpdate(query);
+            //System.out.println(query);
+
+            BookingConfirmationController.bookingStatus = true;
+
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
         }
-        if(!captchaTextField.getText().equals(captchaCode)){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please enter correct CAPTCHA!");
-            alert.show();
-            return;
-        }
-        if(!agreeCheckBox.isSelected()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please click on the check box to proceed!");
-            alert.show();
-            return;
-        }
+        else if(allMembersController.selectedMember.getDose1Status()!=null && allMembersController.selectedMember.getDose2Status().equalsIgnoreCase("not Vaccinated")) {
+            giveAlertIfIncomplete();
 
         /*
         check is checkbox ticked====>DONE
@@ -210,57 +252,75 @@ public class BookingConfirmationController implements Initializable {
         update dose1 slot
         show date in confirm slot window
          */
-        String selectedDate = FindCentreController.selectedDate;
-        String selectedCentreID = Integer.toString(FindCentreController.selectedCentre.getCentreID());
-        String selectedSlot=null;
-        if(slot1RadioButton.isSelected()){
-            selectedSlot = "S1";
+            String selectedDate = FindCentreController.selectedDate;
+            String selectedCentreID = Integer.toString(FindCentreController.selectedCentre.getCentreID());
+            String selectedSlot = null;
+            if (slot1RadioButton.isSelected()) {
+                selectedSlot = "S1";
+            } else if (slot2RadioButton.isSelected()) {
+                selectedSlot = "S2";
+            } else if (slot3RadioButton.isSelected()) {
+                selectedSlot = "S3";
+            } else if (slot4RadioButton.isSelected()) {
+                selectedSlot = "S4";
+            }
+            String slot = selectedDate + selectedSlot;
+            conn = dbHandler.getConnection();
+            String query = "SELECT * FROM slots where centreID = " + selectedCentreID + ";";
+            ResultSet set = conn.createStatement().executeQuery(query);
+
+            int totalSlots = 0;
+            int specificSlots = 0;
+
+            while (set.next()) {
+                totalSlots = set.getInt(selectedDate);
+                specificSlots = set.getInt(slot);
+            }
+
+            conn = dbHandler.getConnection();
+            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
+            conn.createStatement().executeUpdate(query);
+
+            Member selectedMember = allMembersController.selectedMember;
+            String selectedMemberRefID = selectedMember.getRefID().toString();
+
+            VaccineCentre selectedCentre = FindCentreController.selectedCentre;
+
+            query = "UPDATE  members SET dose2status = 'Booked', " +
+                    "dose2centreID = " + selectedCentreID + " , dose2slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose2date = '" + selectedDate + "' , dose2vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
+            conn.createStatement().executeUpdate(query);
+            //System.out.println(query);
+
+            BookingConfirmationController.bookingStatus = true;
+
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
         }
-        else if(slot2RadioButton.isSelected()){
-            selectedSlot = "S2";
+    }
+
+    public void giveAlertIfIncomplete(){
+        if (!slot1RadioButton.isSelected() && !slot2RadioButton.isSelected() &&
+                !slot3RadioButton.isSelected() && !slot4RadioButton.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select a time slot");
+            alert.show();
+            return;
         }
-        else if(slot3RadioButton.isSelected()){
-            selectedSlot = "S3";
+        if (!captchaTextField.getText().equals(captchaCode)) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter correct CAPTCHA!");
+            alert.show();
+            return;
         }
-        else if(slot4RadioButton.isSelected()){
-            selectedSlot = "S4";
+        if (!agreeCheckBox.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please click on the check box to proceed!");
+            alert.show();
+            return;
         }
-        String slot = selectedDate +selectedSlot;
-        conn = dbHandler.getConnection();
-        String query = "SELECT * FROM slots where centreID = "+selectedCentreID+";";
-        ResultSet set = conn.createStatement().executeQuery(query);
-
-        int totalSlots = 0;
-        int specificSlots = 0;
-
-        while(set.next()){
-            totalSlots = set.getInt(selectedDate);
-            specificSlots = set.getInt(slot);
-        }
-
-        conn = dbHandler.getConnection();
-        query = "UPDATE  slots SET "+ selectedDate +" = "+ (totalSlots - 1) +" , "+ slot +" = "+ (specificSlots-1) +" where centreID = "+selectedCentreID+";";
-        conn.createStatement().executeUpdate(query);
-
-        Member selectedMember = allMembersController.selectedMember;
-        String selectedMemberRefID = selectedMember.getRefID().toString();
-
-        VaccineCentre selectedCentre = FindCentreController.selectedCentre;
-
-        query = "UPDATE  members SET dose1status = 'Booked', " +
-                "dose1centreID = "+ selectedCentreID +" , dose1slot = "+ Integer.parseInt(Character.toString(selectedSlot.charAt(1))) +" , dose1date = '"+ selectedDate +"' , dose1vaccineName = '"+ selectedCentre.getVaccineName() +"' where refID = "+selectedMemberRefID+";";
-        conn.createStatement().executeUpdate(query);
-        //System.out.println(query);
-
-        BookingConfirmationController.bookingStatus = true;
-
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
-        Scene addMembersScene = new Scene(scene2Parent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(addMembersScene);
-        window.show();
-
-
     }
 
     public void checkTimeSlotAvailability() throws SQLException {

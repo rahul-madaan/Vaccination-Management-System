@@ -83,17 +83,17 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TableView fx:id="memberTable" layoutX="132.0" layoutY="237.0" prefHeight="207.0" prefWidth="1037.0">
+            <TableView fx:id="memberTable" layoutX="43.0" layoutY="237.0" prefHeight="207.0" prefWidth="1212.0">
               <columns>
                 <TableColumn fx:id="colRefID" editable="false" prefWidth="84.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Ref ID" />
                 <TableColumn fx:id="colName" editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Person Name" />
                   <TableColumn fx:id="colAadhaarNumber" editable="false" prefWidth="158.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Adhaar Number" />
                   <TableColumn fx:id="colAge" editable="false" minWidth="0.0" prefWidth="51.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Age" />
-                  <TableColumn fx:id="colDose1Status" editable="false" prefWidth="121.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 1 Status" />
-                  <TableColumn fx:id="colDose2Status" editable="false" prefWidth="127.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 2 status" />
-                  <TableColumn fx:id="colUpdate" editable="false" prefWidth="133.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Update Person" />
-                  <TableColumn fx:id="colSchedule" editable="false" minWidth="0.0" prefWidth="98.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Schedule" />
-                  <TableColumn fx:id="colDelete" editable="false" prefWidth="123.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Delete Person" />
+                  <TableColumn fx:id="colDose1Status" editable="false" prefWidth="164.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 1 Status" />
+                  <TableColumn fx:id="colDose2Status" editable="false" prefWidth="180.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 2 status" />
+                  <TableColumn fx:id="colUpdate" editable="false" prefWidth="158.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Update Person" />
+                  <TableColumn fx:id="colSchedule" editable="false" minWidth="0.0" prefWidth="151.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Schedule" />
+                  <TableColumn fx:id="colDelete" editable="false" minWidth="0.0" prefWidth="123.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Delete Person" />
               </columns>
             </TableView>
             <Button layoutX="1013.0" layoutY="455.0" mnemonicParsing="false" onAction="#addNewMemberButtonClicked" text="+ Add Member">

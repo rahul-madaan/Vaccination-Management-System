@@ -171,6 +171,23 @@ public class allMembersController implements Initializable {
                             setGraphic(null);
                         } else {
                             Button scheduleButton = new Button("Schedule");
+                            Member member = getTableView().getItems().get(getIndex());
+                            try {
+                                int disableButtonOrChangeText = disableScheduleButtonOrChangeText(member);
+                                if(disableButtonOrChangeText == 0){
+                                    scheduleButton.setText("Book Dose 1");
+                                }else if(disableButtonOrChangeText == 1){
+                                    scheduleButton.setText("Completed");
+                                    scheduleButton.setDisable(true);
+                                }else if(disableButtonOrChangeText == 2){
+                                    scheduleButton.setText("Book Dose 2");
+                                }
+                                else
+                                    System.out.println("some error here");
+                            } catch (SQLException throwables) {
+                                throwables.printStackTrace();
+                            }
+                            //add function to disable button if both scheduled
                             scheduleButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -242,6 +259,32 @@ public class allMembersController implements Initializable {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null,  throwable);
             throwable.printStackTrace();
         }
+
+    }
+
+    public int disableScheduleButtonOrChangeText(Member member) throws SQLException {
+        String query = "SELECT * FROM members WHERE refID = "+ member.getRefID() +";";
+
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+
+        String dose1Status=null;
+        String dose2Status=null;
+
+        while(set.next()){
+            dose1Status = set.getString("Dose1Status");
+            dose2Status = set.getString("Dose2Status");
+        }
+
+        if(dose1Status.equalsIgnoreCase("not vaccinated")&& dose2Status.equalsIgnoreCase("not vaccinated")){
+            return 0;//both non vaccinated
+        }else if(!dose1Status.equalsIgnoreCase("not vaccinated") && !dose2Status.equalsIgnoreCase("not vaccinated")){
+            return 1;//both vaccinated
+        }else if(!dose1Status.equalsIgnoreCase("not vaccinated") && dose2Status.equalsIgnoreCase("not vaccinated")){
+            return 2;//1 done, 2nd left
+        }
+        else return 3;
+
 
     }
 
