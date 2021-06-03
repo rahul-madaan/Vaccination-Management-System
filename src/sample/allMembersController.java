@@ -198,6 +198,44 @@ public class allMembersController implements Initializable {
 
             colSchedule.setCellFactory(cellFactorySchedule);
 
+            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactoryDelete = (param) -> {
+                final TableCell<Member, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button deleteButton = new Button("Delete");
+                            deleteButton.setOnAction(event -> {
+                                Member p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked\n" + p.getName() +
+                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
+                                alert.show();
+                                allMembersController.selectedMember = p;
+                                try {
+                                    allMembersController.selectedMemberName = p.getName();
+                                    allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
+                                    scheduleButtonClicked(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            });
+                            setGraphic(deleteButton);
+                        }
+                        setText(null);
+                    }
+                    ;
+                };
+
+                return cell;
+            };
+
+            colDelete.setCellFactory(cellFactoryDelete);
+
             memberTable.setItems(memberList);
 
         } catch (SQLException throwable) {
