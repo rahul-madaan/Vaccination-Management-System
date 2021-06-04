@@ -34,7 +34,7 @@ public class AdminLoginController implements Initializable {
     @FXML
     private Label errorLabel;
 
-
+    public static int adminCentreID;
     public static String adminPosition;
 
     @Override
@@ -71,6 +71,7 @@ public class AdminLoginController implements Initializable {
 
             position = bothSet.getString("position");
             AdminLoginController.adminPosition = position;
+            AdminLoginController.adminCentreID = bothSet.getInt("centreID");
             loginSignupButtonClickSuccess(event);
         }
     
@@ -78,6 +79,15 @@ public class AdminLoginController implements Initializable {
 
     public void loginSignupButtonClickSuccess(ActionEvent event) throws IOException {
         Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminActions.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
+
+    @FXML
+    public void userLoginButtonClick(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         Scene addMembersScene = new Scene(scene2Parent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(addMembersScene);

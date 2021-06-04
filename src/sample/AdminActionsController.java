@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminActionsController implements Initializable {
@@ -27,10 +30,14 @@ public class AdminActionsController implements Initializable {
 
     @FXML
     private Button deleteCentreButton;
+    private Connection conn;
+
+    private DbHandler dbHandler;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dbHandler = new DbHandler();
         if(AdminLoginController.adminPosition.equalsIgnoreCase("local")){
             addCentreButton.setDisable(true);
             deleteCentreButton.setDisable(true);
@@ -41,12 +48,47 @@ public class AdminActionsController implements Initializable {
     }
 
     @FXML
-    public void addVaccineSlotsButtonClick(ActionEvent event) throws IOException {
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("ChooseCentreSlotAdd.fxml"));
+    public void addVaccineSlotsButtonClick(ActionEvent event) throws IOException, SQLException {
+        if(AdminLoginController.adminPosition.equalsIgnoreCase("global")) {
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("ChooseCentreSlotAdd.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
+        }
+        else if(AdminLoginController.adminPosition.equalsIgnoreCase("local")){
+            String queryBoth = "SELECT * from vaccinecentres where CentreID = " + AdminLoginController.adminCentreID +" ;";
+            conn = dbHandler.getConnection();
+            ResultSet set = conn.createStatement().executeQuery(queryBoth);
+            VaccineCentre centre = new VaccineCentre();
+            while (set.next()){
+                centre.setCentreID(set.getInt("CentreID"));
+                centre.setHospitalName(set.getString("Hospital_Name"));
+                centre.setAddress(set.getString("Address"));
+                centre.setDistrict(set.getString("District"));
+                centre.setState(set.getString("State"));
+                centre.setPinCode(set.getString("Pin_code"));
+                centre.setVaccineName(set.getString("vaccineName"));
+                centre.setVaccineCost(set.getInt("vaccineCost"));
+            }
+
+            ChooseCentreSlotAddController.selectedCentre = centre;
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("EditVaccineSlots.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
+        }
+    }
+
+    @FXML
+    public void logoutButtonClicked(ActionEvent event)throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
         Scene addMembersScene = new Scene(scene2Parent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(addMembersScene);
         window.show();
+
     }
 
 

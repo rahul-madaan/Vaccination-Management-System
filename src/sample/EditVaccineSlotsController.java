@@ -154,6 +154,16 @@ public class EditVaccineSlotsController implements Initializable {
     }
 
     @FXML
+    public void mainMenuButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminActions.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+
+    }
+
+    @FXML
     public void dateSelected() throws SQLException {
         java.util.Date date=new java.util.Date();
         Calendar c = Calendar.getInstance();

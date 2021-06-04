@@ -102,6 +102,11 @@
                   <Font name="3ds" size="37.0" />
                </font>
             </Button>
+            <Button layoutX="1153.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutButtonClicked" text="Log out">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

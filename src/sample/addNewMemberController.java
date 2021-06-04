@@ -107,9 +107,6 @@ public class addNewMemberController implements Initializable {
             return;
         }
 
-
-
-
         String name = nameTextField.getText();
         String aadhaarNumber = aadhaarNumberTextField.getText();
         Date dateOfBirth = java.sql.Date.valueOf(dateOfBirthDatePicker.getValue());

@@ -233,6 +233,11 @@
                   <Font name="3ds" size="18.0" />
                </font>
             </Label>
+            <Button layoutX="1100.0" layoutY="14.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" text="Main Menu">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

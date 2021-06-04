@@ -99,6 +99,11 @@
                   <Font name="3ds" size="33.0" />
                </font>
             </Label>
+            <Button layoutX="1145.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLoginButtonClick" text="User Log in">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
            </children>
         </Pane>
     </children>
