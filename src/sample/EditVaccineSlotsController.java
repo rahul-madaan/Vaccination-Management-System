@@ -339,11 +339,21 @@ public class EditVaccineSlotsController implements Initializable {
 
         updated=1;
 
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("ChooseCentreSlotAdd.fxml"));
-        Scene addMembersScene = new Scene(scene2Parent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(addMembersScene);
-        window.show();
+        if(AdminLoginController.adminPosition.equalsIgnoreCase("global")) {
+
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("ChooseCentreSlotAdd.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
+        }
+        else if(AdminLoginController.adminPosition.equalsIgnoreCase("local")){
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminActions.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
+        }
 
 
     }

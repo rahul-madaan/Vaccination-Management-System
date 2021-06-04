@@ -8,6 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,6 +36,14 @@ public class AdminActionsController implements Initializable {
     private Connection conn;
 
     private DbHandler dbHandler;
+    @FXML
+    public Rectangle infoRectangle;
+
+    @FXML
+    public ImageView infoIconImageView;
+
+    @FXML
+    public Text infoText;
 
 
     @Override
@@ -44,6 +55,17 @@ public class AdminActionsController implements Initializable {
         }else if(AdminLoginController.adminPosition.equalsIgnoreCase("global")){
             addCentreButton.setDisable(false);
             deleteCentreButton.setDisable(false);
+        }
+
+        if(EditVaccineSlotsController.updated==1){
+            infoRectangle.setVisible(true);
+            infoIconImageView.setVisible(true);
+            infoText.setVisible(true);
+            EditVaccineSlotsController.updated=0;
+        }else{
+            infoRectangle.setVisible(false);
+            infoIconImageView.setVisible(false);
+            infoText.setVisible(false);
         }
     }
 
