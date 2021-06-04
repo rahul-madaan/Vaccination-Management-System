@@ -34,6 +34,9 @@ public class AdminLoginController implements Initializable {
     @FXML
     private Label errorLabel;
 
+
+    public static String adminPosition;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
@@ -50,18 +53,24 @@ public class AdminLoginController implements Initializable {
 
         String queryUserID = "SELECT * from login_admin where userID ='" + enteredUserID + "';";
         ResultSet userIDSet = conn.createStatement().executeQuery(queryUserID);
+        String position = null;
         if (userIDSet.next() == false) {
             errorLabel.setVisible(true);
             errorLabel.setText("You are not registered!");
             errorLabel.setStyle(" -fx-background-color: #ff5c5c; -fx-text-fill: black");
+            return;
         } else if (bothSet.next() == false) {
             errorLabel.setVisible(true);
             errorLabel.setText("Enter correct password!");
             errorLabel.setStyle(" -fx-background-color: #ff5c5c; -fx-text-fill: black");
+            return;
         } else {
             errorLabel.setVisible(true);
             errorLabel.setText("Login Successful!");
             errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
+
+            position = bothSet.getString("position");
+            AdminLoginController.adminPosition = position;
             loginSignupButtonClickSuccess(event);
         }
     

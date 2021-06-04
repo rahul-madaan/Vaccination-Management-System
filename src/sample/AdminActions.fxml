@@ -82,22 +82,22 @@
                     <font>
                         <Font size="16.0" />
                     </font></Label>
-            <Button layoutX="318.0" layoutY="157.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="MARK ATTENDANCE">
+            <Button fx:id="markAttendanceButton" layoutX="318.0" layoutY="157.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="MARK ATTENDANCE">
                <font>
                   <Font name="3ds" size="37.0" />
                </font>
             </Button>
-            <Button layoutX="318.0" layoutY="248.0" mnemonicParsing="false" onAction="#addVaccineSlotsButtonClick" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINE SLOTS">
+            <Button fx:id="addSlotsButton" layoutX="318.0" layoutY="248.0" mnemonicParsing="false" onAction="#addVaccineSlotsButtonClick" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINE SLOTS">
                <font>
                   <Font name="3ds" size="37.0" />
                </font>
             </Button>
-            <Button layoutX="318.0" layoutY="340.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINATION CENTRE">
+            <Button fx:id="addCentreButton" layoutX="318.0" layoutY="340.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINATION CENTRE">
                <font>
                   <Font name="3ds" size="37.0" />
                </font>
             </Button>
-            <Button layoutX="318.0" layoutY="429.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="DELELE VACCINATION CENTRE">
+            <Button fx:id="deleteCentreButton" layoutX="318.0" layoutY="429.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="DELELE VACCINATION CENTRE">
                <font>
                   <Font name="3ds" size="37.0" />
                </font>
