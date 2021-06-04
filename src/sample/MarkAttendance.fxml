@@ -72,37 +72,37 @@
                     <font>
                         <Font size="16.0" />
                     </font></Label>
-                <Label layoutX="529.0" layoutY="28.0" text="Mark Attendance">
+                <Label layoutX="529.0" layoutY="41.0" text="Mark Attendance">
                     <font>
                         <Font name="3ds" size="32.0" />
                     </font>
                 </Label>
-                <Label layoutX="604.0" layoutY="100.0" text="Vaccination Centre Details:">
+                <Label layoutX="590.0" layoutY="121.0" text="Vaccination Centre Details:">
                     <font>
                         <Font name="3ds" size="24.0" />
                     </font>
                 </Label>
-                <Label layoutX="606.0" layoutY="239.0" text="State:">
+                <Label layoutX="592.0" layoutY="260.0" text="State:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="604.0" layoutY="206.0" text="Address:">
+                <Label layoutX="590.0" layoutY="227.0" text="Address:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="604.0" layoutY="140.0" text="Centre ID:">
+                <Label layoutX="590.0" layoutY="161.0" text="Centre ID:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="604.0" layoutY="173.0" text="Name:">
+                <Label layoutX="590.0" layoutY="194.0" text="Name:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="606.0" layoutY="272.0" text="Pin Code:">
+                <Label layoutX="592.0" layoutY="293.0" text="Pin Code:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
@@ -112,46 +112,56 @@
                         <Font name="3ds" size="22.0" />
                     </font>
                 </Button>
-                <Label fx:id="centreIDLabel" layoutX="731.0" layoutY="140.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
+                <Label fx:id="centreIDLabel" layoutX="717.0" layoutY="161.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="centreNameLabel" layoutX="731.0" layoutY="173.0" prefHeight="30.0" prefWidth="569.0" text="xxxx xxxxx xxxxx xxxxx">
+                <Label fx:id="centreNameLabel" layoutX="717.0" layoutY="194.0" prefHeight="30.0" prefWidth="569.0" text="xxxx xxxxx xxxxx xxxxx">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="centreAddressLabel" layoutX="731.0" layoutY="206.0" prefHeight="30.0" prefWidth="541.0" text="xxxx xxxxx xxxxx xxxxx">
+                <Label fx:id="centreAddressLabel" layoutX="717.0" layoutY="227.0" prefHeight="30.0" prefWidth="541.0" text="xxxx xxxxx xxxxx xxxxx">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="centreStateLabel" layoutX="732.0" layoutY="239.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+                <Label fx:id="centreStateLabel" layoutX="718.0" layoutY="260.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="centrePinCodeLabel" layoutX="732.0" layoutY="272.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+                <Label fx:id="centrePinCodeLabel" layoutX="718.0" layoutY="293.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="606.0" layoutY="310.0" text="Date:">
+                <Label layoutX="592.0" layoutY="331.0" text="Date:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-            <TableView layoutX="55.0" layoutY="121.0" prefHeight="406.0" prefWidth="505.0">
+            <TableView fx:id="attendanceTable" layoutX="55.0" layoutY="121.0" prefHeight="406.0" prefWidth="505.0" style="-fx-font-size: 15px;">
               <columns>
-                <TableColumn editable="false" prefWidth="93.0" resizable="false" sortable="false" text="RefID" />
-                  <TableColumn editable="false" prefWidth="206.0" resizable="false" sortable="false" text="Name" />
-                  <TableColumn editable="false" prefWidth="43.0" resizable="false" sortable="false" text="Slot" />
-                  <TableColumn editable="false" prefWidth="96.0" resizable="false" sortable="false" text="Status" />
-                  <TableColumn editable="false" prefWidth="67.0" resizable="false" sortable="false" text="Colour" />
+                <TableColumn fx:id="colRefID" editable="false" prefWidth="93.0" resizable="false" sortable="false" text="RefID" />
+                  <TableColumn fx:id="colName" editable="false" prefWidth="206.0" resizable="false" sortable="false" text="Name" />
+                  <TableColumn fx:id="colSlot" editable="false" prefWidth="43.0" resizable="false" sortable="false" text="Slot" />
+                  <TableColumn fx:id="colStatus" editable="false" prefWidth="96.0" resizable="false" sortable="false" text="Status" />
+                  <TableColumn fx:id="colColour" editable="false" prefWidth="67.0" resizable="false" sortable="false" text="Colour" />
               </columns>
             </TableView>
-            <ComboBox fx:id="selectDateComboBox" layoutX="732.0" layoutY="313.0" onAction="#populateAttendanceTable" prefWidth="150.0" />
+            <ComboBox fx:id="selectDateComboBox" layoutX="718.0" layoutY="329.0" onAction="#populateAttendanceTable" prefHeight="30.0" prefWidth="140.0" style="-fx-font-size: 15px;" />
+            <Button layoutX="1158.0" layoutY="29.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" text="Log out">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="1053.0" layoutY="29.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClick" text="Main Menu">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

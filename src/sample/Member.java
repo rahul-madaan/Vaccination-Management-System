@@ -11,8 +11,8 @@ public class Member {
     private Integer age;
     private String dose1Status;
     private String dose2Status;
-    private String dose1CentreID;
-    private String dose2CentreID;
+    private int dose1CentreID;
+    private int dose2CentreID;
     private String dose1date;
     private String dose2date;
     private int dose1Slot;
@@ -140,19 +140,19 @@ public class Member {
         this.dose2Status = dose2Status;
     }
 
-    public String getDose1CentreID() {
+    public int getDose1CentreID() {
         return dose1CentreID;
     }
 
-    public void setDose1CentreID(String dose1CentreID) {
+    public void setDose1CentreID(int dose1CentreID) {
         this.dose1CentreID = dose1CentreID;
     }
 
-    public String getDose2CentreID() {
+    public int getDose2CentreID() {
         return dose2CentreID;
     }
 
-    public void setDose2CentreID(String dose2CentreID) {
+    public void setDose2CentreID(int dose2CentreID) {
         this.dose2CentreID = dose2CentreID;
     }
 }

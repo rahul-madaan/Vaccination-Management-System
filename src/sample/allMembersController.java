@@ -120,8 +120,8 @@ public class allMembersController implements Initializable {
                 member.setAge(set.getInt("Age"));
                 member.setDose1Status(set.getString("Dose1Status"));
                 member.setDose2Status(set.getString("Dose2Status"));
-                member.setDose1CentreID(set.getString("dose1centreID"));
-                member.setDose2CentreID(set.getString("dose2centreID"));
+                member.setDose1CentreID(set.getInt("dose1centreID"));
+                member.setDose2CentreID(set.getInt("dose2centreID"));
                 member.setDose1date(set.getString("dose1date"));
                 member.setDose2date(set.getString("dose2date"));
                 member.setDose1Slot(set.getInt("dose1slot"));

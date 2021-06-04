@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +10,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +24,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MarkAttendanceController implements Initializable {
 
@@ -51,6 +58,28 @@ public class MarkAttendanceController implements Initializable {
 
     private Connection conn;
     private DbHandler dbHandler;
+
+    private ObservableList<Member> memberList;
+
+    @FXML
+    private TableColumn<Member,String> colStatus;
+
+    @FXML
+    private TableColumn<?,?> colRefID;
+
+    @FXML
+    private TableColumn<?,?> colName;
+
+    @FXML
+    private TableColumn<?,?> colSlot;
+
+    @FXML
+    private TableColumn<Member,String> colColour;
+
+    @FXML
+    private TableView<Member> attendanceTable;
+
+
 
 
 
@@ -129,29 +158,108 @@ public class MarkAttendanceController implements Initializable {
         String date4S3 = date4 + "s3";
         String date4S4 = date4 + "s4";
 
-        String comboBoxDate1 = date1.substring(0,3) + " " + date1.substring(3,5) + " 2021";
-        String comboBoxDate2 = date2.substring(0,3) + " " + date2.substring(3,5) + " 2021";
-        String comboBoxDate3 = date3.substring(0,3) + " " + date3.substring(3,5) + " 2021";
-        String comboBoxDate4 = date4.substring(0,3) + " " + date4.substring(3,5) + " 2021";
+        String comboBoxDate1 = date1.substring(3,5) + " " + date1.substring(0,3) + " 2021";
+        String comboBoxDate2 = date2.substring(3,5) + " " + date2.substring(0,3) + " 2021";
+        String comboBoxDate3 = date3.substring(3,5) + " " + date3.substring(0,3) + " 2021";
+        String comboBoxDate4 = date4.substring(3,5) + " " + date4.substring(0,3) + " 2021";
 
 
         selectDateComboBox.getItems().addAll(comboBoxDate1,comboBoxDate2,comboBoxDate3,comboBoxDate4);
     }
 
     @FXML
-    public void populateAttendanceTable() throws SQLException {
-        //gets in format jun 20 2021
-        //gives in format jun20
-        String selectedDate = selectDateComboBox.getValue().toString().substring(0,6).replace(" ","");
-        String query = "SELECT * FROM members where dose1date = '" + selectedDate + "' OR dose2date = '" + selectedDate +"' ;";
-        System.out.println(selectedDate);
-        conn = dbHandler.getConnection();
-        ResultSet set = conn.createStatement().executeQuery(query);
-        while (set.next()){
-            System.out.println(set.getString("name"));
-        }
+    private void backToMainMenuButtonClick(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminActions.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
     }
 
+    @FXML
+    private void adminLogoutButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
 
+    @FXML
+    public void populateAttendanceTable() throws SQLException {
+        try {
+            Label label = new Label("No Vaccinations done on " + selectDateComboBox.getValue().toString());
 
+            label.setFont(new Font("Arial", 24));
+            attendanceTable.setPlaceholder(label);
+            memberList = FXCollections.observableArrayList();
+            //gets in format 20 jun 2021
+            //gives in format jun20
+            String selectedDate = selectDateComboBox.getValue().toString().substring(0, 6).replace(" ", "");
+            selectedDate = selectedDate.substring(2,5) + selectedDate.substring(0,2);
+            String query = "SELECT * FROM members where dose1date = '" + selectedDate + "' OR dose2date = '" + selectedDate + "' ;";
+            conn = dbHandler.getConnection();
+            ResultSet set = conn.createStatement().executeQuery(query);
+            while (set.next()) {
+                Member member = new Member();
+                member.setRefID(set.getInt("RefID"));
+                member.setName(set.getString("name"));
+                member.setAadhaarNumber(set.getString("AadhaarNumber"));
+                member.setAge(set.getInt("Age"));
+                member.setDose1Status(set.getString("Dose1Status"));
+                member.setDose2Status(set.getString("Dose2Status"));
+                member.setDose1CentreID(set.getInt("dose1centreID"));
+                member.setDose2CentreID(set.getInt("dose2centreID"));
+                member.setDose1date(set.getString("dose1date"));
+                member.setDose2date(set.getString("dose2date"));
+                member.setDose1Slot(set.getInt("dose1slot"));
+                member.setDose2Slot(set.getInt("dose2slot"));
+                member.setDose1Name(set.getString("dose1vaccineName"));
+                member.setDose2Name(set.getString("dose2vaccineName"));
+                memberList.add(member);
+            }
+
+            colRefID.setCellValueFactory(new PropertyValueFactory<>("RefID"));
+            colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            colSlot.setCellValueFactory(new PropertyValueFactory<>("Dose1Slot"));
+
+            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactory = (param) -> {
+                final TableCell<Member, String> cell = new TableCell<>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                Member p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have Clicked\n" + p.getName() +
+                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                        }
+                        setText(null);
+                    }
+
+                    ;
+                };
+
+                return cell;
+            };
+
+            colStatus.setCellFactory(cellFactory);
+            attendanceTable.setItems(memberList);
+
+        }catch (SQLException throwable) {
+            Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null,  throwable);
+            throwable.printStackTrace();
+        }
+    }
 }
+
+
