@@ -236,22 +236,26 @@ public class BookingConfirmationController implements Initializable {
                 totalSlots = set.getInt(selectedDate);
                 specificSlots = set.getInt(slot);
             }
-
-            conn = dbHandler.getConnection();
-            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
-            conn.createStatement().executeUpdate(query);
-
             Member selectedMember = allMembersController.selectedMember;
             String selectedMemberRefID = selectedMember.getRefID().toString();
 
             VaccineCentre selectedCentre = FindCentreController.selectedCentre;
 
-            query = "UPDATE  members SET dose1status = 'Booked', " +
-                    "dose1centreID = " + selectedCentreID + " , dose1slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" + selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
+            conn = dbHandler.getConnection();
+            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
             conn.createStatement().executeUpdate(query);
-            //System.out.println(query);
 
-            BookingConfirmationController.bookingStatus = true;
+            try {
+                query = "UPDATE  members SET dose1status = 'Booked', " +
+                        "dose1centreID = " + selectedCentreID + " , dose1slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" + selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
+                conn.createStatement().executeUpdate(query);
+                BookingConfirmationController.bookingStatus = true;
+                //System.out.println(query);
+            }catch (Exception exception){
+                exception.printStackTrace();
+                query = "UPDATE  slots SET " + selectedDate + " = " + totalSlots  + " , " + slot + " = " + specificSlots + " where centreID = " + selectedCentreID + ";";
+                conn.createStatement().executeUpdate(query);
+            }
 
             Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
             Scene addMembersScene = new Scene(scene2Parent);
@@ -330,12 +334,12 @@ public class BookingConfirmationController implements Initializable {
                 query = "UPDATE  members SET dose2status = 'Booked', " +
                         "dose2centreID = " + selectedCentreID + " , dose2slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose2date = '" + selectedDate + "' , dose2vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
                 conn.createStatement().executeUpdate(query);
+                BookingConfirmationController.bookingStatus = true;
                 //System.out.println(query);
             }catch(Exception ex) {
                 ex.printStackTrace();
                 query = "UPDATE  slots SET " + selectedDate + " = " + totalSlots + " , " + slot + " = " + specificSlots  + " where centreID = " + selectedCentreID + ";";
                 conn.createStatement().executeUpdate(query);
-                BookingConfirmationController.bookingStatus = true;
             }
 
             Parent scene2Parent = FXMLLoader.load(getClass().getResource("allMembersScene.fxml"));
