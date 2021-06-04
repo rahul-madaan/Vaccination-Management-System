@@ -312,7 +312,8 @@ public class MarkAttendanceSelectCentreController implements Initializable {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID());
                                 alert.show();
-                                ChooseCentreSlotAddController.selectedCentre = p;
+                                MarkAttendanceSelectCentreController.selectedCentre = p;
+                                AdminLoginController.adminCentreID = p.getCentreID();
                                 try {
                                     selectButtonClicked(event);
                                 } catch (IOException e) {

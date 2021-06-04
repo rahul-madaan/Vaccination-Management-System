@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MarkAttendanceController">
+    <children>
+        <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
+            <children>
+                <Label alignment="CENTER" cache="true" contentDisplay="CENTER" prefHeight="32.0" prefWidth="285.0" style="-fx-background-color: #d3483a;" text="Ministry of Health and Family Welfare " textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" text="FAQ Section" />
+                <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+            </children>
+        </HBox>
+        <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <opaqueInsets>
+                <Insets left="50.0" />
+            </opaqueInsets>
+        </HBox>
+        <Pane prefHeight="700.0" prefWidth="1300.0">
+            <children>
+                <Label layoutX="55.0" layoutY="75.0" prefHeight="25.0" prefWidth="173.0" text="Vaccination Drive" textFill="#a43125">
+                    <font>
+                        <Font name="Arial Bold" size="17.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <ImageView fitHeight="156.0" fitWidth="182.0" layoutX="33.0" layoutY="-81.0">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="451.0" layoutY="546.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                <Label layoutX="529.0" layoutY="28.0" text="Mark Attendance">
+                    <font>
+                        <Font name="3ds" size="32.0" />
+                    </font>
+                </Label>
+                <Label layoutX="604.0" layoutY="100.0" text="Vaccination Centre Details:">
+                    <font>
+                        <Font name="3ds" size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="606.0" layoutY="239.0" text="State:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="604.0" layoutY="206.0" text="Address:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="604.0" layoutY="140.0" text="Centre ID:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="604.0" layoutY="173.0" text="Name:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="606.0" layoutY="272.0" text="Pin Code:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Button layoutX="1041.0" layoutY="508.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="234.0" text="Submit Attendance">
+                    <font>
+                        <Font name="3ds" size="22.0" />
+                    </font>
+                </Button>
+                <Label fx:id="centreIDLabel" layoutX="731.0" layoutY="140.0" prefHeight="22.0" prefWidth="108.0" text="xxxxx">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="centreNameLabel" layoutX="731.0" layoutY="173.0" prefHeight="30.0" prefWidth="569.0" text="xxxx xxxxx xxxxx xxxxx">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="centreAddressLabel" layoutX="731.0" layoutY="206.0" prefHeight="30.0" prefWidth="541.0" text="xxxx xxxxx xxxxx xxxxx">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="centreStateLabel" layoutX="732.0" layoutY="239.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="centrePinCodeLabel" layoutX="732.0" layoutY="272.0" prefHeight="22.0" prefWidth="214.0" text="xxxxx">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="606.0" layoutY="310.0" text="Date:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+            <TableView layoutX="55.0" layoutY="121.0" prefHeight="406.0" prefWidth="505.0">
+              <columns>
+                <TableColumn editable="false" prefWidth="93.0" resizable="false" sortable="false" text="RefID" />
+                  <TableColumn editable="false" prefWidth="206.0" resizable="false" sortable="false" text="Name" />
+                  <TableColumn editable="false" prefWidth="43.0" resizable="false" sortable="false" text="Slot" />
+                  <TableColumn editable="false" prefWidth="96.0" resizable="false" sortable="false" text="Status" />
+                  <TableColumn editable="false" prefWidth="67.0" resizable="false" sortable="false" text="Colour" />
+              </columns>
+            </TableView>
+            <ComboBox layoutX="732.0" layoutY="313.0" prefWidth="150.0" />
+            </children>
+        </Pane>
+    </children>
+</VBox>
