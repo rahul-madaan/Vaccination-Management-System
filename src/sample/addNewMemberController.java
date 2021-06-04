@@ -54,6 +54,25 @@ public class addNewMemberController implements Initializable {
 
 
     public void addMemberButtonClicked(javafx.event.ActionEvent event) throws SQLException, IOException {
+        if (nameTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Name!");
+            alert.show();
+            return;
+        }
+        if (nameTextField.getText().length()<3){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter full Name!");
+            alert.show();
+            return;
+        }
+        if (aadhaarNumberTextField.getText().length()!=12){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter correct 12 Digit Aadhaar Number!");
+            alert.show();
+            return;
+        }
+
         String nameOfMember = nameTextField.getText();
         char[] chars = nameOfMember.toCharArray();
         for(char c : chars){
@@ -74,24 +93,7 @@ public class addNewMemberController implements Initializable {
                 return;
             }
         }
-        if (nameTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please Enter Name!");
-            alert.show();
-            return;
-        }
-        if (nameTextField.getText().length()<3){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please Enter full Name!");
-            alert.show();
-            return;
-        }
-        if (aadhaarNumberTextField.getText().length()!=12){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Please enter correct 12 Digit Aadhaar Number!");
-            alert.show();
-            return;
-        }
+
         if (dateOfBirthDatePicker.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please select DOB!");

@@ -290,11 +290,11 @@ public class BookingConfirmationController implements Initializable {
         check captcha====>DONE
         update total slots (-1) ====> DONE
         update affected timeslot (-1) ====>DONE
-        update dose1booking status or dose2booking status depending upon which dose number
-        update dose1 centreID
-        update dose 1 date
-        update dose1 slot
-        show date in confirm slot window
+        update dose1booking status or dose2booking status depending upon which dose number ====>DONE
+        update dose1 centreID====>DONE
+        update dose 1 date====>DONE
+        update dose1 slot====>DONE
+        show date in confirm slot window====>DONE
          */
             String selectedDate = FindCentreController.selectedDate;
             String selectedCentreID = Integer.toString(FindCentreController.selectedCentre.getCentreID());
