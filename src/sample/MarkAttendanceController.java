@@ -10,13 +10,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -128,7 +132,7 @@ public class MarkAttendanceController implements Initializable {
         String date1S4 = date1 + "s4";
 
 
-        c.add(Calendar.DATE, -1);
+        c.add(Calendar.DATE, 1);
         String date2 = c.getTime().toString();
         String date2temp = date2.substring(4,7);
         date2 = date2.substring(8,10);
@@ -138,7 +142,7 @@ public class MarkAttendanceController implements Initializable {
         String date2S3 = date2 + "s3";
         String date2S4 = date2 + "s4";
 
-        c.add(Calendar.DATE, -1);
+        c.add(Calendar.DATE, 1);
         String date3 = c.getTime().toString();
         String date3temp = date3.substring(4,7);
         date3 = date3.substring(8,10);
@@ -148,7 +152,7 @@ public class MarkAttendanceController implements Initializable {
         String date3S3 = date3 + "s3";
         String date3S4 = date3 + "s4";
 
-        c.add(Calendar.DATE, -1);
+        c.add(Calendar.DATE, 1);
         String date4 = c.getTime().toString();
         String date4temp = date4.substring(4,7);
         date4 = date4.substring(8,10);
@@ -197,7 +201,8 @@ public class MarkAttendanceController implements Initializable {
             //gives in format jun20
             String selectedDate = selectDateComboBox.getValue().toString().substring(0, 6).replace(" ", "");
             selectedDate = selectedDate.substring(2,5) + selectedDate.substring(0,2);
-            String query = "SELECT * FROM members where dose1date = '" + selectedDate + "' OR dose2date = '" + selectedDate + "' ;";
+            String query = "SELECT * FROM members where ( dose1date = '" + selectedDate + "' OR dose2date = '" + selectedDate + "' ) AND " +
+                    "(dose1centreID = " + AdminLoginController.adminCentreID +" OR dose2centreID = " + AdminLoginController.adminCentreID + " )  ;";
             conn = dbHandler.getConnection();
             ResultSet set = conn.createStatement().executeQuery(query);
             while (set.next()) {
@@ -233,13 +238,19 @@ public class MarkAttendanceController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Absent");
+                            editButton.setStyle("-fx-background-color: lawngreen");
                             editButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("You have Clicked\n" + p.getName() +
                                         " with Aadhaar Number \n" + p.getAadhaarNumber());
                                 alert.show();
+                                if(editButton.getStyle().equalsIgnoreCase("-fx-background-color: lawngreen")){
+                                    editButton.setStyle("-fx-background-color: red; -fx-text-fill: white");
+                                }else{
+                                    editButton.setStyle("-fx-background-color: lawngreen");
+                                }
                             });
                             setGraphic(editButton);
                         }
@@ -253,6 +264,39 @@ public class MarkAttendanceController implements Initializable {
             };
 
             colStatus.setCellFactory(cellFactory);
+
+//            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactoryColour = (param) -> {
+//                final TableCell<Member, String> cell = new TableCell<>() {
+//
+//                    @Override
+//                    public void updateItem(String item, boolean empty) {
+//                        super.updateItem(item, empty);
+//
+//                        if (empty) {
+//                            setGraphic(null);
+//                        } else {
+//                            Rectangle statusRectangle = new Rectangle();
+//                            Button editButton = new Button("Absent");
+//                            editButton.setOnAction(event -> {
+//                                Member p = getTableView().getItems().get(getIndex());
+//                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                                alert.setContentText("You have Clicked\n" + p.getName() +
+//                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
+//                                alert.show();
+//                            });
+//                            setGraphic(editButton);
+//                        }
+//                        setText(null);
+//                    }
+//
+//                    ;
+//                };
+//
+//                return cell;
+//            };
+//
+//            colColour.setCellFactory(cellFactoryColour);
+
             attendanceTable.setItems(memberList);
 
         }catch (SQLException throwable) {
