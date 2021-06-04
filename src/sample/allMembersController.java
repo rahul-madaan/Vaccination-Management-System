@@ -242,13 +242,9 @@ public class allMembersController implements Initializable {
                                         " with Aadhaar Number \n" + p.getAadhaarNumber());
                                 alert.show();
                                 allMembersController.selectedMember = p;
-                                try {
-                                    allMembersController.selectedMemberName = p.getName();
-                                    allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
-                                    scheduleButtonClicked(event);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                                allMembersController.selectedMemberName = p.getName();
+                                allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
+                                deleteButtonClicked(event,p);
                             });
                             setGraphic(deleteButton);
                         }
@@ -268,6 +264,12 @@ public class allMembersController implements Initializable {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null,  throwable);
             throwable.printStackTrace();
         }
+
+    }
+
+    public void deleteButtonClicked(ActionEvent event,Member member){
+        //if booked, booking cancel both
+        //if
 
     }
 
