@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChooseCentreSlotAddController">
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MarkAttendanceSelectCentreController">
     <children>
         <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
             <children>
@@ -141,8 +141,8 @@
                         <TableColumn fx:id="colHospitalName" editable="false" prefWidth="300.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Name" />
                         <TableColumn fx:id="colCentreAddress" editable="false" prefWidth="383.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Address" />
                         <TableColumn fx:id="colCentrePinCode" editable="false" minWidth="0.0" prefWidth="142.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Centre Pin Code" />
-                        <TableColumn fx:id="colVaccineName" editable="false" prefWidth="132.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Vaccine Name" />
-                        <TableColumn fx:id="colAddSlotsButton" editable="false" prefWidth="108.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Add slots" />
+                        <TableColumn fx:id="colVaccineName" editable="false" prefWidth="124.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Vaccine Name" />
+                        <TableColumn fx:id="colMarkAttendance" editable="false" prefWidth="116.0" resizable="false" sortable="false" style="-fx-font-size: 14px;" text="Mark Attendance" />
                     </columns>
                 </TableView>
                 <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogoutButtonClicked" prefHeight="33.0" prefWidth="85.0" text="Log Out">
