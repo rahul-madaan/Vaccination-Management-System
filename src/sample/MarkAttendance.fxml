@@ -107,7 +107,7 @@
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Button layoutX="1041.0" layoutY="508.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="234.0" text="Submit Attendance">
+                <Button layoutX="1041.0" layoutY="508.0" mnemonicParsing="false" onAction="#submitAttendanceButtonClicked" prefHeight="48.0" prefWidth="234.0" text="Submit Attendance">
                     <font>
                         <Font name="3ds" size="22.0" />
                     </font>

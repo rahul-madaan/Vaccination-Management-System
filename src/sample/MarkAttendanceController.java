@@ -26,8 +26,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,6 +82,10 @@ public class MarkAttendanceController implements Initializable {
     @FXML
     private TableView<Member> attendanceTable;
 
+    private Set<String> presentees = new HashSet<>();
+
+    private Set<String> absentees = new HashSet<>();
+
 
 
 
@@ -132,7 +135,7 @@ public class MarkAttendanceController implements Initializable {
         String date1S4 = date1 + "s4";
 
 
-        c.add(Calendar.DATE, 1);
+        c.add(Calendar.DATE, 1);//make -1
         String date2 = c.getTime().toString();
         String date2temp = date2.substring(4,7);
         date2 = date2.substring(8,10);
@@ -142,7 +145,7 @@ public class MarkAttendanceController implements Initializable {
         String date2S3 = date2 + "s3";
         String date2S4 = date2 + "s4";
 
-        c.add(Calendar.DATE, 1);
+        c.add(Calendar.DATE, 1);//make -1
         String date3 = c.getTime().toString();
         String date3temp = date3.substring(4,7);
         date3 = date3.substring(8,10);
@@ -152,7 +155,7 @@ public class MarkAttendanceController implements Initializable {
         String date3S3 = date3 + "s3";
         String date3S4 = date3 + "s4";
 
-        c.add(Calendar.DATE, 1);
+        c.add(Calendar.DATE, 1);//make -1
         String date4 = c.getTime().toString();
         String date4temp = date4.substring(4,7);
         date4 = date4.substring(8,10);
@@ -192,6 +195,7 @@ public class MarkAttendanceController implements Initializable {
     @FXML
     public void populateAttendanceTable() throws SQLException {
         try {
+            presentees.clear();
             Label label = new Label("No Vaccinations done on " + selectDateComboBox.getValue().toString());
 
             label.setFont(new Font("Arial", 24));
@@ -221,6 +225,7 @@ public class MarkAttendanceController implements Initializable {
                 member.setDose2Slot(set.getInt("dose2slot"));
                 member.setDose1Name(set.getString("dose1vaccineName"));
                 member.setDose2Name(set.getString("dose2vaccineName"));
+                presentees.add(set.getString("RefID"));
                 memberList.add(member);
             }
 
@@ -248,8 +253,12 @@ public class MarkAttendanceController implements Initializable {
                                 alert.show();
                                 if(editButton.getStyle().equalsIgnoreCase("-fx-background-color: lawngreen")){
                                     editButton.setStyle("-fx-background-color: red; -fx-text-fill: white");
+                                    presentees.remove(p.getRefID().toString());
+                                    absentees.add(p.getRefID().toString());
                                 }else{
                                     editButton.setStyle("-fx-background-color: lawngreen");
+                                    presentees.add(p.getRefID().toString());
+                                    absentees.remove(p.getRefID().toString());
                                 }
                             });
                             setGraphic(editButton);
@@ -303,6 +312,33 @@ public class MarkAttendanceController implements Initializable {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null,  throwable);
             throwable.printStackTrace();
         }
+    }
+
+    public void submitAttendanceButtonClicked() throws SQLException {
+        String[] array = presentees.toArray( new String[presentees.size()] );
+        String[] arrayAbsentees = absentees.toArray( new String[absentees.size()] );
+        String query =null;
+        for(int i=0;i<presentees.size();i++){
+            query = "UPDATE members SET dose1status = 'Vaccinated' WHERE RefID = '"+ array[i] +"' AND dose1status = 'Booked'";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        for(int i=0;i<presentees.size();i++){
+            query = "UPDATE members SET dose2status = 'Vaccinated' WHERE RefID = '"+ array[i] +"' AND dose2status = 'Booked'";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        for(int i=0;i<absentees.size();i++){
+            query = "UPDATE members SET dose1status = 'Not vaccinated' WHERE RefID = '"+ arrayAbsentees[i] +"' AND dose1status = 'Booked'";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+        for(int i=0;i<absentees.size();i++){
+            query = "UPDATE members SET dose2status = 'Not vaccinated' WHERE RefID = '"+ arrayAbsentees[i] +"' AND dose2status = 'Booked'";
+            conn = dbHandler.getConnection();
+            conn.createStatement().executeUpdate(query);
+        }
+
     }
 }
 

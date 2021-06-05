@@ -184,15 +184,25 @@ public class allMembersController implements Initializable {
                             try {
                                 int disableButtonOrChangeText = disableScheduleButtonOrChangeText(member);
                                 if(disableButtonOrChangeText == 0){
+                                    scheduleButton.setDisable(false);
                                     scheduleButton.setText("Book Dose 1");
                                 }else if(disableButtonOrChangeText == 1){
-                                    scheduleButton.setText("Completed");
+                                    scheduleButton.setText("Booked Dose 1");
                                     scheduleButton.setDisable(true);
                                 }else if(disableButtonOrChangeText == 2){
+                                    scheduleButton.setDisable(false);
                                     scheduleButton.setText("Book Dose 2");
+                                }else if(disableButtonOrChangeText == 3){
+                                    scheduleButton.setText("Booked Dose 2");
+                                    scheduleButton.setDisable(true);
+                                }else if(disableButtonOrChangeText == 4){
+                                    scheduleButton.setDisable(true);
+                                    scheduleButton.setText("Completed");
                                 }
-                                else
-                                    System.out.println("some error here");
+                                else {
+                                    scheduleButton.setDisable(true);
+                                    scheduleButton.setText("problem in code");
+                                }
                             } catch (SQLException throwables) {
                                 throwables.printStackTrace();
                             }
@@ -289,12 +299,16 @@ public class allMembersController implements Initializable {
 
         if(dose1Status.equalsIgnoreCase("not vaccinated")&& dose2Status.equalsIgnoreCase("not vaccinated")){
             return 0;//both non vaccinated
-        }else if(!dose1Status.equalsIgnoreCase("not vaccinated") && !dose2Status.equalsIgnoreCase("not vaccinated")){
-            return 1;//both vaccinated
-        }else if(!dose1Status.equalsIgnoreCase("not vaccinated") && dose2Status.equalsIgnoreCase("not vaccinated")){
+        }else if(dose1Status.equalsIgnoreCase("booked") && dose2Status.equalsIgnoreCase("not vaccinated")){
+            return 1;//booked, not vaccinated
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("not vaccinated")){
             return 2;//1 done, 2nd left
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("booked")){
+            return 3;//1 done, 2nd left
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("vaccinated")){
+            return 4;//1 done, 2nd left
         }
-        else return 3;
+        else return 5;
 
 
     }
