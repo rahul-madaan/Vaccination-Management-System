@@ -76,6 +76,9 @@ public class allMembersController implements Initializable {
     @FXML
     private Text notificationText;
 
+    @FXML
+    private Button addNewMemberButton;
+
     public static String selectedMemberName;
     public static String selectedMemberAadhaarNumber;
     public static String selectedPhoneNumber;
@@ -83,6 +86,28 @@ public class allMembersController implements Initializable {
     public static Member selectedMember;
     public static Member selectedMemberForEdit;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        dbHandler = new DbHandler();
+        populateMembersTable();
+        phoneNumberLabel.setText(mainPageController.activeUserPhoneNumber);
+        if(BookingConfirmationController.bookingStatus==true){
+            notificationRectangle.setVisible(true);
+            notificationText.setVisible(true);
+            infoIconImageView.setVisible(true);
+            BookingConfirmationController.bookingStatus=false;
+        }else{
+            notificationRectangle.setVisible(false);
+            notificationText.setVisible(false);
+            infoIconImageView.setVisible(false);
+        }
+        try {
+            checkMemberCount();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
     @FXML
     public void addNewMemberButtonClicked(ActionEvent event) throws IOException {
@@ -93,6 +118,24 @@ public class allMembersController implements Initializable {
         allMembersController.event = event;
         secondStage.show();
         secondStage.setTitle("Add New Member");
+    }
+
+    @FXML
+    public void checkMemberCount() throws SQLException {
+        String activeUserPhoneNumber = mainPageController.activeUserPhoneNumber;
+        memberList = FXCollections.observableArrayList();
+        String query = "SELECT * FROM members WHERE phonenumber = '"+ activeUserPhoneNumber +"';";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+        int counter =0;
+        while (set.next()){
+            counter = counter+1;
+        }
+        if(counter>3){
+            addNewMemberButton.setDisable(true);
+        }else{
+            addNewMemberButton.setDisable(false);
+        }
     }
 
     @FXML
@@ -344,20 +387,5 @@ public class allMembersController implements Initializable {
         window.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        dbHandler = new DbHandler();
-        populateMembersTable();
-        phoneNumberLabel.setText(mainPageController.activeUserPhoneNumber);
-        if(BookingConfirmationController.bookingStatus==true){
-            notificationRectangle.setVisible(true);
-            notificationText.setVisible(true);
-            infoIconImageView.setVisible(true);
-            BookingConfirmationController.bookingStatus=false;
-        }else{
-            notificationRectangle.setVisible(false);
-            notificationText.setVisible(false);
-            infoIconImageView.setVisible(false);
-        }
-    }
+
 }
