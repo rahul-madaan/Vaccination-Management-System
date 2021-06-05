@@ -12,11 +12,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -73,11 +76,6 @@ public class MarkAttendanceController implements Initializable {
     @FXML
     private TableColumn<?,?> colName;
 
-    @FXML
-    private TableColumn<?,?> colSlot;
-
-    @FXML
-    private TableColumn<Member,String> colColour;
 
     @FXML
     private TableView<Member> attendanceTable;
@@ -85,6 +83,18 @@ public class MarkAttendanceController implements Initializable {
     private Set<String> presentees = new HashSet<>();
 
     private Set<String> absentees = new HashSet<>();
+
+    public static boolean updated;
+
+    @FXML
+    private Text infoText;
+
+    @FXML
+    private ImageView infoIconImageView;
+
+    @FXML
+    private Rectangle notificationRectangle;
+
 
 
 
@@ -101,6 +111,7 @@ public class MarkAttendanceController implements Initializable {
             throwables.printStackTrace();
         }
         populateSelectDateComboBox();
+        notification();
     }
 
     public void populateCentreDetails() throws SQLException {
@@ -196,7 +207,7 @@ public class MarkAttendanceController implements Initializable {
     public void populateAttendanceTable() throws SQLException {
         try {
             presentees.clear();
-            Label label = new Label("No Vaccinations done on " + selectDateComboBox.getValue().toString());
+            Label label = new Label("No Attendance marking left for " + selectDateComboBox.getValue().toString());
 
             label.setFont(new Font("Arial", 24));
             attendanceTable.setPlaceholder(label);
@@ -206,7 +217,8 @@ public class MarkAttendanceController implements Initializable {
             String selectedDate = selectDateComboBox.getValue().toString().substring(0, 6).replace(" ", "");
             selectedDate = selectedDate.substring(2,5) + selectedDate.substring(0,2);
             String query = "SELECT * FROM members where ( dose1date = '" + selectedDate + "' OR dose2date = '" + selectedDate + "' ) AND " +
-                    "(dose1centreID = " + AdminLoginController.adminCentreID +" OR dose2centreID = " + AdminLoginController.adminCentreID + " )  ;";
+                    "(dose1centreID = " + AdminLoginController.adminCentreID +" OR dose2centreID = " + AdminLoginController.adminCentreID + " ) AND " +
+                    "(dose1status = 'Booked' OR dose2status = 'Booked' ) ;";
             conn = dbHandler.getConnection();
             ResultSet set = conn.createStatement().executeQuery(query);
             while (set.next()) {
@@ -231,7 +243,6 @@ public class MarkAttendanceController implements Initializable {
 
             colRefID.setCellValueFactory(new PropertyValueFactory<>("RefID"));
             colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-            colSlot.setCellValueFactory(new PropertyValueFactory<>("Dose1Slot"));
 
             Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactory = (param) -> {
                 final TableCell<Member, String> cell = new TableCell<>() {
@@ -243,7 +254,7 @@ public class MarkAttendanceController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button editButton = new Button("Absent");
+                            Button editButton = new Button("Present");
                             editButton.setStyle("-fx-background-color: lawngreen");
                             editButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
@@ -253,10 +264,12 @@ public class MarkAttendanceController implements Initializable {
                                 alert.show();
                                 if(editButton.getStyle().equalsIgnoreCase("-fx-background-color: lawngreen")){
                                     editButton.setStyle("-fx-background-color: red; -fx-text-fill: white");
+                                    editButton.setText("Absent");
                                     presentees.remove(p.getRefID().toString());
                                     absentees.add(p.getRefID().toString());
                                 }else{
                                     editButton.setStyle("-fx-background-color: lawngreen");
+                                    editButton.setText("Present");
                                     presentees.add(p.getRefID().toString());
                                     absentees.remove(p.getRefID().toString());
                                 }
@@ -314,7 +327,22 @@ public class MarkAttendanceController implements Initializable {
         }
     }
 
-    public void submitAttendanceButtonClicked() throws SQLException {
+    public void notification(){
+        if (MarkAttendanceController.updated==true){
+            //show
+            infoIconImageView.setVisible(true);
+            notificationRectangle.setVisible(true);
+            infoText.setVisible(true);
+            MarkAttendanceController.updated=false;
+        }else if(MarkAttendanceController.updated==false){
+            //hide
+            infoIconImageView.setVisible(false);
+            notificationRectangle.setVisible(false);
+            infoText.setVisible(false);
+        }
+    }
+
+    public void submitAttendanceButtonClicked(ActionEvent event) throws SQLException, IOException {
         String[] array = presentees.toArray( new String[presentees.size()] );
         String[] arrayAbsentees = absentees.toArray( new String[absentees.size()] );
         String query =null;
@@ -337,6 +365,21 @@ public class MarkAttendanceController implements Initializable {
             query = "UPDATE members SET dose2status = 'Not vaccinated' WHERE RefID = '"+ arrayAbsentees[i] +"' AND dose2status = 'Booked'";
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
+        }
+        MarkAttendanceController.updated =true;
+
+        if(AdminLoginController.adminPosition.equalsIgnoreCase("local")){
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("MarkAttendance.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
+        }else if(AdminLoginController.adminPosition.equalsIgnoreCase("global")){
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("MarkAttendance.fxml"));
+            Scene addMembersScene = new Scene(scene2Parent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(addMembersScene);
+            window.show();
         }
 
     }

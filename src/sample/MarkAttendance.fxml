@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -48,6 +49,21 @@
                         <Image url="@../images/logo.png" />
                     </image>
                 </ImageView>
+            <AnchorPane prefHeight="92.0" prefWidth="1148.0">
+               <children>
+                  <Rectangle fx:id="notificationRectangle" arcHeight="5.0" arcWidth="5.0" fill="#0abc13" height="68.0" layoutX="663.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50px; -fx-arc-width: 50px;" width="409.0" />
+                  <Text fx:id="infoText" layoutX="734.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked attendance successfully!">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="infoIconImageView" fitHeight="46.0" fitWidth="46.0" layoutX="680.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/infoicon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
             </children>
             <opaqueInsets>
                 <Insets left="50.0" />
@@ -71,7 +87,8 @@
                 <Label layoutX="451.0" layoutY="546.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
                     <font>
                         <Font size="16.0" />
-                    </font></Label>
+                    </font>
+            </Label>
                 <Label layoutX="529.0" layoutY="41.0" text="Mark Attendance">
                     <font>
                         <Font name="3ds" size="32.0" />
@@ -142,13 +159,11 @@
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-            <TableView fx:id="attendanceTable" layoutX="55.0" layoutY="121.0" prefHeight="406.0" prefWidth="505.0" style="-fx-font-size: 15px;">
+            <TableView fx:id="attendanceTable" layoutX="55.0" layoutY="121.0" prefHeight="406.0" prefWidth="505.0" style="-fx-font-size: 17px;">
               <columns>
-                <TableColumn fx:id="colRefID" editable="false" prefWidth="93.0" resizable="false" sortable="false" text="RefID" />
-                  <TableColumn fx:id="colName" editable="false" prefWidth="206.0" resizable="false" sortable="false" text="Name" />
-                  <TableColumn fx:id="colSlot" editable="false" prefWidth="43.0" resizable="false" sortable="false" text="Slot" />
-                  <TableColumn fx:id="colStatus" editable="false" prefWidth="96.0" resizable="false" sortable="false" text="Status" />
-                  <TableColumn fx:id="colColour" editable="false" prefWidth="67.0" resizable="false" sortable="false" text="Colour" />
+                <TableColumn fx:id="colRefID" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="RefID" />
+                  <TableColumn fx:id="colName" editable="false" prefWidth="241.0" resizable="false" sortable="false" text="Name" />
+                  <TableColumn fx:id="colStatus" editable="false" prefWidth="141.0" resizable="false" sortable="false" text="Status" />
               </columns>
             </TableView>
             <ComboBox fx:id="selectDateComboBox" layoutX="718.0" layoutY="329.0" onAction="#populateAttendanceTable" prefHeight="30.0" prefWidth="140.0" style="-fx-font-size: 15px;" />
