@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -75,7 +72,41 @@ public class EditMemberController implements Initializable {
         }
     }
 
-    public void submitChangesButtonClick(ActionEvent event) throws IOException {
+    public void submitChangesButtonClick(ActionEvent event) throws IOException, SQLException {
+
+        String newName = nameTextField.getText();
+        String newAadhaarNumber = aadhaarNumberTextField.getText();
+        String newDOB = dateOfBirthDatePicker.getValue().toString();
+
+        String query = "SELECT * FROM members ;";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+
+        while(set.next()){
+            if(aadhaarNumberTextField.getText().equalsIgnoreCase(set.getString("aadhaarNumber"))){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter a UNIQUE 12 digit Aadhaar Number!");
+                alert.show();
+                return;
+            }
+        }
+
+        int newGender=0;
+        if(maleRadioButton.isSelected()){
+            newGender =1;
+        }else if(femaleRadoButton.isSelected()){
+            newGender=0;
+        }
+
+
+
+        query = "UPDATE members SET name = '"+ newName +"' , aadhaarnumber = '"+ newAadhaarNumber +"' , DOB = '"+ newDOB +"' , gender = "+ newGender +" WHERE refID = '"+ allMembersController.selectedMemberForEdit.getRefID() +"' ;";
+        conn = dbHandler.getConnection();
+        conn.createStatement().executeUpdate(query);
+
+
+
+
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.close();
 

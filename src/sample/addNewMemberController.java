@@ -73,26 +73,39 @@ public class addNewMemberController implements Initializable {
             return;
         }
 
-        String nameOfMember = nameTextField.getText();
-        char[] chars = nameOfMember.toCharArray();
-        for(char c : chars){
-            if(Character.isDigit(c)){
+        String query = "SELECT * FROM members ;";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+
+        while(set.next()){
+            if(aadhaarNumberTextField.getText().equalsIgnoreCase(set.getString("aadhaarNumber"))){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Please do not use digits in Name");
+                alert.setContentText("Please enter a UNIQUE 12 digit Aadhaar Number!");
                 alert.show();
                 return;
             }
         }
-        String aadhaarNumberOfMember = aadhaarNumberTextField.getText();
-        char[] chars1 = aadhaarNumberOfMember.toCharArray();
-        for(char c : chars1){
-            if(Character.isLetter(c)){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Please do not use letters in Aadhaar Number!");
-                alert.show();
-                return;
-            }
-        }
+
+//        String nameOfMember = nameTextField.getText();
+//        char[] chars = nameOfMember.toCharArray();
+//        for(char c : chars){
+//            if(Character.isDigit(c)){
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setContentText("Please do not use digits in Name");
+//                alert.show();
+//                return;
+//            }
+//        }
+//        String aadhaarNumberOfMember = aadhaarNumberTextField.getText();
+//        char[] chars1 = aadhaarNumberOfMember.toCharArray();
+//        for(char c : chars1){
+//            if(Character.isLetter(c)){
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setContentText("Please do not use letters in Aadhaar Number!");
+//                alert.show();
+//                return;
+//            }
+//        }
 
         if (dateOfBirthDatePicker.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -117,7 +130,7 @@ public class addNewMemberController implements Initializable {
         }else{
             gender = 0;
         }
-        String query = "INSERT INTO  members (PhoneNumber, name, AadhaarNumber, DOB, Gender)" +
+        query = "INSERT INTO  members (PhoneNumber, name, AadhaarNumber, DOB, Gender)" +
                 " VALUES('"+phoneNumber +"', '"+ name +"', '"+aadhaarNumber+"', '"+ dateOfBirth +"', '"+gender+"');";
 
         conn = dbHandler.getConnection();

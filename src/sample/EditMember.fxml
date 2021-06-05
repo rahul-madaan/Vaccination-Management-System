@@ -130,7 +130,7 @@
                         <Font name="3ds" size="17.0" />
                     </font>
                 </RadioButton>
-                <Button layoutX="490.0" layoutY="316.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="189.0" text="Submit Changes">
+                <Button layoutX="490.0" layoutY="316.0" mnemonicParsing="false" onAction="#submitChangesButtonClick" prefHeight="36.0" prefWidth="189.0" text="Submit Changes">
                     <font>
                         <Font name="3ds" size="21.0" />
                     </font>
