@@ -112,7 +112,7 @@
                   <TableColumn fx:id="colDelete" editable="false" minWidth="0.0" prefWidth="123.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Delete Person" />
               </columns>
             </TableView>
-            <Button layoutX="1013.0" layoutY="455.0" mnemonicParsing="false" onAction="#addNewMemberButtonClicked" text="+ Add Member">
+            <Button fx:id="addNewMemberButton" layoutX="1013.0" layoutY="455.0" mnemonicParsing="false" onAction="#addNewMemberButtonClicked" text="+ Add Member">
                <font>
                   <Font size="19.0" />
                </font>

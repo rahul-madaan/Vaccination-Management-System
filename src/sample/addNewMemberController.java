@@ -48,8 +48,6 @@ public class addNewMemberController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
-        femaleRadoButton.setUserData("Female");
-        maleRadioButton.setUserData("Male");
     }
 
 
