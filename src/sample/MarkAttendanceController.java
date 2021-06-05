@@ -176,13 +176,23 @@ public class MarkAttendanceController implements Initializable {
         String date4S3 = date4 + "s3";
         String date4S4 = date4 + "s4";
 
+        c.add(Calendar.DATE, 1);//make -1
+        String date5 = c.getTime().toString();
+        String date5temp = date5.substring(4,7);
+        date5 = date5.substring(8,10);
+        date5 = date5temp + date5;
+        String date5S1 = date5 + "s1";
+        String date5S2 = date5 + "s2";
+        String date5S3 = date5 + "s3";
+        String date5S4 = date5 + "s4";
+
         String comboBoxDate1 = date1.substring(3,5) + " " + date1.substring(0,3) + " 2021";
         String comboBoxDate2 = date2.substring(3,5) + " " + date2.substring(0,3) + " 2021";
         String comboBoxDate3 = date3.substring(3,5) + " " + date3.substring(0,3) + " 2021";
         String comboBoxDate4 = date4.substring(3,5) + " " + date4.substring(0,3) + " 2021";
+        String comboBoxDate5 = date5.substring(3,5) + " " + date5.substring(0,3) + " 2021";
 
-
-        selectDateComboBox.getItems().addAll(comboBoxDate1,comboBoxDate2,comboBoxDate3,comboBoxDate4);
+        selectDateComboBox.getItems().addAll(comboBoxDate1,comboBoxDate2,comboBoxDate3,comboBoxDate4,comboBoxDate5);
     }
 
     @FXML

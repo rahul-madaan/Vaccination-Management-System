@@ -81,6 +81,7 @@ public class allMembersController implements Initializable {
     public static String selectedPhoneNumber;
     public static ActionEvent event;
     public static Member selectedMember;
+    public static Member selectedMemberForEdit;
 
 
     @FXML
@@ -92,6 +93,17 @@ public class allMembersController implements Initializable {
         allMembersController.event = event;
         secondStage.show();
         secondStage.setTitle("Add New Member");
+    }
+
+    @FXML
+    public void editMemberButtonClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("EditMember.fxml"));
+        Stage secondStage = new Stage();
+        secondStage.setScene(new Scene(root));
+        allMembersController.selectedPhoneNumber = mainPageController.activeUserPhoneNumber;
+        allMembersController.event = event;
+        secondStage.show();
+        secondStage.setTitle("Edit Member");
     }
 
     @FXML
@@ -152,10 +164,12 @@ public class allMembersController implements Initializable {
                             Button editButton = new Button("Edit");
                             editButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked\n" + p.getName() +
-                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
-                                alert.show();
+                                try {
+                                    allMembersController.selectedMemberForEdit = p;
+                                    editMemberButtonClicked(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             });
                             setGraphic(editButton);
                         }

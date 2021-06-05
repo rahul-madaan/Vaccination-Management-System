@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="700.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditMemberController">
+    <children>
+        <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
+            <children>
+                <Label alignment="CENTER" cache="true" contentDisplay="CENTER" prefHeight="32.0" prefWidth="285.0" style="-fx-background-color: #d3483a;" text="Ministry of Health and Family Welfare " textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+            </children>
+        </HBox>
+        <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="90.0" fitWidth="104.0">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <opaqueInsets>
+                <Insets left="50.0" />
+            </opaqueInsets>
+        </HBox>
+        <Pane prefHeight="700.0" prefWidth="1300.0">
+            <children>
+                <Label layoutX="451.0" layoutY="528.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                <Label layoutX="7.0" layoutY="4.0" prefHeight="20.0" prefWidth="143.0" text="Vaccination Drive" textFill="#a43125">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <Label layoutX="315.0" layoutY="7.0" text="Edit Member">
+                    <font>
+                        <Font name="3ds" size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="83.0" text="Enter Name:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="148.0" text="Enter Aadhaar Number:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="dateOfBirthDatePicker" layoutX="210.0" layoutY="218.0" />
+                <Label layoutX="14.0" layoutY="219.0" text="Enter Date of Birth:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="283.0" text="Select Gender:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="nameTextField" layoutX="136.0" layoutY="82.0" prefHeight="29.0" prefWidth="232.0">
+                    <font>
+                        <Font name="3ds" size="16.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="aadhaarNumberTextField" layoutX="234.0" layoutY="145.0" prefHeight="29.0" prefWidth="232.0">
+                    <font>
+                        <Font name="3ds" size="16.0" />
+                    </font>
+                </TextField>
+                <RadioButton fx:id="maleRadioButton" layoutX="191.0" layoutY="286.0" mnemonicParsing="false" text="Male">
+                    <font>
+                        <Font name="3ds" size="17.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="maleFemaleToggleGroup" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="femaleRadoButton" layoutX="281.0" layoutY="286.0" mnemonicParsing="false" text="Female" toggleGroup="$maleFemaleToggleGroup">
+                    <font>
+                        <Font name="3ds" size="17.0" />
+                    </font>
+                </RadioButton>
+                <Button layoutX="490.0" layoutY="316.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="189.0" text="Submit Changes">
+                    <font>
+                        <Font name="3ds" size="21.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+</VBox>

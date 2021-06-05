@@ -151,8 +151,6 @@ public class mainPageController implements Initializable {
                 errorLabel.setVisible(true);
                 errorLabel.setStyle(" -fx-background-color: green; -fx-text-fill: white");
                 errorLabel.setText("Registered Successfully!");
-                mainPageController.activeUserPhoneNumber = enteredPhoneNumber;
-                loginSignupButtonClickSuccess(event);
             }
         }
     }
