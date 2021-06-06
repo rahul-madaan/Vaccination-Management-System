@@ -107,9 +107,9 @@
                   <TableColumn fx:id="colAge" editable="false" minWidth="0.0" prefWidth="51.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Age" />
                   <TableColumn fx:id="colDose1Status" editable="false" prefWidth="164.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 1 Status" />
                   <TableColumn fx:id="colDose2Status" editable="false" prefWidth="180.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Dose 2 status" />
-                  <TableColumn fx:id="colUpdate" editable="false" prefWidth="158.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Update Person" />
-                  <TableColumn fx:id="colSchedule" editable="false" minWidth="0.0" prefWidth="151.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Schedule" />
-                  <TableColumn fx:id="colDelete" editable="false" minWidth="0.0" prefWidth="123.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Delete Person" />
+                  <TableColumn fx:id="colUpdate" editable="false" prefWidth="143.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Update Person" />
+                  <TableColumn fx:id="colSchedule" editable="false" minWidth="0.0" prefWidth="134.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Schedule" />
+                  <TableColumn fx:id="colDownloadCertificate" editable="false" minWidth="0.0" prefWidth="155.0" resizable="false" sortable="false" style="-fx-font-size: 15px;" text="Download certicicate" />
               </columns>
             </TableView>
             <Button fx:id="addNewMemberButton" layoutX="1013.0" layoutY="455.0" mnemonicParsing="false" onAction="#addNewMemberButtonClicked" text="+ Add Member">

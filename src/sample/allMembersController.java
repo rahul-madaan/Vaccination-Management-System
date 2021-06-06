@@ -56,7 +56,7 @@ public class allMembersController implements Initializable {
     private TableColumn<?,?> colDose2Status;
 
     @FXML
-    private TableColumn<Member,String> colDelete;
+    private TableColumn<Member,String> colDownloadCertificate;
 
     @FXML
     private TableColumn<Member,String> colUpdate;
@@ -301,7 +301,10 @@ public class allMembersController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Button deleteButton = new Button("Delete");
+                            Member member = getTableView().getItems().get(getIndex());
+                            Button deleteButton = new Button("Download");
+                            //call checkVaccinationStatus( pass member
+                            //accordingly show page for both
                             deleteButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -311,7 +314,6 @@ public class allMembersController implements Initializable {
                                 allMembersController.selectedMember = p;
                                 allMembersController.selectedMemberName = p.getName();
                                 allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
-                                deleteButtonClicked(event,p);
                             });
                             setGraphic(deleteButton);
                         }
@@ -323,7 +325,7 @@ public class allMembersController implements Initializable {
                 return cell;
             };
 
-            colDelete.setCellFactory(cellFactoryDelete);
+            colDownloadCertificate.setCellFactory(cellFactoryDelete);
 
             memberTable.setItems(memberList);
 
@@ -333,12 +335,53 @@ public class allMembersController implements Initializable {
         }
 
     }
+//
+//    public void deleteMemberButtonClicked(Member member,ActionEvent event) throws SQLException {
+//        int vacStatus = checkVaccinationStatus(member);
+//        if (vacStatus == 2) {
+//            int selectedCentreID = member.getDose1CentreID();
+//            String selectedDose1Date = member.getDose1date();
+//            int selectedDose1Slot = member.getDose1Slot();
+//            System.out.println(selectedCentreID+selectedDose1Slot+selectedDose1Date);
+//            String query = "UPDATE members SET ";
+//            conn = dbHandler.getConnection();
+//            ResultSet set = conn.createStatement().executeQuery(query);
+//
+//        } else if (vacStatus == 4) {
+//
+//        } else {
+//
+//            String query = "";
+//            conn = dbHandler.getConnection();
+//            ResultSet set = conn.createStatement().executeQuery(query);
+//        }
+//    }
+    public int checkVaccinationStatus(Member member) throws SQLException {
 
-    public void deleteButtonClicked(ActionEvent event,Member member){
-        //if booked, booking cancel both
-        //if
-
+        String query = "SELECT * FROM members WHERE refid = '" + member.getRefID() + "' ;";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
+        String dose1Status = null;
+        String dose2Status = null;
+        while (set.next()){
+            dose1Status = set.getString("dose1Status");
+            dose2Status = set.getString("dose2Status");
+        }
+        if(dose1Status.equalsIgnoreCase("Not vaccinated") && dose2Status.equalsIgnoreCase("Not vaccinated")){
+            return 1;// not, not
+        }else if(dose1Status.equalsIgnoreCase("Booked") && dose2Status.equalsIgnoreCase("Not vaccinated")){
+            return 2;//booked, not
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("Not vaccinated")){
+            return 3;//vaccinated, not
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("Booked")){
+            return 4;//vaccinated, booked
+        }else if(dose1Status.equalsIgnoreCase("vaccinated") && dose2Status.equalsIgnoreCase("vaccinated")){
+            return 5;//vaccinated, vaccinated
+        }else return 0;
     }
+
+
+
 
     public int disableScheduleButtonOrChangeText(Member member) throws SQLException {
         String query = "SELECT * FROM members WHERE refID = "+ member.getRefID() +";";
