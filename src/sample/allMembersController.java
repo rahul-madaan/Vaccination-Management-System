@@ -85,6 +85,7 @@ public class allMembersController implements Initializable {
     public static ActionEvent event;
     public static Member selectedMember;
     public static Member selectedMemberForEdit;
+    public static Member selectedmemberForCertificate;
 
 
     @Override
@@ -291,7 +292,7 @@ public class allMembersController implements Initializable {
 
             colSchedule.setCellFactory(cellFactorySchedule);
 
-            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactoryDelete = (param) -> {
+            Callback<TableColumn<Member, String>, TableCell<Member, String>> cellFactoryDownload = (param) -> {
                 final TableCell<Member, String> cell = new TableCell<>() {
 
                     @Override
@@ -302,7 +303,7 @@ public class allMembersController implements Initializable {
                             setGraphic(null);
                         } else {
                             Member member = getTableView().getItems().get(getIndex());
-                            Button deleteButton = new Button("Download");
+                            Button downloadButton = new Button("Download");
                             //call checkVaccinationStatus( pass member
                             int vacStatus=0;
                             try {
@@ -311,22 +312,21 @@ public class allMembersController implements Initializable {
                                 throwables.printStackTrace();
                             }
                             if(vacStatus == 1 || vacStatus == 2){
-                                deleteButton.setDisable(true);
+                                downloadButton.setDisable(true);
                             }else{
-                                deleteButton.setDisable(false);
+                                downloadButton.setDisable(false);
                             }
                             //accordingly show page for both
-                            deleteButton.setOnAction(event -> {
+                            downloadButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked\n" + p.getName() +
-                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
-                                alert.show();
-                                allMembersController.selectedMember = p;
-                                allMembersController.selectedMemberName = p.getName();
-                                allMembersController.selectedMemberAadhaarNumber = p.getAadhaarNumber();
+                                allMembersController.selectedmemberForCertificate = p;
+                                try {
+                                    downloadButtonClicked(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             });
-                            setGraphic(deleteButton);
+                            setGraphic(downloadButton);
                         }
                         setText(null);
                     }
@@ -336,7 +336,7 @@ public class allMembersController implements Initializable {
                 return cell;
             };
 
-            colDownloadCertificate.setCellFactory(cellFactoryDelete);
+            colDownloadCertificate.setCellFactory(cellFactoryDownload);
 
             memberTable.setItems(memberList);
 
@@ -392,8 +392,12 @@ public class allMembersController implements Initializable {
     }
 
 
-    public void downloadButtonClicked(ActionEvent event){
-
+    public void downloadButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("DownloadCertificates.fxml"));
+        Scene findCentreScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(findCentreScene);
+        window.show();
     }
 
 

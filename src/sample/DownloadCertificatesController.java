@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,9 +16,37 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DownloadCertificatesController implements Initializable {
+
+    @FXML
+    private Button dose1Button;
+
+    @FXML
+    private Button dose2Button;
+
+    @FXML
+    private Label beneficiaryNameLabel;
+
+    @FXML
+    private Label beneficiaryAadhaarNumberLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        checkDownloadableStatus();
+        setBeneficiaryDetails();
+    }
 
+    public void setBeneficiaryDetails(){
+        Member selectedMember = allMembersController.selectedmemberForCertificate;
+
+    }
+
+    public void checkDownloadableStatus(){
+        Member selectedMember = allMembersController.selectedmemberForCertificate;
+        if(selectedMember.getDose2Status().equalsIgnoreCase("vaccinated")){
+            dose2Button.setDisable(false);
+        }else{
+            dose2Button.setDisable(true);
+        }
     }
 
     @FXML
