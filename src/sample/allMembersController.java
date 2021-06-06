@@ -304,6 +304,17 @@ public class allMembersController implements Initializable {
                             Member member = getTableView().getItems().get(getIndex());
                             Button deleteButton = new Button("Download");
                             //call checkVaccinationStatus( pass member
+                            int vacStatus=0;
+                            try {
+                                vacStatus = checkVaccinationStatus(member);
+                            } catch (SQLException throwables) {
+                                throwables.printStackTrace();
+                            }
+                            if(vacStatus == 1 || vacStatus == 2){
+                                deleteButton.setDisable(true);
+                            }else{
+                                deleteButton.setDisable(false);
+                            }
                             //accordingly show page for both
                             deleteButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
@@ -381,6 +392,9 @@ public class allMembersController implements Initializable {
     }
 
 
+    public void downloadButtonClicked(ActionEvent event){
+
+    }
 
 
     public int disableScheduleButtonOrChangeText(Member member) throws SQLException {
