@@ -100,6 +100,14 @@ public class BookingConfirmationController implements Initializable {
     }
 
     @FXML
+    public void backButtonClicked(ActionEvent event) throws IOException {
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("FindCentre.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();    }
+
+    @FXML
     public void refreshButtonClicked(){
         int min =1;
         int max = 1070;

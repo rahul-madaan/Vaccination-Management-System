@@ -249,6 +249,11 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
+            <Button layoutX="1166.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="29.0" prefWidth="49.0" text="Back">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

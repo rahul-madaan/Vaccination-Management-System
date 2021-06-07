@@ -31,8 +31,6 @@ public class AdminActionsController implements Initializable {
     @FXML
     private Button addCentreButton;
 
-    @FXML
-    private Button deleteCentreButton;
     private Connection conn;
 
     private DbHandler dbHandler;
@@ -51,10 +49,8 @@ public class AdminActionsController implements Initializable {
         dbHandler = new DbHandler();
         if(AdminLoginController.adminPosition.equalsIgnoreCase("local")){
             addCentreButton.setDisable(true);
-            deleteCentreButton.setDisable(true);
         }else if(AdminLoginController.adminPosition.equalsIgnoreCase("global")){
             addCentreButton.setDisable(false);
-            deleteCentreButton.setDisable(false);
         }
 
         if(EditVaccineSlotsController.updated==1){
@@ -67,6 +63,10 @@ public class AdminActionsController implements Initializable {
             infoIconImageView.setVisible(false);
             infoText.setVisible(false);
         }
+    }
+
+    public void addVaccinationCentre(){
+        //add
     }
 
     @FXML
