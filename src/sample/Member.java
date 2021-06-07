@@ -19,6 +19,15 @@ public class Member {
     private int dose2Slot;
     private String dose1Name;
     private String dose2Name;
+    private int gender;
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
 
     public String getDose1Status() {
         return dose1Status;

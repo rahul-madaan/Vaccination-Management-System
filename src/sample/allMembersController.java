@@ -184,6 +184,7 @@ public class allMembersController implements Initializable {
                 member.setDose2Slot(set.getInt("dose2slot"));
                 member.setDose1Name(set.getString("dose1vaccineName"));
                 member.setDose2Name(set.getString("dose2vaccineName"));
+                member.setGender(set.getInt("gender"));
                 memberList.add(member);
             }
 
