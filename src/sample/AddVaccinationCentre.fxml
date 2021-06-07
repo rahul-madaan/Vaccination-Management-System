@@ -1,14 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.AddVaccinationCentre"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox prefHeight="700.0" prefWidth="1300.0" style="-fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddVaccinationCentreController">
+    <children>
+        <HBox prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #d3483a;">
+            <children>
+                <Label alignment="CENTER" cache="true" contentDisplay="CENTER" prefHeight="32.0" prefWidth="285.0" style="-fx-background-color: #d3483a;" text="Ministry of Health and Family Welfare " textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+                <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" text="FAQ Section" />
+                <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Helvetica Neue" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Label>
+            </children>
+        </HBox>
+        <HBox disable="true" prefHeight="32.0" prefWidth="640.0" style="-fx-background-color: #ccc;">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="92.0" fitWidth="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <opaqueInsets>
+                <Insets left="50.0" />
+            </opaqueInsets>
+        </HBox>
+        <Pane prefHeight="700.0" prefWidth="1300.0">
+            <children>
+                <Label layoutX="55.0" layoutY="75.0" prefHeight="25.0" prefWidth="173.0" text="Vaccination Drive" textFill="#a43125">
+                    <font>
+                        <Font name="Arial Bold" size="17.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <ImageView fitHeight="156.0" fitWidth="182.0" layoutX="33.0" layoutY="-81.0">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="451.0" layoutY="546.0" prefHeight="46.0" prefWidth="398.0" text="Copyright © 2021 by CodeForCovid. All rights reserved." textFill="#f2eeee">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                <Label layoutX="447.0" layoutY="64.0" text="Add New Vaccination Centre">
+                    <font>
+                        <Font name="3ds" size="32.0" />
+                    </font>
+                </Label>
+                <CheckBox fx:id="agreeCheckBox" layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
+                <Label layoutX="89.0" layoutY="143.0" text="Vaccination Centre Details:">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Label layoutX="89.0" layoutY="410.0" text="State:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="86.0" layoutY="303.0" text="Address:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="89.0" layoutY="196.0" text="Centre ID:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="85.0" layoutY="251.0" text="Name:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="90.0" layoutY="359.0" text="District:">
+                    <font>
+                        <Font name="3ds" size="20.0" />
+                    </font>
+                </Label>
+                <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="+ Add Centre">
+                    <font>
+                        <Font name="3ds" size="22.0" />
+                    </font>
+                </Button>
+                <Text layoutX="847.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hereby declare that the centre details furnished above are true and correct to the best of my knowledge" wrappingWidth="220.548828125" />
+                <Button layoutX="1166.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="29.0" prefWidth="49.0" text="Back">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+            <TextField layoutX="215.0" layoutY="248.0" prefHeight="37.0" prefWidth="360.0" promptText="Enter Centre Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField disable="true" layoutX="215.0" layoutY="193.0" promptText="Auto Generated">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="215.0" layoutY="300.0" prefHeight="37.0" prefWidth="499.0" promptText="Enter Centre Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="215.0" layoutY="355.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre District">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="215.0" layoutY="406.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre State">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="217.0" layoutY="456.0" prefHeight="37.0" prefWidth="146.0" promptText="Entrer Pin Code">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="93.0" layoutY="459.0" text="Pin Code:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <TextField disable="true" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="837.0" layoutY="191.0" text="Username:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="837.0" layoutY="138.0" text="Local Admin Details:">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="837.0" layoutY="247.0" text="Password:">
+               <font>
+                  <Font name="3ds" size="20.0" />
+               </font>
+            </Label>
+            <TextField disable="true" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            </children>
+        </Pane>
+    </children>
+</VBox>
