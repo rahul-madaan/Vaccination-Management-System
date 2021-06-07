@@ -7,16 +7,44 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class AddVaccinationCentreController implements Initializable {
+    private Connection conn;
+
+    private DbHandler dbHandler;
+
+    @FXML
+    private TextField centreNameTextField;
+
+    @FXML
+    private TextField centreAddressTextField;
+
+    @FXML
+    private TextField centreDistrictTextField;
+
+    @FXML
+    private TextField centreStateTextField;
+
+    @FXML
+    private TextField centrePinCodeTextField;
+
+    @FXML
+    private TextField centreAdminUsernameTextField;
+
+    @FXML
+    private TextField centreAdminPasswordTextField;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        dbHandler = new DbHandler();
     }
 
     @FXML

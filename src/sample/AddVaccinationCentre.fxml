@@ -93,27 +93,27 @@
                         <Font size="26.0" />
                     </font>
                 </Label>
-                <Label layoutX="89.0" layoutY="410.0" text="State:">
+                <Label layoutX="80.0" layoutY="410.0" text="State:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="86.0" layoutY="303.0" text="Address:">
+                <Label layoutX="80.0" layoutY="304.0" text="Address:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="89.0" layoutY="196.0" text="Centre ID:">
+                <Label layoutX="80.0" layoutY="197.0" text="Centre ID:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="85.0" layoutY="251.0" text="Name:">
+                <Label layoutX="80.0" layoutY="251.0" text="Name:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="90.0" layoutY="359.0" text="District:">
+                <Label layoutX="80.0" layoutY="359.0" text="District:">
                     <font>
                         <Font name="3ds" size="20.0" />
                     </font>
@@ -129,7 +129,7 @@
                         <Font size="13.0" />
                     </font>
                 </Button>
-            <TextField layoutX="215.0" layoutY="248.0" prefHeight="37.0" prefWidth="360.0" promptText="Enter Centre Name">
+            <TextField fx:id="centreNameTextField" layoutX="215.0" layoutY="248.0" prefHeight="37.0" prefWidth="360.0" promptText="Enter Centre Name">
                <font>
                   <Font size="16.0" />
                </font>
@@ -139,32 +139,32 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="215.0" layoutY="300.0" prefHeight="37.0" prefWidth="499.0" promptText="Enter Centre Address">
+            <TextField fx:id="centreAddressTextField" layoutX="215.0" layoutY="300.0" prefHeight="37.0" prefWidth="499.0" promptText="Enter Centre Address">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="215.0" layoutY="355.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre District">
+            <TextField fx:id="centreDistrictTextField" layoutX="215.0" layoutY="355.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre District">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="215.0" layoutY="406.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre State">
+            <TextField fx:id="centreStateTextField" layoutX="215.0" layoutY="406.0" prefHeight="37.0" prefWidth="250.0" promptText="Enter Centre State">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="217.0" layoutY="456.0" prefHeight="37.0" prefWidth="146.0" promptText="Entrer Pin Code">
+            <TextField fx:id="centrePinCodeTextField" layoutX="217.0" layoutY="456.0" prefHeight="37.0" prefWidth="146.0" promptText="Entrer Pin Code">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <Label layoutX="93.0" layoutY="459.0" text="Pin Code:">
+            <Label layoutX="80.0" layoutY="459.0" text="Pin Code:">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField disable="true" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
+            <TextField fx:id="centreAdminUsernameTextField" disable="true" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -184,7 +184,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField disable="true" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
+            <TextField fx:id="centreAdminPasswordTextField" disable="true" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
                <font>
                   <Font size="16.0" />
                </font>
