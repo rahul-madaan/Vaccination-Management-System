@@ -228,11 +228,11 @@ public class mainPageController implements Initializable {
         String queryS4;
 
         if(day1 == false){
-            query = "alter table slots add "+ date1 +" int not null;";
-            queryS1 = "alter table slots add "+ date1S1 +" int not null;";
-            queryS2 = "alter table slots add "+ date1S2 +" int not null;";
-            queryS3 = "alter table slots add "+ date1S3 +" int not null;";
-            queryS4 = "alter table slots add "+ date1S4 +" int not null;";
+            query = "alter table slots add "+ date1 +" int default 0 not null;";
+            queryS1 = "alter table slots add "+ date1S1 +" int default 0 not null;";
+            queryS2 = "alter table slots add "+ date1S2 +" int default 0 not null;";
+            queryS3 = "alter table slots add "+ date1S3 +" int default 0 not null;";
+            queryS4 = "alter table slots add "+ date1S4 +" int default 0 not null;";
 
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
@@ -243,11 +243,11 @@ public class mainPageController implements Initializable {
 
         }
         if(day2 == false){
-            query = "alter table slots add "+ date2 +" int not null;";
-            queryS1 = "alter table slots add "+ date2S1 +" int not null;";
-            queryS2 = "alter table slots add "+ date2S2 +" int not null;";
-            queryS3 = "alter table slots add "+ date2S3 +" int not null;";
-            queryS4 = "alter table slots add "+ date2S4 +" int not null;";
+            query = "alter table slots add "+ date2 +" int default 0 not null;";
+            queryS1 = "alter table slots add "+ date2S1 +" int default 0 not null;";
+            queryS2 = "alter table slots add "+ date2S2 +" int default 0 not null;";
+            queryS3 = "alter table slots add "+ date2S3 +" int default 0 not null;";
+            queryS4 = "alter table slots add "+ date2S4 +" int default 0 not null;";
 
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
@@ -257,11 +257,11 @@ public class mainPageController implements Initializable {
             conn.createStatement().executeUpdate(queryS4);
         }
         if(day3 == false){
-            query = "alter table slots add "+ date3 +" int not null;";
-            queryS1 = "alter table slots add "+ date3S1 +" int not null;";
-            queryS2 = "alter table slots add "+ date3S2 +" int not null;";
-            queryS3 = "alter table slots add "+ date3S3 +" int not null;";
-            queryS4 = "alter table slots add "+ date3S4 +" int not null;";
+            query = "alter table slots add "+ date3 +" int default 0 not null;";
+            queryS1 = "alter table slots add "+ date3S1 +" int default 0 not null;";
+            queryS2 = "alter table slots add "+ date3S2 +" int default 0 not null;";
+            queryS3 = "alter table slots add "+ date3S3 +" int default 0 not null;";
+            queryS4 = "alter table slots add "+ date3S4 +" int default 0 not null;";
 
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);
@@ -271,11 +271,11 @@ public class mainPageController implements Initializable {
             conn.createStatement().executeUpdate(queryS4);
         }
         if(day4 == false){
-            query = "alter table slots add "+ date4 +" int not null;";
-            queryS1 = "alter table slots add "+ date4S1 +" int not null;";
-            queryS2 = "alter table slots add "+ date4S2 +" int not null;";
-            queryS3 = "alter table slots add "+ date4S3 +" int not null;";
-            queryS4 = "alter table slots add "+ date4S4 +" int not null;";
+            query = "alter table slots add "+ date4 +" int default 0 not null;";
+            queryS1 = "alter table slots add "+ date4S1 +" int default 0 not null;";
+            queryS2 = "alter table slots add "+ date4S2 +" int default 0 not null;";
+            queryS3 = "alter table slots add "+ date4S3 +" int default 0 not null;";
+            queryS4 = "alter table slots add "+ date4S4 +" int default 0 not null;";
 
             conn = dbHandler.getConnection();
             conn.createStatement().executeUpdate(query);

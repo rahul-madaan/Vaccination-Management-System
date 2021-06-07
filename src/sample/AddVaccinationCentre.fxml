@@ -118,7 +118,7 @@
                         <Font name="3ds" size="20.0" />
                     </font>
                 </Label>
-                <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="+ Add Centre">
+                <Button layoutX="1102.0" layoutY="508.0" mnemonicParsing="false" onAction="#addCentreButtonClicked" prefHeight="46.0" prefWidth="173.0" text="+ Add Centre">
                     <font>
                         <Font name="3ds" size="22.0" />
                     </font>
@@ -164,7 +164,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="centreAdminUsernameTextField" disable="true" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
+            <TextField fx:id="centreAdminUsernameTextField" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -184,7 +184,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="centreAdminPasswordTextField" disable="true" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
+            <TextField fx:id="centreAdminPasswordTextField" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
                <font>
                   <Font size="16.0" />
                </font>

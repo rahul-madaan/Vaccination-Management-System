@@ -141,6 +141,7 @@ public class AdminActionsController implements Initializable {
             window.show();
         }
     }
+    
 
     @FXML
     public void logoutButtonClicked(ActionEvent event)throws IOException {

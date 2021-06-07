@@ -49,6 +49,7 @@ public class AddVaccinationCentreController implements Initializable {
         dbHandler = new DbHandler();
     }
 
+    @FXML
     public void addCentreButtonClicked(ActionEvent event) throws SQLException {
         //check all text fields match constraints.
         String centreName = centreNameTextField.getText();
@@ -59,11 +60,11 @@ public class AddVaccinationCentreController implements Initializable {
         String centreAdminUsername = centreAdminUsernameTextField.getText();
         String centreAdminPassword = centreAdminPasswordTextField.getText();
 
-        String queryBoth = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values(%s,%s,%s,%s,%s)",
+        String queryBoth = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values('%s','%s','%s','%s','%s')",
                 centreName,centreAddress,centreDistrict,centreState,centrePinCode);
         //check this query, not tested yet
         conn = dbHandler.getConnection();
-        ResultSet set = conn.createStatement().executeQuery(queryBoth);
+        conn.createStatement().executeUpdate(queryBoth);
     }
 
     @FXML

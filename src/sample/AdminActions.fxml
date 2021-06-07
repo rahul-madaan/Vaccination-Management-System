@@ -109,7 +109,7 @@
                   <Font name="3ds" size="37.0" />
                </font>
             </Button>
-            <Button fx:id="addCentreButton" layoutX="318.0" layoutY="403.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINATION CENTRE">
+            <Button fx:id="addCentreButton" layoutX="318.0" layoutY="403.0" mnemonicParsing="false" onAction="#addVaccinationCentreButtonClicked" prefHeight="68.0" prefWidth="664.0" text="ADD VACCINATION CENTRE">
                <font>
                   <Font name="3ds" size="37.0" />
                </font>
