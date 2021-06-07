@@ -285,7 +285,7 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots==0){
+                            if(totalSlots<10){
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
                             }else if(totalSlots<50){
@@ -347,7 +347,7 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots==0){
+                            if(totalSlots<10){
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
                             }else if(totalSlots<50){
@@ -410,7 +410,7 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots==0){
+                            if(totalSlots<10){
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
                             }else if(totalSlots<50){
@@ -470,7 +470,7 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots==0){
+                            if(totalSlots<10){
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
                             }else if(totalSlots<50){
