@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddVaccinationCentreController implements Initializable {
@@ -45,6 +47,23 @@ public class AddVaccinationCentreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dbHandler = new DbHandler();
+    }
+
+    public void addCentreButtonClicked(ActionEvent event) throws SQLException {
+        //check all text fields match constraints.
+        String centreName = centreNameTextField.getText();
+        String centreAddress = centreAddressTextField.getText();
+        String centreState = centreAddressTextField.getText();
+        String centreDistrict = centreDistrictTextField.getText();
+        String centrePinCode = centrePinCodeTextField.getText();
+        String centreAdminUsername = centreAdminUsernameTextField.getText();
+        String centreAdminPassword = centreAdminPasswordTextField.getText();
+
+        String queryBoth = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values(%s,%s,%s,%s,%s)",
+                centreName,centreAddress,centreDistrict,centreState,centrePinCode);
+        //check this query, not tested yet
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(queryBoth);
     }
 
     @FXML
