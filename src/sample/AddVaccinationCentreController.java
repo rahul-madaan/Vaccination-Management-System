@@ -12,9 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class AddVaccinationCentreController implements Initializable {
@@ -60,11 +58,33 @@ public class AddVaccinationCentreController implements Initializable {
         String centreAdminUsername = centreAdminUsernameTextField.getText();
         String centreAdminPassword = centreAdminPasswordTextField.getText();
 
-        String queryBoth = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values('%s','%s','%s','%s','%s')",
+        //add constraints from add new member(aadhaar card ---> username)
+
+        String query = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values('%s','%s','%s','%s','%s')",
                 centreName,centreAddress,centreDistrict,centreState,centrePinCode);
-        //check this query, not tested yet
         conn = dbHandler.getConnection();
-        conn.createStatement().executeUpdate(queryBoth);
+        Statement stmt =conn.createStatement();
+        stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+        ResultSet set = stmt.getGeneratedKeys();
+        int newCentreID = 0;
+        if (set.next()) {
+            newCentreID = set.getInt(1);
+        }
+        String newAdminUsername = centreAdminUsernameTextField.getText();
+        String newAdminPassword = centreAdminPasswordTextField.getText();
+        //transaction
+        try{
+            conn = dbHandler.getConnection();
+            query = String.format("INSERT INTO login_admin (userID,password,position,centreID) VALUES('%s','%s','local',%d)",newAdminUsername,newAdminPassword,newCentreID);
+            conn.createStatement().executeUpdate(query);
+        }catch(Exception ex){
+            System.out.println("Transaction cancelled");
+            query = String.format("DELETE FROM vaccineCentres where centreID = %d;",newCentreID);
+            conn.createStatement().executeUpdate(query);
+            ex.printStackTrace();
+        }
+
+
     }
 
     @FXML

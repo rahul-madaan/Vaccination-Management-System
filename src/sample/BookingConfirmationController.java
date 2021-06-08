@@ -253,6 +253,7 @@ public class BookingConfirmationController implements Initializable {
             query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
             conn.createStatement().executeUpdate(query);
 
+            //transaction
             try {
                 query = "UPDATE  members SET dose1status = 'Booked', " +
                         "dose1centreID = " + selectedCentreID + " , dose1slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" + selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";

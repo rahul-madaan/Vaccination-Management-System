@@ -134,7 +134,7 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField disable="true" layoutX="215.0" layoutY="193.0" promptText="Auto Generated">
+            <TextField disable="true" layoutX="215.0" layoutY="193.0" promptText="&lt;Auto Generated&gt;">
                <font>
                   <Font size="16.0" />
                </font>
@@ -164,7 +164,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="centreAdminUsernameTextField" editable="false" layoutX="963.0" layoutY="188.0" promptText="Set Username">
+            <TextField fx:id="centreAdminUsernameTextField" layoutX="963.0" layoutY="188.0" promptText="Set Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -184,7 +184,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="centreAdminPasswordTextField" editable="false" layoutX="963.0" layoutY="244.0" promptText="Set Password">
+            <TextField fx:id="centreAdminPasswordTextField" layoutX="963.0" layoutY="244.0" promptText="Set Password">
                <font>
                   <Font size="16.0" />
                </font>
