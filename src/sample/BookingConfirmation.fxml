@@ -188,7 +188,7 @@
                   <Font name="3ds" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="personalNameLabel" layoutX="250.0" layoutY="182.0" prefHeight="22.0" prefWidth="129.0" text="xxxxx">
+            <Label fx:id="personalNameLabel" layoutX="250.0" layoutY="182.0" prefHeight="30.0" prefWidth="339.0" text="xxxxx">
                <font>
                   <Font name="3ds" size="20.0" />
                </font>

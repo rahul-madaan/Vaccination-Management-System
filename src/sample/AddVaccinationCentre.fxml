@@ -87,7 +87,7 @@
                         <Font name="3ds" size="32.0" />
                     </font>
                 </Label>
-                <CheckBox fx:id="agreeCheckBox" layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
+                <CheckBox fx:id="tAndcCheckBox" layoutX="816.0" layoutY="509.0" mnemonicParsing="false" />
                 <Label layoutX="89.0" layoutY="143.0" text="Vaccination Centre Details:">
                     <font>
                         <Font size="26.0" />

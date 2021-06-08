@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -41,6 +42,9 @@ public class AddVaccinationCentreController implements Initializable {
 
     @FXML
     private TextField centreAdminPasswordTextField;
+
+    @FXML
+    private CheckBox tAndcCheckBox;
 
 
     @Override
@@ -105,6 +109,12 @@ public class AddVaccinationCentreController implements Initializable {
         if (centrePinCodeTextField.getText().length()!=6){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please enter correct 16 Digit Pin Code!");
+            alert.show();
+            return;
+        }
+        if (tAndcCheckBox.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please accept the terms!");
             alert.show();
             return;
         }

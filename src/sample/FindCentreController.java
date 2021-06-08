@@ -285,9 +285,12 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots<10){
+                            if(totalSlots==0) {
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
+                            }
+                            else if(totalSlots<10){
+                                editButton.setStyle("-fx-background-color: red");
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
@@ -296,10 +299,6 @@ public class FindCentreController implements Initializable {
 
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate1.getText());
-                                alert.show();
                                 FindCentreController.selectedCentre = p;
                                 FindCentreController.selectedDate = colDate1.getText().replace(" ","");
                                 Parent scene2Parent = null;
@@ -347,9 +346,12 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots<10){
+                            if(totalSlots==0) {
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
+                            }
+                            else if(totalSlots<10){
+                                editButton.setStyle("-fx-background-color: red");
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
@@ -359,10 +361,6 @@ public class FindCentreController implements Initializable {
 
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate2.getText());
-                                alert.show();
                                 FindCentreController.selectedCentre = p;
                                 FindCentreController.selectedDate = colDate2.getText().replace(" ","");
                                 Parent scene2Parent = null;
@@ -410,9 +408,12 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots<10){
+                            if(totalSlots==0) {
                                 editButton.setStyle("-fx-background-color: red");
                                 editButton.setDisable(true);
+                            }
+                            else if(totalSlots<10){
+                                editButton.setStyle("-fx-background-color: red");
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
@@ -420,10 +421,6 @@ public class FindCentreController implements Initializable {
                             }
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate3.getText());
-                                alert.show();
                                 FindCentreController.selectedCentre = p;
                                 FindCentreController.selectedDate = colDate3.getText().replace(" ","");
                                 Parent scene2Parent = null;
@@ -470,9 +467,11 @@ public class FindCentreController implements Initializable {
 
                             editButton.setText(Integer.toString(totalSlots));
                             editButton.setPrefWidth(100);
-                            if(totalSlots<10){
+                            if(totalSlots==0) {
                                 editButton.setStyle("-fx-background-color: red");
-                                editButton.setDisable(true);
+                                editButton.setDisable(true); }
+                            else if(totalSlots<10){
+                                editButton.setStyle("-fx-background-color: red");
                             }else if(totalSlots<50){
                                 editButton.setStyle("-fx-background-color: yellow");
                             }else if (totalSlots>=50){
@@ -480,10 +479,6 @@ public class FindCentreController implements Initializable {
                             }
                             editButton.setOnAction(event -> {
                                 VaccineCentre p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked Centre ID\n" + p.getCentreID() +
-                                        " with Pin code \n" + p.getPinCode() + "\nand date " + colDate4.getText());
-                                alert.show();
                                 FindCentreController.selectedCentre = p;
                                 FindCentreController.selectedDate = colDate4.getText().replace(" ","");
                                 Parent scene2Parent = null;

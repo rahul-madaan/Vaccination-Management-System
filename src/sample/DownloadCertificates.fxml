@@ -129,12 +129,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="beneficiaryNameLabel" layoutX="663.0" layoutY="282.0" prefHeight="36.0" prefWidth="157.0" text="Example Madan">
+            <Label fx:id="beneficiaryNameLabel" layoutX="663.0" layoutY="282.0" prefHeight="36.0" prefWidth="382.0" text="Example Madan">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="beneficiaryAadhaarNumberLabel" layoutX="663.0" layoutY="327.0" prefHeight="36.0" prefWidth="157.0" text="0000-1111-2222">
+            <Label fx:id="beneficiaryAadhaarNumberLabel" layoutX="663.0" layoutY="327.0" prefHeight="36.0" prefWidth="180.0" text="0000-1111-2222">
                <font>
                   <Font size="20.0" />
                </font>
