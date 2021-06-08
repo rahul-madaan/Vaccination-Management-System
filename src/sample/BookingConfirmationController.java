@@ -250,19 +250,24 @@ public class BookingConfirmationController implements Initializable {
             VaccineCentre selectedCentre = FindCentreController.selectedCentre;
 
             conn = dbHandler.getConnection();
-            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) + " where centreID = " + selectedCentreID + ";";
+            query = "UPDATE  slots SET " + selectedDate + " = " + (totalSlots - 1) + " , " + slot + " = " + (specificSlots - 1) +
+                    " where centreID = " + selectedCentreID + ";";
             conn.createStatement().executeUpdate(query);
 
             //transaction
             try {
                 query = "UPDATE  members SET dose1status = 'Booked', " +
-                        "dose1centreID = " + selectedCentreID + " , dose1slot = " + Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" + selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() + "' where refID = " + selectedMemberRefID + ";";
+                        "dose1centreID = " + selectedCentreID + " , dose1slot = " +
+                        Integer.parseInt(Character.toString(selectedSlot.charAt(1))) + " , dose1date = '" +
+                        selectedDate + "' , dose1vaccineName = '" + selectedCentre.getVaccineName() +
+                        "' where refID = " + selectedMemberRefID + ";";
                 conn.createStatement().executeUpdate(query);
                 BookingConfirmationController.bookingStatus = true;
                 //System.out.println(query);
             }catch (Exception exception){
                 exception.printStackTrace();
-                query = "UPDATE  slots SET " + selectedDate + " = " + totalSlots  + " , " + slot + " = " + specificSlots + " where centreID = " + selectedCentreID + ";";
+                query = "UPDATE  slots SET " + selectedDate + " = " + totalSlots  + " , " +
+                        slot + " = " + specificSlots + " where centreID = " + selectedCentreID + ";";
                 conn.createStatement().executeUpdate(query);
             }
 

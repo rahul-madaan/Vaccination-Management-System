@@ -86,11 +86,105 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="132.0" layoutY="161.0" prefHeight="375.0" prefWidth="1125.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1159.0" prefWidth="1109.0" />
-              </content>
-            </ScrollPane>
+            <VBox layoutX="124.0" layoutY="172.0" prefHeight="351.0" prefWidth="1062.0">
+               <children>
+                  <TitledPane animated="false" expanded="false" text="1. REGISTERATION">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="How many people can be registered in the Co-WIN portal through one mobile number?\nUp to 4 people can be registered for vaccination using the same mobile number.How can beneficiaries with no access to smart phones or computers manage online registration?Up to 4 people can be registered for vaccination using the same mobile number. Beneficiaries can take help from friends or family for online registration." wrapText="true" />
+                     </content>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="2. SCHEDULING APPOINTMENT">
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="3. SECOND DOSE SCHEDULING">
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="4. VACCINATION">
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="5. VACCINE CERTIFICATE">
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="6. REPORTING SIDE EFFECTS">
+                     <content>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TitledPane>
+               </children>
+            </VBox>
+            <Button layoutX="1132.0" layoutY="33.0" mnemonicParsing="false" text="BACK">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>
