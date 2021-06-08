@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -59,13 +60,74 @@ public class AddVaccinationCentreController implements Initializable {
         String centreAdminPassword = centreAdminPasswordTextField.getText();
 
         //add constraints from add new member(aadhaar card ---> username)
+        if(centreNameTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre Name!");
+            alert.show();
+            return;
+        }
+        if(centreAddressTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre Address!");
+            alert.show();
+            return;
+        }
+        if (centreStateTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre State!");
+            alert.show();
+            return;
+        }
+        if(centreDistrictTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre District!");
+            alert.show();
+            return;
+        }
+        if(centrePinCodeTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre Pin Code!");
+            alert.show();
+            return;
+        }
+        if(centreAdminUsernameTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter centre Admin Username!");
+            alert.show();
+            return;
+        }
+        if(centreAdminPasswordTextField.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please Enter Centre Admin Password!");
+            alert.show();
+            return;
+        }
+        if (centrePinCodeTextField.getText().length()!=6){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter correct 16 Digit Pin Code!");
+            alert.show();
+            return;
+        }
+        String query = "SELECT * FROM login_admin ;";
+        conn = dbHandler.getConnection();
+        ResultSet set = conn.createStatement().executeQuery(query);
 
-        String query = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values('%s','%s','%s','%s','%s')",
+        while(set.next()){
+            if(centreAdminUsernameTextField.getText().equalsIgnoreCase(set.getString("userid"))){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter a UNIQUE UserID!");
+                alert.show();
+                return;
+            }
+        }
+
+
+        query = String.format("INSERT INTO vaccineCentres (Hospital_name,Address,District,State,Pin_code) Values('%s','%s','%s','%s','%s')",
                 centreName,centreAddress,centreDistrict,centreState,centrePinCode);
         conn = dbHandler.getConnection();
         Statement stmt =conn.createStatement();
         stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
-        ResultSet set = stmt.getGeneratedKeys();
+        set = stmt.getGeneratedKeys();
         int newCentreID = 0;
         if (set.next()) {
             newCentreID = set.getInt(1);
