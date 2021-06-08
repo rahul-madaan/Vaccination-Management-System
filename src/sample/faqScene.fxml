@@ -180,7 +180,7 @@
                   </TitledPane>
                </children>
             </VBox>
-            <Button layoutX="1132.0" layoutY="33.0" mnemonicParsing="false" text="BACK">
+            <Button layoutX="1132.0" layoutY="33.0" mnemonicParsing="false" onAction="#backButtonClicked" text="BACK">
                <font>
                   <Font size="14.0" />
                </font>
