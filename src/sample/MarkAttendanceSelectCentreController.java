@@ -255,6 +255,14 @@ public class MarkAttendanceSelectCentreController implements Initializable {
             populateVaccineCentresTable();
         }
     }
+    public void faqButtonClicked(ActionEvent event) throws IOException {
+        faqSceneController.returnToPage = "MarkAttendanceSelectCentre.fxml";
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("faqScene.fxml"));
+        Scene addMembersScene = new Scene(scene2Parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(addMembersScene);
+        window.show();
+    }
 
 
 
