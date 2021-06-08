@@ -1,0 +1,31 @@
+SELECT count(*) FROM members where Dose1Status = 'Vaccinated';
+
+DELIMITER //
+
+CREATE PROCEDURE totalDose1Vaccinated()
+BEGIN
+    SELECT COUNT(*) FROM members where Dose1Status = 'Vaccinated';
+END; //
+
+
+DROP PROCEDURE totalDose1Vaccinated;
+
+DELIMITER //
+
+CREATE PROCEDURE totalDose2Vaccinated()
+BEGIN
+    SELECT COUNT(*) FROM members where Dose2Status = 'Vaccinated';
+END; //
+
+
+CREATE PROCEDURE totalRegistered()
+BEGIN
+    SELECT COUNT(*) FROM members;
+END; //
+
+
+CREATE PROCEDURE totalVaccinationCentres()
+BEGIN
+    SELECT COUNT(*) FROM vaccinecentres;
+END; //
+

@@ -84,27 +84,6 @@ public class addNewMemberController implements Initializable {
             }
         }
 
-//        String nameOfMember = nameTextField.getText();
-//        char[] chars = nameOfMember.toCharArray();
-//        for(char c : chars){
-//            if(Character.isDigit(c)){
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setContentText("Please do not use digits in Name");
-//                alert.show();
-//                return;
-//            }
-//        }
-//        String aadhaarNumberOfMember = aadhaarNumberTextField.getText();
-//        char[] chars1 = aadhaarNumberOfMember.toCharArray();
-//        for(char c : chars1){
-//            if(Character.isLetter(c)){
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setContentText("Please do not use letters in Aadhaar Number!");
-//                alert.show();
-//                return;
-//            }
-//        }
-
         if (dateOfBirthDatePicker.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please select DOB!");
