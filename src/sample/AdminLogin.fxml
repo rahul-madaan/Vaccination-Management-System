@@ -35,7 +35,7 @@
                     </cursor>
                 </Label>
                 <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                <Button mnemonicParsing="false" text="FAQ Section" />
+                <Button mnemonicParsing="false" onAction="#faqButtonClicked" text="FAQ Section" />
                 <Label alignment="CENTER_RIGHT" cache="true" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="146.0" style="-fx-background-color: #d3483a; -fx-alignment: center;" text="Contact us: 1075" textFill="#fdfbfb">
                     <opaqueInsets>
                         <Insets />
