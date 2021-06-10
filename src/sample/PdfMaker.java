@@ -333,6 +333,7 @@ public class PdfMaker{
             PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
             normal.setFont(font).setFontSize(13);
 
+            //
             Style subhead = new Style();
             PdfFont medium = PdfFontFactory.createFont(FontConstants.TIMES_BOLD);
             subhead.setFont(medium).setFontSize(16);
@@ -376,14 +377,6 @@ public class PdfMaker{
 
             document.add(image);
 
-//        Paragraph p = new Paragraph();
-//        p.add(new Text("The Strange Case of ").addStyle(normal));
-//        p.add(new Text("Dr. Jekyll").addStyle(code));
-//        p.add(new Text(" and ").addStyle(normal));
-//        p.add(new Text("Mr. Hyde").addStyle(code));
-//        p.add(new Text(".").addStyle(normal));
-//        document.add(p);
-//        paragraph1.setFontColor();
 
 
             // Adding paragraphs to document
