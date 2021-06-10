@@ -16,29 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `login_users`
+-- Table structure for table `login_admin`
 --
 
-DROP TABLE IF EXISTS `login_users`;
+DROP TABLE IF EXISTS `login_admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `login_users` (
-  `PhoneNumber` varchar(10) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `NumberOfDependents` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`PhoneNumber`),
-  UNIQUE KEY `login_users_Phone Number_uindex` (`PhoneNumber`)
+CREATE TABLE `login_admin` (
+  `userID` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `position` varchar(30) NOT NULL DEFAULT 'local',
+  `CentreID` int DEFAULT NULL,
+  UNIQUE KEY `login_admin_username_uindex` (`userID`),
+  KEY `login_admin_vaccinecentres_CentreID_fk` (`CentreID`),
+  CONSTRAINT `login_admin_vaccinecentres_CentreID_fk` FOREIGN KEY (`CentreID`) REFERENCES `vaccinecentres` (`CentreID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login_users`
+-- Dumping data for table `login_admin`
 --
 
-LOCK TABLES `login_users` WRITE;
-/*!40000 ALTER TABLE `login_users` DISABLE KEYS */;
-INSERT INTO `login_users` VALUES ('','',1),('1234567890','abcd',0),('1234567891','hello123',0),('1273123423','iammad',0),('7042921117','a',1),('8076992916','me',0),('8683761969','skjd',0),('8800920048','didi',0),('8923746723','jksfd',0),('8929333770','minku',0),('9818065230','mom',0),('9818065232','mom',0),('9899266579','papa',0),('a','a',0),('z','z',0);
-/*!40000 ALTER TABLE `login_users` ENABLE KEYS */;
+LOCK TABLES `login_admin` WRITE;
+/*!40000 ALTER TABLE `login_admin` DISABLE KEYS */;
+INSERT INTO `login_admin` VALUES ('a','a','local',210),('z','z','global',NULL);
+/*!40000 ALTER TABLE `login_admin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-09 19:31:23
+-- Dump completed on 2021-06-09 19:31:21
