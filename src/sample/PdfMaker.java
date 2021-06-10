@@ -397,15 +397,7 @@ public class PdfMaker{
             document.add(paragraph12);
             document.add(paragraph13);
 
-//        document.add(paragraph2);
 
-            // Closing the document
-//        font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-//        PdfFont bold = PdfFontFactory.createFont(FontConstants.TIMES_BOLD);
-//        Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
-//        Text author = new Text("Robert Louis Stevenson").setFont(font);
-//        Paragraph p2 = new Paragraph().add(title).add(" by ").add(author);
-//        document.add(p2);
             document.close();
             System.out.println("Paragraph added");
         }
