@@ -5,14 +5,16 @@
 5. FAQ page taking back to login page, either write a code using class variables to
     set the back screen, or make different FAQ pages for all scenes, but that might not
     get to same data on the previous scene, or simply remove FAQ button from other pages.
-6. populate table depending on the active user account number.
-7. Make Add member scene.
-8. Add Ashish ka FAQ scene instead of blank scene.
+    ====> DONE
+6. populate table depending on the active user account number.====>DONE
+7. Make Add member scene.====>DONE
+8. Add Ashish ka FAQ scene instead of blank scene.====>DONE
 9. Make triggers for table ======> DONE
-10. 1 account cannot have more than 4 dependents.
+10. 1 account cannot have more than 4 dependents.====>DONE
 11. make search button for pinCode search and use same enter key pressed function.
-12. put logout button on all pages.
+12. put logout button on all pages.====>DONE
 13. instead of adding new rows everyday by  query, make function in sql and call.
 14. make back buttons for all pages.
-15.show date in confirm slot scene
+15.show date in confirm slot scene====>DONE
+16. make today column also in slots table along with next 4 days.
 
