@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_captchaimages.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_login_admin.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_login_users.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_members.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_routines.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_slots.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Database/Dump20210529/vaccine_codeforcovid_db_vaccinecentres.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/sample/mainPageController.java" dialect="MySQL" />
   </component>
 </project>
