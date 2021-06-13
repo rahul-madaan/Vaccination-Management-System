@@ -60,6 +60,7 @@ drop procedure insertRowsInSlotsTable;
 
 call insertRowsInSlotsTable();
 
+
 delimiter //
 Create TRIGGER Centre_insert
     AFTER INSERT
