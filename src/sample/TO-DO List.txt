@@ -16,4 +16,5 @@
 13. instead of adding new rows everyday by  query, make function in sql and call.
 14. make back buttons for all pages.====>DONE
 16. make today column also in slots table along with next 4 days.
+17. change default text of all members table
 
