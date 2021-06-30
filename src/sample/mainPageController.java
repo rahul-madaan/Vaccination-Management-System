@@ -133,6 +133,11 @@ public class mainPageController implements Initializable {
                 loginSignupButtonClickSuccess(event);
             }
         } else if (signupRadioButton.isSelected()) {
+            if(enteredPhoneNumber.length()!=10){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please enter a 10 digit Phone Number!");
+                alert.show();
+            }
             conn = dbHandler.getConnection();
             String queryPhoneNumber = "SELECT * from login_users where Phonenumber ='" + enteredPhoneNumber + "';";
             ResultSet phoneNumberSet = conn.createStatement().executeQuery(queryPhoneNumber);
@@ -154,6 +159,7 @@ public class mainPageController implements Initializable {
             }
         }
     }
+
 
     public void faqButtonClicked(ActionEvent event) throws IOException {
         faqSceneController.returnToPage = "mainPage.fxml";

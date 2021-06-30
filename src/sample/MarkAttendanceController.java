@@ -268,10 +268,6 @@ public class MarkAttendanceController implements Initializable {
                             editButton.setStyle("-fx-background-color: lawngreen");
                             editButton.setOnAction(event -> {
                                 Member p = getTableView().getItems().get(getIndex());
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You have Clicked\n" + p.getName() +
-                                        " with Aadhaar Number \n" + p.getAadhaarNumber());
-                                alert.show();
                                 if(editButton.getStyle().equalsIgnoreCase("-fx-background-color: lawngreen")){
                                     editButton.setStyle("-fx-background-color: red; -fx-text-fill: white");
                                     editButton.setText("Absent");
