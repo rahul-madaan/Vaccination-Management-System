@@ -137,6 +137,7 @@ public class mainPageController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Please enter a 10 digit Phone Number!");
                 alert.show();
+                return;
             }
             conn = dbHandler.getConnection();
             String queryPhoneNumber = "SELECT * from login_users where Phonenumber ='" + enteredPhoneNumber + "';";
