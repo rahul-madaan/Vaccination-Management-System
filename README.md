@@ -5,7 +5,7 @@ Languages: Java and FXML
 
 Database: MySQL
 
-This is a clone of Vaccination Booking website Co-Win
+This is a clone of Vaccination Booking website Co-Win (https://selfregistration.cowin.gov.in)
 
 ## Features
 - Allows user to register and login on the application
