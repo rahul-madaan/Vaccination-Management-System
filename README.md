@@ -18,3 +18,32 @@ This is a clone of Vaccination Booking website Co-Win
 - Local and global admins can update number of available slots on each day
 - Captcha is used to avoid computerized vaccine bookings.
 - Simple GUI for users and admins
+
+## ER Diagram
+<img src="https://user-images.githubusercontent.com/34760210/127901503-edd53012-5b22-4b5c-b67c-b68cd7d0697b.jpg" alt="ER Diagram" width="600"/>
+
+## Schema Diagram
+![image14](https://user-images.githubusercontent.com/34760210/127901520-957306ca-fabc-474a-ab04-dcc2cc05a891.png)
+
+## Data Colection
+Vaccination centre database: (2038 Vaccine centres)
+Vaccine Information & Govt Approved Vaccine Centres.pdf https://www.uhcpindia.com/web/statenotifications/documents/Networks/Vaccine%20Information%20&%20Govt%20Approved%20Vaccine%20Centres.pdf
+
+COVID FIGHTERS RESOURCES - https://docs.google.com/spreadsheets/u/1/d/1OL7go19rRpSdxemQXHM0cTBds2hjspj7_U7Ag7NdOCQ/htmlview
+
+Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/captcha-version-2-images
+
+## Sumnary
+
+Our project can help :
+- Government
+- Hospitals
+- Citizens
+
+The project highlights the use of :
+- Techniques for system analysis and design, such as data flow diagrams
+- Database handling and query processing. 
+- Database Designing. 
+- User interface design 
+- Several features that make the application easier to use
+
