@@ -43,6 +43,24 @@ Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/
 ### Admin Options
 ![3](https://user-images.githubusercontent.com/34760210/128496542-1c6554e0-ed2e-4c71-8fd9-5b6790beb0eb.JPG)
 
+### Search Vaccination Centre by District or Pin Code
+![4](https://user-images.githubusercontent.com/34760210/128496881-c2f82100-f60d-4e93-a81a-a16c353f53b5.JPG)
+
+### Vaccination centre selection
+![5](https://user-images.githubusercontent.com/34760210/128498571-8e672f93-645b-4b3a-b732-18c548cb64b3.JPG)
+
+### Booking Confirmation
+![6](https://user-images.githubusercontent.com/34760210/128498659-ef534122-e38a-4a11-9ffe-d31839d82834.JPG)
+
+### Attendance Marking by Admin
+![7](https://user-images.githubusercontent.com/34760210/128498980-80489470-b25b-4f19-acee-a638bf2bb2f7.JPG)
+
+### Download Vaccination Certificate
+![8](https://user-images.githubusercontent.com/34760210/128499120-5139819f-c78b-4fc7-a018-8bee41949b09.JPG)
+
+### Sample Vaccination Certificate
+![94c24bfeb69f4c37a68f181d9ff44dbf-0001](https://user-images.githubusercontent.com/34760210/128499276-074b9ed1-6fb9-4a34-8c2e-726f078b618e.jpg)
+
 
 ## Sumnary
 
