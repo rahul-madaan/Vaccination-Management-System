@@ -58,7 +58,7 @@ Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/
 ### Download Vaccination Certificate
 ![8](https://user-images.githubusercontent.com/34760210/128499120-5139819f-c78b-4fc7-a018-8bee41949b09.JPG)
 
-### Sample Vaccination Certificate
+### Sample Vaccination Certificate PDF
 ![94c24bfeb69f4c37a68f181d9ff44dbf-0001](https://user-images.githubusercontent.com/34760210/128499276-074b9ed1-6fb9-4a34-8c2e-726f078b618e.jpg)
 
 
