@@ -34,10 +34,10 @@ COVID FIGHTERS RESOURCES - https://docs.google.com/spreadsheets/u/1/d/1OL7go19rR
 Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/captcha-version-2-images
 
 ## User Interface
-### All Members
+### User Login
 ![1](https://user-images.githubusercontent.com/34760210/129450215-1ebd381a-fd81-4d10-b706-d8d77e24d92a.JPG)
 
-### User Login
+### All Members
 ![1](https://user-images.githubusercontent.com/34760210/128496316-b9c2591a-933d-4316-9e42-3f0f0319eee7.JPG)
 
 ### Add New Member
