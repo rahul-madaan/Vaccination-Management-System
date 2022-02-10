@@ -88,3 +88,6 @@ The project highlights the use of :
 - User interface design 
 - Several features that make the application easier to use
 
+### More Details:
+[DBMS Vaccine Management System CodeForCovid.docx](https://github.com/rahul-madaan/Vaccination-Management-System/files/8041358/DBMS.Vaccine.Management.System.CodeForCovid.docx)
+
