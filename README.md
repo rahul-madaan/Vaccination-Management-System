@@ -61,10 +61,11 @@ Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/
 ### Admin Options
 ![3](https://user-images.githubusercontent.com/34760210/128496542-1c6554e0-ed2e-4c71-8fd9-5b6790beb0eb.JPG)
 
-### Add New Vaccination Centre
-![1](https://user-images.githubusercontent.com/34760210/133609933-9e0f1492-2a10-417f-9276-f185ce34c9c2.JPG)
 ### Attendance Marking by Admin
 ![7](https://user-images.githubusercontent.com/34760210/128498980-80489470-b25b-4f19-acee-a638bf2bb2f7.JPG)
+
+### Add New Vaccination Centre
+![1](https://user-images.githubusercontent.com/34760210/133609933-9e0f1492-2a10-417f-9276-f185ce34c9c2.JPG)
 
 ### Download Vaccination Certificate
 ![8](https://user-images.githubusercontent.com/34760210/128499120-5139819f-c78b-4fc7-a018-8bee41949b09.JPG)
