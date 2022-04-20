@@ -43,20 +43,14 @@ Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/
 ### Add New Member
 ![2](https://user-images.githubusercontent.com/34760210/128496396-59e3b178-26d3-418d-8f58-fb7537488cb2.JPG)
 
-### Admin Options
-![3](https://user-images.githubusercontent.com/34760210/128496542-1c6554e0-ed2e-4c71-8fd9-5b6790beb0eb.JPG)
-
-### Add New Vaccination Centre
-![1](https://user-images.githubusercontent.com/34760210/133609933-9e0f1492-2a10-417f-9276-f185ce34c9c2.JPG)
-
-### Search Vaccination Centre by District or Pin Code
-![4](https://user-images.githubusercontent.com/34760210/128496881-c2f82100-f60d-4e93-a81a-a16c353f53b5.JPG)
-
 ### FAQ Page
 ![3](https://user-images.githubusercontent.com/34760210/133610139-29513fd9-6469-4e32-be3e-693338f1b74a.JPG)
 
 ### Edit Existing Members
 ![2](https://user-images.githubusercontent.com/34760210/133610268-0ba855f1-f74f-4f15-a36c-14f0c1e8ff1d.JPG)
+
+### Search Vaccination Centre by District or Pin Code
+![4](https://user-images.githubusercontent.com/34760210/128496881-c2f82100-f60d-4e93-a81a-a16c353f53b5.JPG)
 
 ### Vaccination centre selection
 ![5](https://user-images.githubusercontent.com/34760210/128498571-8e672f93-645b-4b3a-b732-18c548cb64b3.JPG)
@@ -64,6 +58,11 @@ Captcha images database: (1039 CAPTCHA Images) https://www.kaggle.com/fournierp/
 ### Booking Confirmation
 ![6](https://user-images.githubusercontent.com/34760210/128498659-ef534122-e38a-4a11-9ffe-d31839d82834.JPG)
 
+### Admin Options
+![3](https://user-images.githubusercontent.com/34760210/128496542-1c6554e0-ed2e-4c71-8fd9-5b6790beb0eb.JPG)
+
+### Add New Vaccination Centre
+![1](https://user-images.githubusercontent.com/34760210/133609933-9e0f1492-2a10-417f-9276-f185ce34c9c2.JPG)
 ### Attendance Marking by Admin
 ![7](https://user-images.githubusercontent.com/34760210/128498980-80489470-b25b-4f19-acee-a638bf2bb2f7.JPG)
 
