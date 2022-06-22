@@ -26,6 +26,7 @@ This is a clone of Vaccination Booking website Co-Win (https://selfregistration.
 ![image14](https://user-images.githubusercontent.com/34760210/127901520-957306ca-fabc-474a-ab04-dcc2cc05a891.png)
 
 ## Data Colection
+
 Vaccination centre database: (2038 Vaccine centres)
 Vaccine Information & Govt Approved Vaccine Centres.pdf https://www.uhcpindia.com/web/statenotifications/documents/Networks/Vaccine%20Information%20&%20Govt%20Approved%20Vaccine%20Centres.pdf
 
