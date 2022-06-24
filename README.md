@@ -8,6 +8,7 @@ Database: MySQL
 This is a clone of Vaccination Booking website Co-Win (https://selfregistration.cowin.gov.in)
 
 ## Features
+
 - Allows user to register and login on the application
 - After logging in, a user can register upto 4 members
 - Users can search for the nearest vaccination centre by either using pin code or by selecting a district.
